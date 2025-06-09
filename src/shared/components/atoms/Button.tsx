@@ -90,4 +90,9 @@ Button.Round.Sub.displayName = "Button.Round.Sub";
 Button.Round.Point.displayName = "Button.Round.Point";
 Button.Round.Disabled.displayName = "Button.Round.Disabled";
 
+Button.Small.Main.displayName = "Button.Small.Main";
+Button.Small.Sub.displayName = "Button.Small.Sub";
+Button.Small.Point.displayName = "Button.Small.Point";
+Button.Small.Disabled.displayName = "Button.Small.Disabled";
+
 export default Button;
