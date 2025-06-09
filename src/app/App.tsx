@@ -3,11 +3,13 @@ import Card from "@/shared/components/atoms/Card";
 import Input from "@/shared/components/atoms/Input";
 import Select from "@/shared/components/atoms/Select";
 import Typography from "@/shared/components/atoms/Typography";
-import Chart from "@/shared/components/molecules/Chart";
-import Chart2 from "@/shared/components/molecules/Chart2";
-import { candleData, candleData2, volumeData } from "@/shared/mock/chart.mock";
+import RoundTab from "@/shared/components/molecules/RoundTab";
+import { useState } from "react";
 
 function App() {
+  const options = ["실시간", "1일", "1주"];
+  const [tab, setTab] = useState<string>(options[0]);
+
   return (
     <div>
       <p>hello world!</p>
@@ -60,15 +62,17 @@ function App() {
         </div>
       </div>
       <Input placeholder="input" />
-      {/* <div className="w-[300px]"> */}
+
       <Select>
         <Select.Option key={1} value={"text"}>
           text
         </Select.Option>
       </Select>
-      {/* </div> */}
-      <Chart data={candleData} width={700} height={400} />
-      <Chart2 data={candleData2} volumeData={volumeData} />
+
+      <RoundTab options={options} value={tab} onChange={setTab} />
+
+      {/* <Chart data={candleData} width={700} height={400} />
+      <Chart2 data={candleData2} volumeData={volumeData} /> */}
     </div>
   );
 }
