@@ -8,7 +8,8 @@ import { useState } from "react";
 
 function App() {
   const options = ["실시간", "1일", "1주"];
-  const [tab, setTab] = useState<string>(options[0]);
+  const [tab1, setTab1] = useState<string>(options[0]);
+  const [tab2, setTab2] = useState<string>(options[0]);
 
   return (
     <div>
@@ -68,8 +69,10 @@ function App() {
           text
         </Select.Option>
       </Select>
-
-      <RoundTab options={options} value={tab} onChange={setTab} />
+      <div className="flex flex-col gap-4">
+        <RoundTab.Default options={options} value={tab1} onChange={setTab1} />
+        <RoundTab.Small options={options} value={tab2} onChange={setTab2} />
+      </div>
 
       {/* <Chart data={candleData} width={700} height={400} />
       <Chart2 data={candleData2} volumeData={volumeData} /> */}
