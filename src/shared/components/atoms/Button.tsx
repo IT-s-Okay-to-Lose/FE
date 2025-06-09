@@ -9,7 +9,10 @@ interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const DefaultButtonClass =
   "box-border border border-gray-200 transition-all duration-200 flex items-center justify-center gap-2 w-[300px] h-[50px]";
 
-const createButton = (
+const SmallButtonClass =
+  "box-border border border-gray-200 transition-all duration-200 flex items-center justify-center gap-2 w-[115px] h-[40px]";
+
+const createDefaultButton = (
   customClassName: string = "",
   defaultProps?: Partial<ButtonBaseProps>
 ): FC<ButtonBaseProps> => {
@@ -30,19 +33,48 @@ const createButton = (
   return Component;
 };
 
+const createSmallButton = (
+  customClassName: string = "",
+  defaultProps?: Partial<ButtonBaseProps>
+): FC<ButtonBaseProps> => {
+  const Component: FC<ButtonBaseProps> = ({
+    children,
+    className,
+    ...props
+  }) => (
+    <button
+      {...defaultProps}
+      className={cn(SmallButtonClass, customClassName, className)}
+      {...props}
+    >
+      <Typography.P2>{children}</Typography.P2>
+    </button>
+  );
+
+  return Component;
+};
+
 const Button = {
-  Main: createButton("bg-otl-main text-white rounded-md"),
-  Sub: createButton("bg-otl-sub text-otl-gray rounded-md"),
-  Point: createButton("bg-otl-point text-white rounded-md"),
-  Disabled: createButton("bg-otl-disabled text-white rounded-md", {
+  Main: createDefaultButton("bg-otl-main text-white rounded-md"),
+  Sub: createDefaultButton("bg-otl-sub text-otl-gray rounded-md"),
+  Point: createDefaultButton("bg-otl-point text-white rounded-md"),
+  Disabled: createDefaultButton("bg-otl-disabled text-white rounded-md", {
     disabled: true,
   }),
 
   Round: {
-    Main: createButton("bg-otl-main text-white rounded-full"),
-    Sub: createButton("bg-otl-sub text-otl-gray rounded-full"),
-    Point: createButton("bg-otl-point text-white rounded-full"),
-    Disabled: createButton("bg-otl-disabled text-white rounded-full", {
+    Main: createDefaultButton("bg-otl-main text-white rounded-full"),
+    Sub: createDefaultButton("bg-otl-sub text-otl-gray rounded-full"),
+    Point: createDefaultButton("bg-otl-point text-white rounded-full"),
+    Disabled: createDefaultButton("bg-otl-disabled text-white rounded-full", {
+      disabled: true,
+    }),
+  },
+  Small: {
+    Main: createSmallButton("bg-otl-main text-white rounded-md"),
+    Sub: createSmallButton("bg-otl-sub text-otl-gray rounded-md"),
+    Point: createSmallButton("bg-otl-point text-white rounded-md"),
+    Disabled: createSmallButton("bg-otl-disabled text-white rounded-md", {
       disabled: true,
     }),
   },

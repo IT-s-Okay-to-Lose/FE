@@ -48,6 +48,12 @@ function App() {
           <Button.Round.Sub>Round Sub</Button.Round.Sub>
           <Button.Round.Disabled>Round Disabled</Button.Round.Disabled>
         </div>
+        <div>
+          <Button.Small.Main>Small Main</Button.Small.Main>
+          <Button.Small.Point>Small Main</Button.Small.Point>
+          <Button.Small.Sub>Small Sub</Button.Small.Sub>
+          <Button.Small.Disabled>Small Disabled</Button.Small.Disabled>
+        </div>
       </div>
       <Input placeholder="input" />
     </div>
