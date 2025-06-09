@@ -4,7 +4,8 @@ import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     screens: {
       "sm-mobile": { max: "766px" }, // 작은 모바일 (766px 이하)

@@ -97,5 +97,5 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
     ],
   };
 
-  return <ReactECharts option={option} style={{ height: 500, width: 300 }} />;
+  return <ReactECharts option={option} style={{ height: 500, width: 400 }} />;
 }

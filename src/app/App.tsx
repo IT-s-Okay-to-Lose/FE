@@ -60,11 +60,13 @@ function App() {
         </div>
       </div>
       <Input placeholder="input" />
+      {/* <div className="w-[300px]"> */}
       <Select>
         <Select.Option key={1} value={"text"}>
           text
         </Select.Option>
       </Select>
+      {/* </div> */}
       <Chart data={candleData} width={700} height={400} />
       <Chart2 data={candleData2} volumeData={volumeData} />
     </div>
