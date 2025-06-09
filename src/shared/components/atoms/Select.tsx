@@ -20,7 +20,7 @@ const Select = ({
     <div className="relative w-[300px]">
       <select
         className={cn(
-          "box-border h-[50px] w-full appearance-none rounded-md border pl-5 pr-10 text-sm",
+          "box-border h-[50px] w-full appearance-none rounded-md border pl-5 pr-10 text-sm focus:border-otl-main focus:border-2 focus:outline-none",
           className
         )}
         {...props}
