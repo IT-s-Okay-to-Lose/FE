@@ -1,15 +1,12 @@
 import Typography from "@/shared/components/atoms/Typography";
-import BoxTab from "@/shared/components/molecules/BoxTab";
 import Header from "@/shared/components/molecules/Header";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
-import { useState } from "react";
+import IndexSummary from "./ui/IndexSummary";
+import News from "./ui/News";
 import StockChartBoard from "./ui/StockChartBoard";
 
 function Home() {
   const isTabletOrAbove = useMediaQuery("(min-width: 768px)");
-
-  const categoryList = ["전체", "국내", "해외"];
-  const [category, setCategory] = useState<string>("전체");
 
   if (!isTabletOrAbove) {
     return (
@@ -23,14 +20,12 @@ function Home() {
       <div className="mb-8">
         <Header />
       </div>
-      <div className="w-full m-auto flex justify-center">
-        <div className="flex flex-col justify-center items-center">
-          <BoxTab.Large
-            options={categoryList}
-            value={category}
-            onChange={setCategory}
-          />
-          <StockChartBoard />
+      <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
+        <StockChartBoard />
+
+        <div className="flex flex-col gap-[50px]">
+          <IndexSummary />
+          <News />
         </div>
       </div>
     </div>
