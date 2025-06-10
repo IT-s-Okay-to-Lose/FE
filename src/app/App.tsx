@@ -3,6 +3,7 @@ import Card from "@/shared/components/atoms/Card";
 import Input from "@/shared/components/atoms/Input";
 import Select from "@/shared/components/atoms/Select";
 import Typography from "@/shared/components/atoms/Typography";
+import BoxTab from "@/shared/components/molecules/BoxTab";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 import { useState } from "react";
 
@@ -72,6 +73,8 @@ function App() {
       <div className="flex flex-col gap-4">
         <RoundTab.Default options={options} value={tab1} onChange={setTab1} />
         <RoundTab.Small options={options} value={tab2} onChange={setTab2} />
+        <BoxTab.Default options={options} value={tab1} onChange={setTab1} />
+        <BoxTab.Small options={options} value={tab2} onChange={setTab2} />
       </div>
 
       {/* <Chart data={candleData} width={700} height={400} />
