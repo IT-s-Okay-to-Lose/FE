@@ -81,6 +81,7 @@ function App() {
 
       {/* <Chart data={candleData} width={700} height={400} />
       <Chart2 data={candleData2} volumeData={volumeData} /> */}
+      <p>hello world!</p>
     </div>
   );
 }
