@@ -15,7 +15,11 @@ function Header() {
         <div className="flex gap-7 items-center">
           <Link to="/">
             <Typography.SubTitle2
-              className={isActive("/") ? "font-bold" : "font-normal"}
+              className={
+                isActive("/") || isActive("/detail")
+                  ? "font-bold"
+                  : "font-normal"
+              }
             >
               홈
             </Typography.SubTitle2>

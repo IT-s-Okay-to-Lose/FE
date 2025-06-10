@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/DashboardPage",
+    path: "/dashboard",
     element: <DashboardPage />,
   },
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <OverviewPage />,
   },
   {
-    path: "/detail/:stockId",
+    path: "/detail",
     element: <StockDetailPage />,
   },
   {
