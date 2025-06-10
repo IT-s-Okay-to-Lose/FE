@@ -15,6 +15,7 @@ function Home() {
       </div>
     );
   }
+
   return (
     <div className="w-full">
       <div className="mb-8">

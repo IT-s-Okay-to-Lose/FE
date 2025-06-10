@@ -15,7 +15,6 @@ function Header() {
             <Typography.SubTitle2>대시보드</Typography.SubTitle2>
           </Link>
           <Link to="/overview">
-            {" "}
             <Typography.SubTitle2>투자 모아보기</Typography.SubTitle2>
           </Link>
         </div>
