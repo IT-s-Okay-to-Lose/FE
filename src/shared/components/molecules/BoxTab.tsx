@@ -22,13 +22,15 @@ const createRoundTab = (sizeClass: string) => {
     onChange,
     className,
   }) => (
-    <div className={cn(" w-full rounded-md gap-2 bg-otl-sub", className)}>
+    <div
+      className={cn("flex w-fit p-1 rounded-md gap-2 bg-otl-sub", className)}
+    >
       {options.map((option) => (
         <button
           key={option}
           onClick={() => onChange(option)}
           className={cn(
-            "rounded-md font-semibold text-otl-gray transition",
+            "rounded-md font-semibold text-otl-gray transition whitespace-nowrap",
             sizeClass,
             option === value ? "bg-white shadow" : "hover:bg-white"
           )}
@@ -42,8 +44,9 @@ const createRoundTab = (sizeClass: string) => {
 };
 
 const BoxTab = {
-  Default: createRoundTab("px-5 py-2 text-sm"),
-  Small: createRoundTab("px-3 py-1 text-xs"),
+  Default: createRoundTab("w-[115px] h-[40px] px-5 py-2 text-sm"),
+  Small: createRoundTab("w-[70px] h-[35px] px-3 py-1 text-xs"),
+  Large: createRoundTab("w-[130px] h-[45px] px-6 py-3 text-lg"),
 };
 
 export default BoxTab;
