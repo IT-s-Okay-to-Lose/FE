@@ -23,7 +23,7 @@ function Home() {
       <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
         <StockChartBoard />
 
-        <div className="flex flex-col gap-[50px]">
+        <div className="hidden tablet:flex tablet:flex-col tablet:gap-[50px]">
           <IndexSummary />
           <News />
         </div>
