@@ -17,7 +17,7 @@ interface TypographyProps {
 }
 
 const typoTypeMap: Record<TypoType, string> = {
-  Head1: "text-[36px] font-extrabold",
+  Head1: "text-[36px] font-bold",
   Head2: "text-[30px] font-bold",
   Head3: "text-[23px] font-bold",
   SubTitle1: "text-[20px] font-semibold",
