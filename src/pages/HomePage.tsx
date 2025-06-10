@@ -1,22 +1,16 @@
-import Typography from "@/shared/components/atoms/Typography";
 import Header from "@/shared/components/molecules/Header";
 
 import { News } from "@/features/news";
 import { StockChartBoard } from "@/features/stockChartBoard";
 
 import { MarketIndexSummary } from "@/features/marketIndexSummary";
+import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
 
 function HomePage() {
-  const isTabletOrAbove = useMediaQuery("(min-width: 850px)");
+  const isTabletOrAbove = useMediaQuery();
 
-  if (!isTabletOrAbove) {
-    return (
-      <div className="w-full flex justify-center items-center">
-        <Typography.Head2>더 큰 화면에서 </Typography.Head2>
-      </div>
-    );
-  }
+  if (!isTabletOrAbove) return <ScreenTooSmall />;
 
   return (
     <div className="w-full">
