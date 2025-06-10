@@ -3,7 +3,7 @@ import Typography from "../atoms/Typography";
 function Header() {
   return (
     <div className="flex justify-center">
-      <div className="flex w-full max-w-[1500px] px-6 py-3 justify-between items-center">
+      <div className="flex w-full max-w-[850px] laptop:max-w-[1150px] px-6 py-3 justify-between items-center">
         <Typography.SubTitle1>IT{"'"}s Okay to Lose</Typography.SubTitle1>
 
         <div className="flex gap-7 items-center ">

@@ -6,7 +6,7 @@ import News from "./ui/News";
 import StockChartBoard from "./ui/StockChartBoard";
 
 function Home() {
-  const isTabletOrAbove = useMediaQuery("(min-width: 768px)");
+  const isTabletOrAbove = useMediaQuery("(min-width: 850px)");
 
   if (!isTabletOrAbove) {
     return (
@@ -23,7 +23,7 @@ function Home() {
       <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
         <StockChartBoard />
 
-        <div className="hidden tablet:flex tablet:flex-col tablet:gap-[50px]">
+        <div className="hidden laptop:flex laptop:flex-col laptop:gap-[50px]">
           <IndexSummary />
           <News />
         </div>
