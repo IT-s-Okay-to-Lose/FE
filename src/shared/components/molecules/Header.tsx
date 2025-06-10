@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Typography from "../atoms/Typography";
 
 function Header() {
@@ -7,9 +8,16 @@ function Header() {
         <Typography.SubTitle1>IT{"'"}s Okay to Lose</Typography.SubTitle1>
 
         <div className="flex gap-7 items-center ">
-          <Typography.SubTitle2>홈</Typography.SubTitle2>
-          <Typography.SubTitle2>대시보드</Typography.SubTitle2>
-          <Typography.SubTitle2>투자 모아보기</Typography.SubTitle2>
+          <Link to="/">
+            <Typography.SubTitle2>홈</Typography.SubTitle2>
+          </Link>
+          <Link to="/dashboard">
+            <Typography.SubTitle2>대시보드</Typography.SubTitle2>
+          </Link>
+          <Link to="/overview">
+            {" "}
+            <Typography.SubTitle2>투자 모아보기</Typography.SubTitle2>
+          </Link>
         </div>
         <div className="w-[155px] flex justify-end">
           <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray"></div>
