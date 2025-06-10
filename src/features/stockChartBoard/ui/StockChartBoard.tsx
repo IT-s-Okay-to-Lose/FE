@@ -1,11 +1,11 @@
+import { useFilterTab } from "@/features/stockChartBoard";
 import Table from "@/shared/components/atoms/Table";
 import Typography from "@/shared/components/atoms/Typography";
 import RoundTab from "@/shared/components/molecules/RoundTab";
-import { useState } from "react";
 
 export function StockChartBoard() {
   const filteringList = ["실시간", "1일", "3일"];
-  const [filterTab, setFilterTab] = useState<string>("실시간");
+  const { filterTab, setFilterTab } = useFilterTab();
 
   return (
     <div className="flex flex-col gap-2 min-w-[500px] w-[800px]">
