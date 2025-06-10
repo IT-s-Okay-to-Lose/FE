@@ -8,7 +8,7 @@ import Typography from "@/shared/components/atoms/Typography";
 import BoxTab from "@/shared/components/molecules/BoxTab";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 
-function Test() {
+function TestPage() {
   const options = ["실시간", "1일", "1주"];
   const options2 = ["실시간", "1일"];
   const [tab1, setTab1] = useState<string>(options[0]);
@@ -86,4 +86,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default TestPage;
