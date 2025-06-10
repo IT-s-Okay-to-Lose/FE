@@ -24,13 +24,15 @@ function Home() {
         <Header />
       </div>
       <div className="w-full m-auto flex justify-center">
-        <BoxTab.Large
-          options={categoryList}
-          value={category}
-          onChange={setCategory}
-        />
+        <div className="flex flex-col justify-center items-center">
+          <BoxTab.Large
+            options={categoryList}
+            value={category}
+            onChange={setCategory}
+          />
+          <StockChartBoard />
+        </div>
       </div>
-      <StockChartBoard />
     </div>
   );
 }
