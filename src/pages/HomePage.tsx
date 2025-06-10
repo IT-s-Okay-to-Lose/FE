@@ -4,6 +4,7 @@ import Header from "@/shared/components/molecules/Header";
 import { News } from "@/features/news";
 import { StockChartBoard } from "@/features/stockChartBoard";
 
+import { MarketIndexSummary } from "@/features/marketIndexSummary";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
 
 function HomePage() {
@@ -26,7 +27,7 @@ function HomePage() {
         <StockChartBoard />
 
         <div className="hidden laptop:flex laptop:flex-col laptop:gap-[50px]">
-          <IndexSummary />
+          <MarketIndexSummary />
           <News />
         </div>
       </div>
@@ -35,28 +36,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-function IndexSummary() {
-  return (
-    <div className="w-[245px] h-[250px]">
-      <Typography.Head2 className="w-full text-right  mb-3">
-        지수 · 환율
-      </Typography.Head2>
-      <IndexRow />
-      <IndexRow />
-      <IndexRow />
-    </div>
-  );
-}
-
-function IndexRow() {
-  return (
-    <div className="w-full">
-      <Typography.SubTitle1 className="text-right">코스피</Typography.SubTitle1>
-
-      <Typography.SubTitle1 className="text-right text-otl-stock-up">
-        2,765.14 +66.17 (2.5%)
-      </Typography.SubTitle1>
-    </div>
-  );
-}
