@@ -1,21 +1,27 @@
-import Dashboard from "@/pages/dashboard/Dashboard";
-import Home from "@/pages/home/Home";
-import Overview from "@/pages/overview/Overview";
+import DashboardPage from "@/pages/dashboard/DashboardPage";
+import HomePage from "@/pages/home/HomePage";
+import OverviewPage from "@/pages/overview/OverviewPage";
+import StockDetailPage from "@/pages/stockDetail/StockDetailPage";
 import Test from "@/pages/test/Test";
+
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomePage />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "/DashboardPage",
+    element: <DashboardPage />,
   },
   {
     path: "/overview",
-    element: <Overview />,
+    element: <OverviewPage />,
+  },
+  {
+    path: "/detail/:stockId",
+    element: <StockDetailPage />,
   },
   {
     path: "/test",

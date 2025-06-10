@@ -2,7 +2,7 @@ import Typography from "@/shared/components/atoms/Typography";
 import Header from "@/shared/components/molecules/Header";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
 
-function Dashboard() {
+function DashboardPage() {
   const isTabletOrAbove = useMediaQuery("(min-width: 850px)");
 
   if (!isTabletOrAbove) {
@@ -25,4 +25,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default DashboardPage;

@@ -1,8 +1,11 @@
 import Typography from "@/shared/components/atoms/Typography";
 import Header from "@/shared/components/molecules/Header";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
+import IndexSummary from "./ui/IndexSummary";
+import News from "./ui/News";
+import StockChartBoard from "./ui/StockChartBoard";
 
-function Overview() {
+function HomePage() {
   const isTabletOrAbove = useMediaQuery("(min-width: 850px)");
 
   if (!isTabletOrAbove) {
@@ -19,10 +22,15 @@ function Overview() {
         <Header />
       </div>
       <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
-        <p>content</p>
+        <StockChartBoard />
+
+        <div className="hidden laptop:flex laptop:flex-col laptop:gap-[50px]">
+          <IndexSummary />
+          <News />
+        </div>
       </div>
     </div>
   );
 }
 
-export default Overview;
+export default HomePage;
