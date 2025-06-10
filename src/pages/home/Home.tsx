@@ -1,5 +1,11 @@
+import Header from "@/shared/components/molecules/Header";
+
 function Home() {
-  return <p>home</p>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default Home;
