@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useFilterTab(defaultTab: string = "실시간") {
+export function useFilterTab(defaultTab: string) {
   const [filterTab, setFilterTab] = useState<string>(defaultTab);
 
   // 여기서 chartData api 호출
