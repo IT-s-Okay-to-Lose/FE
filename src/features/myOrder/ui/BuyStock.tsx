@@ -4,15 +4,16 @@ import Input from "@/shared/components/atoms/Input";
 import Typography from "@/shared/components/atoms/Typography";
 import BoxTab from "@/shared/components/molecules/BoxTab";
 import RoundTab from "@/shared/components/molecules/RoundTab";
-import { useFilterTab } from "@/shared/hooks/useFilterTab";
+import { useState } from "react";
 
 function BuyStock() {
   const priceOptions = ["지정가", "시장가"];
   const quantityOptions = ["10%", "50%", "70%", "최대"];
-  const { filterTab: priceFilterTab, setFilterTab: setPriceFilterTab } =
-    useFilterTab(priceOptions[0]);
-  const { filterTab: quantityFilterTab, setFilterTab: setQuantityFilterTab } =
-    useFilterTab(quantityOptions[0]);
+
+  const [priceFilterTab, setPriceFilterTab] = useState<string>(priceOptions[0]);
+  const [quantityFilterTab, setQuantityFilterTab] = useState<string>(
+    quantityOptions[0]
+  );
 
   return (
     <div>

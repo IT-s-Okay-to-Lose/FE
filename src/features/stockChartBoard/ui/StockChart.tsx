@@ -2,12 +2,12 @@ import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 import Chart2 from "@/shared/components/organisms/Chart2";
-import { useFilterTab } from "@/shared/hooks/useFilterTab";
 import { mockCandleData2, mockVolumeData } from "@/shared/mock/chart.mock";
+import { useState } from "react";
 
 function StockChart() {
   const option = ["실시간", "1분", "5분", "1시간", "1일"];
-  const { filterTab, setFilterTab } = useFilterTab("실시간");
+  const [filterTab, setFilterTab] = useState(option[0]);
 
   return (
     <Card>
