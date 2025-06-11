@@ -1,5 +1,6 @@
 import BuyStock from "@/features/myOrder/ui/BuyStock";
 import SellStock from "@/features/myOrder/ui/SellStock";
+import OrderHistory from "@/features/orderHistory/ui/OrderHistory";
 import StockChart from "@/features/stockChartBoard/ui/StockChart";
 import StockDetail from "@/features/stockDetail/ui/StockDetail";
 import Header from "@/shared/components/molecules/Header";
@@ -24,7 +25,10 @@ function StockDetailPage() {
         <div className="w-full max-w-[1100px] flex justify-between">
           <BuyStock />
           <SellStock />
-          <BuyStock />
+          <div className="flex flex-col gap-2">
+            <OrderHistory />
+            <OrderHistory />
+          </div>
         </div>
       </div>
     </div>
