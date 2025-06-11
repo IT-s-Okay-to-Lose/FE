@@ -1,3 +1,4 @@
+import URL from "@/shared/constants/URL";
 import { Link, useLocation } from "react-router-dom";
 import Typography from "../atoms/Typography";
 
@@ -13,10 +14,10 @@ function Header() {
         <Typography.SubTitle1>IT{"'"}s Okay to Lose</Typography.SubTitle1>
 
         <div className="flex gap-7 items-center">
-          <Link to="/">
+          <Link to={URL.HOME}>
             <Typography.SubTitle2
               className={
-                isActive("/") || isActive("/detail")
+                isActive(URL.HOME) || isActive(URL.DETAIL)
                   ? "font-bold"
                   : "font-normal"
               }
@@ -24,16 +25,16 @@ function Header() {
               홈
             </Typography.SubTitle2>
           </Link>
-          <Link to="/dashboard">
+          <Link to={URL.DASHBOARD}>
             <Typography.SubTitle2
-              className={isActive("/dashboard") ? "font-bold" : "font-normal"}
+              className={isActive(URL.DASHBOARD) ? "font-bold" : "font-normal"}
             >
               대시보드
             </Typography.SubTitle2>
           </Link>
-          <Link to="/overview">
+          <Link to={URL.OVERVIEW}>
             <Typography.SubTitle2
-              className={isActive("/overview") ? "font-bold" : "font-normal"}
+              className={isActive(URL.OVERVIEW) ? "font-bold" : "font-normal"}
             >
               투자 모아보기
             </Typography.SubTitle2>

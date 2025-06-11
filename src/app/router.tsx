@@ -3,28 +3,29 @@ import HomePage from "@/pages/HomePage";
 import OverviewPage from "@/pages/OverviewPage";
 import StockDetailPage from "@/pages/StockDetailPage";
 import TestPage from "@/pages/TestPage";
+import URL from "@/shared/constants/URL";
 
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: URL.HOME,
     element: <HomePage />,
   },
   {
-    path: "/dashboard",
+    path: URL.DASHBOARD,
     element: <DashboardPage />,
   },
   {
-    path: "/overview",
+    path: URL.OVERVIEW,
     element: <OverviewPage />,
   },
   {
-    path: "/detail",
+    path: URL.DETAIL,
     element: <StockDetailPage />,
   },
   {
-    path: "/test",
+    path: URL.TEST,
     element: <TestPage />,
   },
 ]);
