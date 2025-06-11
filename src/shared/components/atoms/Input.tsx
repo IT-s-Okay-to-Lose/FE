@@ -9,7 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = ({ className, icon, ...props }: InputProps) => {
   return (
-    <div className="relative w-full">
+    <div className="relative">
       {icon && (
         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
           {icon}
