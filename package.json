@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@canvasjs/react-stockcharts": "^1.0.2",
+    "@revolist/react-datagrid": "^4.15.8",
     "@tailwindcss/typography": "^0.5.16",
     "bootstrap-icons": "^1.13.1",
     "clsx": "^2.0.0",

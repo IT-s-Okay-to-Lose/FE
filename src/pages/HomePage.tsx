@@ -1,9 +1,9 @@
 import Header from "@/shared/components/molecules/Header";
 
-import { MarketIndexSummary } from "@/entities/marketIndexSummary/ui/MarketIndexSummary";
-import { News } from "@/entities/news/ui/News";
+import { News } from "@/features/news/ui/News";
 import { StockChartBoard } from "@/features/stockChartBoard/ui/StockChartBoard";
 
+import { MarketIndexSummary } from "@/features/marketIndexSummary/ui/MarketIndexSummary";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
 

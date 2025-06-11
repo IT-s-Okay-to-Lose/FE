@@ -1,38 +1,3 @@
-import type { CandlestickData } from "lightweight-charts";
-
-export const mockCandleData: CandlestickData[] = [
-  { time: "2023-10-01", open: 100, high: 110, low: 95, close: 105 },
-  { time: "2023-10-02", open: 105, high: 115, low: 100, close: 110 },
-  { time: "2023-10-03", open: 110, high: 118, low: 108, close: 115 },
-  { time: "2023-10-04", open: 115, high: 120, low: 112, close: 118 },
-  { time: "2023-10-05", open: 118, high: 121, low: 110, close: 111 },
-  { time: "2023-10-06", open: 111, high: 113, low: 105, close: 107 },
-  { time: "2023-10-07", open: 107, high: 115, low: 106, close: 112 },
-  { time: "2023-10-08", open: 112, high: 118, low: 110, close: 116 },
-  { time: "2023-10-09", open: 116, high: 119, low: 113, close: 115 },
-  { time: "2023-10-10", open: 115, high: 117, low: 111, close: 112 },
-  { time: "2023-10-11", open: 112, high: 115, low: 108, close: 110 },
-  { time: "2023-10-12", open: 110, high: 118, low: 109, close: 117 },
-  { time: "2023-10-13", open: 117, high: 120, low: 113, close: 114 },
-  { time: "2023-10-14", open: 114, high: 116, low: 110, close: 112 },
-  { time: "2023-10-15", open: 112, high: 114, low: 106, close: 108 },
-  { time: "2023-10-16", open: 108, high: 110, low: 100, close: 103 },
-  { time: "2023-10-17", open: 103, high: 106, low: 99, close: 105 },
-  { time: "2023-10-18", open: 105, high: 108, low: 101, close: 107 },
-  { time: "2023-10-19", open: 107, high: 112, low: 104, close: 110 },
-  { time: "2023-10-20", open: 110, high: 115, low: 109, close: 113 },
-  { time: "2023-10-21", open: 113, high: 118, low: 112, close: 117 },
-  { time: "2023-10-22", open: 117, high: 120, low: 114, close: 116 },
-  { time: "2023-10-23", open: 116, high: 117, low: 110, close: 111 },
-  { time: "2023-10-24", open: 111, high: 113, low: 105, close: 108 },
-  { time: "2023-10-25", open: 108, high: 110, low: 102, close: 104 },
-  { time: "2023-10-26", open: 104, high: 107, low: 99, close: 101 },
-  { time: "2023-10-27", open: 101, high: 104, low: 97, close: 100 },
-  { time: "2023-10-28", open: 100, high: 105, low: 98, close: 103 },
-  { time: "2023-10-29", open: 103, high: 107, low: 100, close: 105 },
-  { time: "2023-10-30", open: 105, high: 110, low: 104, close: 109 },
-];
-
 export const mockCandleData2: [string, number, number, number, number][] = [
   ["2023-10-01T09:00:00", 101.55, 99.83, 99.29, 103.04],
   ["2023-10-01T09:05:00", 100.8, 98.24, 96.47, 101.65],
