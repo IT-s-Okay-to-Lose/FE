@@ -22,7 +22,7 @@ const createRoundTab = (sizeClass: string) => {
     onChange,
     className,
   }) => (
-    <div className={cn(" w-full rounded-full gap-2", className)}>
+    <div className={cn("rounded-full gap-2", className)}>
       {options.map((option) => (
         <button
           key={option}

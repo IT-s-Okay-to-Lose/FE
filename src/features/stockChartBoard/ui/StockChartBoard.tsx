@@ -1,7 +1,7 @@
-import { useFilterTab } from "@/features/stockChartBoard";
 import Table from "@/shared/components/atoms/Table";
 import Typography from "@/shared/components/atoms/Typography";
 import RoundTab from "@/shared/components/molecules/RoundTab";
+import { useFilterTab } from "../model/useFilterTab";
 
 export function StockChartBoard() {
   const filteringList = ["실시간", "1일", "3일"];
