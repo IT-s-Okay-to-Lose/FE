@@ -20,7 +20,7 @@ function OrderHistory() {
             value={filterTab}
             onChange={setFilterTab}
           />
-          <div className="max-h-[110px] overflow-scroll">
+          <div className="max-h-[111px] overflow-scroll flex flex-col gap-2">
             <HistoryRow />
             <HistoryRow />
             <HistoryRow />
@@ -43,7 +43,7 @@ export default OrderHistory;
 
 function HistoryRow() {
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-full justify-between ">
       <Typography.P1>4월 24일</Typography.P1>
       <div className="flex gap-4">
         <Typography.P1>구매 100주</Typography.P1>

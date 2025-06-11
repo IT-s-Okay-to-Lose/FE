@@ -1,8 +1,9 @@
-import BuyStock from "@/features/myOrder/ui/BuyStock";
-import SellStock from "@/features/myOrder/ui/SellStock";
+import MyOrder from "@/features/myOrder/ui/MyOrder";
 import OrderHistory from "@/features/orderHistory/ui/OrderHistory";
 import StockChart from "@/features/stockChartBoard/ui/StockChart";
 import StockDetail from "@/features/stockDetail/ui/StockDetail";
+import BuyStock from "@/features/stockOrder/ui/BuyStock";
+import SellStock from "@/features/stockOrder/ui/SellStock";
 import Header from "@/shared/components/molecules/Header";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
@@ -27,7 +28,7 @@ function StockDetailPage() {
           <SellStock />
           <div className="flex flex-col gap-2">
             <OrderHistory />
-            <OrderHistory />
+            <MyOrder />
           </div>
         </div>
       </div>

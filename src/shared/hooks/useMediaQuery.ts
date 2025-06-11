@@ -4,7 +4,7 @@ export default function useMediaQuery(): boolean {
   const [matches, setMatches] = useState(true);
 
   useEffect(() => {
-    const query = "(min-width: 850px)";
+    const query = "(min-width: 1200px)";
     const media = window.matchMedia(query);
     const listener = () => setMatches(media.matches);
 
