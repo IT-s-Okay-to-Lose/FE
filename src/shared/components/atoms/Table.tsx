@@ -1,4 +1,4 @@
-import { mockStockData } from "@/shared/mock/chartTable.mock";
+import { mockStockData } from "@/entities/stock/stock.mock";
 import { RevoGrid } from "@revolist/react-datagrid";
 
 function Table() {

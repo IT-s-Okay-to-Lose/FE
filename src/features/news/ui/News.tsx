@@ -1,3 +1,5 @@
+import type { News } from "@/entities/news/news.entity";
+import { mockNewsData } from "@/entities/news/news.mock";
 import Typography from "@/shared/components/atoms/Typography";
 
 export function News() {
@@ -7,24 +9,20 @@ export function News() {
         주요 뉴스
       </Typography.Head2>
       <div className="flex flex-col gap-3">
-        <NewsRow />
-        <NewsRow />
-        <NewsRow />
+        {mockNewsData.map((news, index) => (
+          <NewsRow title={news.title} press={news.press} key={index} />
+        ))}
       </div>
     </div>
   );
 }
 
-function NewsRow() {
+function NewsRow({ title, press }: News) {
   return (
     <div className="flex gap-3 justify-between">
       <div className="w-[165px]">
-        <Typography.P1>
-          코스피 블라블라블라블라코스피 블라블라블라블라
-        </Typography.P1>
-        <Typography.P2 className="text-otl-gray">
-          1시간 전 · 이데일리
-        </Typography.P2>
+        <Typography.P1>{title}</Typography.P1>
+        <Typography.P2 className="text-otl-gray">{press}</Typography.P2>
       </div>
       <div className="w-[60px] h-[60px] bg-otl-sub rounded-md"></div>
     </div>
