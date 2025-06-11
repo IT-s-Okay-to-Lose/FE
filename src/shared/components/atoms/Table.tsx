@@ -1,4 +1,5 @@
 import { mockStockData } from "@/entities/stock/stock.mock";
+import { formatNumber } from "@/shared/utils/format";
 import { RevoGrid } from "@revolist/react-datagrid";
 
 function Table() {
@@ -20,10 +21,6 @@ function Table() {
       name: "등락률",
     },
   ];
-
-  // 숫자를 3자리 단위 콤마 포함 문자열로 포맷팅하는 함수
-  const formatNumber = (value: number) =>
-    value.toLocaleString("ko-KR", { maximumFractionDigits: 0 });
 
   // averagePrice, evaluatedPrice를 문자열로 합쳐서 price 필드를 만드는 데이터 가공
   const dataWithPriceField = mockStockData.map((stock) => ({
