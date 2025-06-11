@@ -14,10 +14,7 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
     axisPointer: {
       link: [{ xAxisIndex: "all" }],
     },
-    dataZoom: [
-      { type: "inside", xAxisIndex: [0, 1] },
-      { type: "slider", xAxisIndex: [0, 1] },
-    ],
+    dataZoom: [{ type: "inside", xAxisIndex: [0, 1] }],
     xAxis: [
       {
         type: "time",
@@ -53,14 +50,14 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
     ],
     grid: [
       {
-        left: "10%",
-        right: "8%",
-        height: "60%",
+        left: "4%",
+        right: "0",
+        height: "50%",
       },
       {
-        left: "10%",
-        right: "8%",
-        top: "72%",
+        left: "4%",
+        right: "0",
+        top: "78%",
         height: "16%",
       },
     ],
@@ -97,5 +94,5 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
     ],
   };
 
-  return <ReactECharts option={option} style={{ height: 500, width: 400 }} />;
+  return <ReactECharts option={option} style={{ height: 450 }} />;
 }

@@ -1,6 +1,6 @@
 import type { CandlestickData } from "lightweight-charts";
 
-export const candleData: CandlestickData[] = [
+export const mockCandleData: CandlestickData[] = [
   { time: "2023-10-01", open: 100, high: 110, low: 95, close: 105 },
   { time: "2023-10-02", open: 105, high: 115, low: 100, close: 110 },
   { time: "2023-10-03", open: 110, high: 118, low: 108, close: 115 },
@@ -33,7 +33,7 @@ export const candleData: CandlestickData[] = [
   { time: "2023-10-30", open: 105, high: 110, low: 104, close: 109 },
 ];
 
-export const candleData2: [string, number, number, number, number][] = [
+export const mockCandleData2: [string, number, number, number, number][] = [
   ["2023-10-01T09:00:00", 101.55, 99.83, 99.29, 103.04],
   ["2023-10-01T09:05:00", 100.8, 98.24, 96.47, 101.65],
   ["2023-10-01T09:10:00", 100.04, 98.0, 96.37, 100.66],
@@ -86,7 +86,7 @@ export const candleData2: [string, number, number, number, number][] = [
   ["2023-10-01T13:05:00", 102.39, 104.55, 102.32, 105.42],
 ];
 
-export const volumeData: [string, number][] = [
+export const mockVolumeData: [string, number][] = [
   ["2023-10-01T09:00:00", 4238],
   ["2023-10-01T09:05:00", 7909],
   ["2023-10-01T09:10:00", 3251],
