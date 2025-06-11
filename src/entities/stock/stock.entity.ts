@@ -1,7 +1,16 @@
-export interface StockRow {
-  name: string; // 종목 이름
-  quantity: number; // 보유 수량
-  averagePrice: number; // 매수금액
-  evaluatedPrice: number; // 평가금액
-  fluctuationRate: number; // 등락률 (예: 5.21)
+// 모의투자 보유 주식 정보
+export interface StockPortfolio {
+  name: string;
+  quantity: number;
+  averagePrice: number;
+  evaluatedPrice: number;
+  fluctuationRate: number;
+}
+
+// 실시간 차트에 쓰이는 시세 정보s
+export interface MarketStock {
+  name: string;
+  currentPrice: number;
+  fluctuationRate: number;
+  accumulatedVolume: number;
 }

@@ -1,6 +1,6 @@
-import type { StockRow } from "@/entities/stock/stock.entity";
+import type { StockPortfolio } from "@/entities/stock/stock.entity";
 
-export const mockStockData: StockRow[] = [
+export const mockStockData: StockPortfolio[] = [
   {
     name: "삼성전자",
     quantity: 10,
