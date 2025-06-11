@@ -1,4 +1,155 @@
-export const mockCandleData2: [string, number, number, number, number][] = [
+import type {
+  CandleData,
+  StockPortfolio,
+  VolumeData,
+} from "@/entities/stock/stock.entity";
+
+// 실시간 차트 주식 목데이터
+export const mockStockData: StockPortfolio[] = [
+  {
+    name: "삼성전자",
+    quantity: 10,
+    averagePrice: 650000,
+    evaluatedPrice: 720000,
+    fluctuationRate: 10.77,
+  },
+  {
+    name: "SK하이닉스",
+    quantity: 5,
+    averagePrice: 500000,
+    evaluatedPrice: 530000,
+    fluctuationRate: 6.0,
+  },
+  {
+    name: "LG화학",
+    quantity: 3,
+    averagePrice: 2100000,
+    evaluatedPrice: 2000000,
+    fluctuationRate: -4.76,
+  },
+  {
+    name: "NAVER",
+    quantity: 4,
+    averagePrice: 1200000,
+    evaluatedPrice: 1300000,
+    fluctuationRate: 8.33,
+  },
+  {
+    name: "카카오",
+    quantity: 6,
+    averagePrice: 600000,
+    evaluatedPrice: 550000,
+    fluctuationRate: -8.33,
+  },
+  {
+    name: "현대차",
+    quantity: 2,
+    averagePrice: 400000,
+    evaluatedPrice: 450000,
+    fluctuationRate: 12.5,
+  },
+  {
+    name: "기아",
+    quantity: 7,
+    averagePrice: 700000,
+    evaluatedPrice: 665000,
+    fluctuationRate: -5.0,
+  },
+  {
+    name: "POSCO홀딩스",
+    quantity: 3,
+    averagePrice: 900000,
+    evaluatedPrice: 990000,
+    fluctuationRate: 10.0,
+  },
+  {
+    name: "삼성SDI",
+    quantity: 1,
+    averagePrice: 800000,
+    evaluatedPrice: 820000,
+    fluctuationRate: 2.5,
+  },
+  {
+    name: "롯데케미칼",
+    quantity: 5,
+    averagePrice: 950000,
+    evaluatedPrice: 910000,
+    fluctuationRate: -4.21,
+  },
+  {
+    name: "한화솔루션",
+    quantity: 9,
+    averagePrice: 1100000,
+    evaluatedPrice: 1230000,
+    fluctuationRate: 11.82,
+  },
+  {
+    name: "LG전자",
+    quantity: 6,
+    averagePrice: 720000,
+    evaluatedPrice: 690000,
+    fluctuationRate: -4.17,
+  },
+  {
+    name: "KT",
+    quantity: 8,
+    averagePrice: 640000,
+    evaluatedPrice: 660000,
+    fluctuationRate: 3.12,
+  },
+  {
+    name: "SK텔레콤",
+    quantity: 2,
+    averagePrice: 1000000,
+    evaluatedPrice: 1020000,
+    fluctuationRate: 2.0,
+  },
+  {
+    name: "셀트리온",
+    quantity: 4,
+    averagePrice: 1500000,
+    evaluatedPrice: 1450000,
+    fluctuationRate: -3.33,
+  },
+  {
+    name: "하나금융지주",
+    quantity: 5,
+    averagePrice: 400000,
+    evaluatedPrice: 420000,
+    fluctuationRate: 5.0,
+  },
+  {
+    name: "신한지주",
+    quantity: 3,
+    averagePrice: 390000,
+    evaluatedPrice: 410000,
+    fluctuationRate: 5.13,
+  },
+  {
+    name: "엔씨소프트",
+    quantity: 1,
+    averagePrice: 1800000,
+    evaluatedPrice: 1700000,
+    fluctuationRate: -5.56,
+  },
+  {
+    name: "크래프톤",
+    quantity: 2,
+    averagePrice: 2100000,
+    evaluatedPrice: 2000000,
+    fluctuationRate: -4.76,
+  },
+  {
+    name: "두산에너빌리티",
+    quantity: 10,
+    averagePrice: 850000,
+    evaluatedPrice: 930000,
+    fluctuationRate: 9.41,
+  },
+];
+
+// 차트 상세 페이지 그래프 캔들 목데이터
+export const mockCandleData: CandleData[] = [
   ["2023-10-01T09:00:00", 101.55, 99.83, 99.29, 103.04],
   ["2023-10-01T09:05:00", 100.8, 98.24, 96.47, 101.65],
   ["2023-10-01T09:10:00", 100.04, 98.0, 96.37, 100.66],
@@ -51,7 +202,8 @@ export const mockCandleData2: [string, number, number, number, number][] = [
   ["2023-10-01T13:05:00", 102.39, 104.55, 102.32, 105.42],
 ];
 
-export const mockVolumeData: [string, number][] = [
+// 차트 상세 페이지 그래프 거래량 목데이터
+export const mockVolumeData: VolumeData[] = [
   ["2023-10-01T09:00:00", 4238],
   ["2023-10-01T09:05:00", 7909],
   ["2023-10-01T09:10:00", 3251],

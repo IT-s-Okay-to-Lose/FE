@@ -1,8 +1,9 @@
+import { mockCandleData, mockVolumeData } from "@/entities/stock/stock.mock";
 import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 import Chart2 from "@/shared/components/organisms/Chart2";
-import { mockCandleData2, mockVolumeData } from "@/shared/mock/chart.mock";
+
 import { useState } from "react";
 
 function StockChart() {
@@ -23,7 +24,7 @@ function StockChart() {
           />
         </div>
         <div className="border">
-          <Chart2 data={mockCandleData2} volumeData={mockVolumeData} />
+          <Chart2 data={mockCandleData} volumeData={mockVolumeData} />
         </div>
       </Card.Content>
     </Card>
