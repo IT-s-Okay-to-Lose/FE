@@ -8,6 +8,7 @@ import { useMemo, useState } from "react";
 
 import type { MarketStock } from "@/entities/stock/stock.entity";
 import { mockStockData } from "@/entities/stock/stock.mock";
+import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
 
 const STOCK_PER_PAGE = 8;
@@ -26,17 +27,44 @@ function LiveStockTable() {
       {
         accessorKey: "name",
         header: "종목",
-        cell: (info) => info.getValue(),
+        cell: (info) => {
+          const name = info.getValue() as string;
+          return <Typography.SubTitle2>{name}</Typography.SubTitle2>;
+        },
       },
       {
         accessorKey: "currentPrice",
         header: "현재가",
-        cell: (info) => `${formatNumber(info.getValue() as number)}원`,
+        cell: (info) => {
+          return (
+            <div>
+              <Typography.P1>{`${formatNumber(info.getValue() as number)}원`}</Typography.P1>
+            </div>
+          );
+        },
       },
       {
         accessorKey: "fluctuationRate",
         header: "등락률",
-        cell: (info) => `${(info.getValue() as number).toFixed(2)}%`,
+        cell: (info) => {
+          const value = info.getValue() as number;
+          const isPositive = value > 0;
+          const isNegative = value < 0;
+
+          const cellClass = isPositive
+            ? "bg-red-100 text-red-600"
+            : isNegative
+              ? "bg-blue-100 text-blue-600"
+              : "bg-gray-100 text-gray-600";
+
+          return (
+            <Typography.SubTitle2
+              className={`px-2 py-1 rounded ${cellClass} text-right`}
+            >
+              {value.toFixed(2)}%
+            </Typography.SubTitle2>
+          );
+        },
       },
       {
         accessorKey: "accumulatedVolume",
@@ -56,12 +84,19 @@ function LiveStockTable() {
   return (
     <div>
       <div className="w-full overflow-auto rounded border border-gray-300">
-        <table className="min-w-full text-sm">
+        <table className="min-w-full text-sm ">
           <thead className="bg-gray-100 text-gray-800">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th className="px-4 py-2 text-left" key={header.id}>
+                {headerGroup.headers.map((header, idx) => (
+                  <th
+                    className={
+                      idx === 0
+                        ? "w-[300px] px-4 py-2 text-left"
+                        : "w-[120px] px-4 py-2 text-right"
+                    }
+                    key={header.id}
+                  >
                     {flexRender(
                       header.column.columnDef.header,
                       header.getContext()
@@ -74,8 +109,11 @@ function LiveStockTable() {
           <tbody>
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id} className="border-t">
-                {row.getVisibleCells().map((cell) => (
-                  <td className="px-4 py-2" key={cell.id}>
+                {row.getVisibleCells().map((cell, idx) => (
+                  <td
+                    className={idx === 0 ? "px-4 py-2" : "px-4 py-2 text-right"}
+                    key={cell.id}
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
