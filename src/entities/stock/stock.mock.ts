@@ -10,6 +10,8 @@ export const mockStockData: MarketStock[] = [
     id: 1,
     name: "삼성전자",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     currentPrice: 650000,
     accumulatedVolume: 720000,
     fluctuationRate: 10.77,
@@ -18,6 +20,8 @@ export const mockStockData: MarketStock[] = [
     id: 2,
     name: "SK하이닉스",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     currentPrice: 500000,
     accumulatedVolume: 530000,
     fluctuationRate: 6.0,
@@ -26,6 +30,9 @@ export const mockStockData: MarketStock[] = [
     id: 3,
     name: "LG화학",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 2100000,
     accumulatedVolume: 2000000,
     fluctuationRate: -4.76,
@@ -34,6 +41,9 @@ export const mockStockData: MarketStock[] = [
     id: 4,
     name: "NAVER",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 1200000,
     accumulatedVolume: 1300000,
     fluctuationRate: 8.33,
@@ -42,6 +52,9 @@ export const mockStockData: MarketStock[] = [
     id: 5,
     name: "카카오",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 600000,
     accumulatedVolume: 550000,
     fluctuationRate: -8.33,
@@ -50,6 +63,8 @@ export const mockStockData: MarketStock[] = [
     id: 6,
     name: "현대차",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     currentPrice: 400000,
     accumulatedVolume: 450000,
     fluctuationRate: 12.5,
@@ -58,6 +73,8 @@ export const mockStockData: MarketStock[] = [
     id: 7,
     name: "기아",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     currentPrice: 700000,
     accumulatedVolume: 665000,
     fluctuationRate: -5.0,
@@ -66,6 +83,8 @@ export const mockStockData: MarketStock[] = [
     id: 8,
     name: "POSCO홀딩스",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     currentPrice: 900000,
     accumulatedVolume: 990000,
     fluctuationRate: 10.0,
@@ -74,6 +93,9 @@ export const mockStockData: MarketStock[] = [
     id: 9,
     name: "삼성SDI",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 800000,
     accumulatedVolume: 820000,
     fluctuationRate: 2.5,
@@ -82,6 +104,9 @@ export const mockStockData: MarketStock[] = [
     id: 10,
     name: "롯데케미칼",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 950000,
     accumulatedVolume: 910000,
     fluctuationRate: -4.21,
@@ -90,6 +115,9 @@ export const mockStockData: MarketStock[] = [
     id: 11,
     name: "한화솔루션",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 1100000,
     accumulatedVolume: 1230000,
     fluctuationRate: 11.82,
@@ -98,6 +126,9 @@ export const mockStockData: MarketStock[] = [
     id: 12,
     name: "LG전자",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 720000,
     accumulatedVolume: 690000,
     fluctuationRate: -4.17,
@@ -106,6 +137,9 @@ export const mockStockData: MarketStock[] = [
     id: 13,
     name: "KT",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 640000,
     accumulatedVolume: 660000,
     fluctuationRate: 3.12,
@@ -114,6 +148,9 @@ export const mockStockData: MarketStock[] = [
     id: 14,
     name: "SK텔레콤",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 1000000,
     accumulatedVolume: 1020000,
     fluctuationRate: 2.0,
@@ -122,6 +159,9 @@ export const mockStockData: MarketStock[] = [
     id: 15,
     name: "셀트리온",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 1500000,
     accumulatedVolume: 1450000,
     fluctuationRate: -3.33,
@@ -130,6 +170,9 @@ export const mockStockData: MarketStock[] = [
     id: 16,
     name: "하나금융지주",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 400000,
     accumulatedVolume: 420000,
     fluctuationRate: 5.0,
@@ -138,6 +181,9 @@ export const mockStockData: MarketStock[] = [
     id: 17,
     name: "신한지주",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 390000,
     accumulatedVolume: 410000,
     fluctuationRate: 5.13,
@@ -146,6 +192,9 @@ export const mockStockData: MarketStock[] = [
     id: 18,
     name: "엔씨소프트",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 1800000,
     accumulatedVolume: 1700000,
     fluctuationRate: -5.56,
@@ -154,6 +203,9 @@ export const mockStockData: MarketStock[] = [
     id: 19,
     name: "크래프톤",
     code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 2100000,
     accumulatedVolume: 2000000,
     fluctuationRate: -4.76,
@@ -162,6 +214,9 @@ export const mockStockData: MarketStock[] = [
     id: 20,
     code: "0001",
     name: "두산에너빌리티",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
     currentPrice: 850000,
     accumulatedVolume: 930000,
     fluctuationRate: 9.41,

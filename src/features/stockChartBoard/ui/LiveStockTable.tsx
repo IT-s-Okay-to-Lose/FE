@@ -9,6 +9,7 @@ import { useMemo, useState } from "react";
 import type { MarketStock } from "@/entities/stock/stock.entity";
 import { mockStockData } from "@/entities/stock/stock.mock";
 import Typography from "@/shared/components/atoms/Typography";
+import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
 
 const STOCK_PER_PAGE = 8;
@@ -28,8 +29,16 @@ function LiveStockTable() {
         accessorKey: "name",
         header: "종목",
         cell: (info) => {
-          const name = info.getValue() as string;
-          return <Typography.SubTitle2>{name}</Typography.SubTitle2>;
+          const { name, imageUrl } = info.row.original;
+
+          return (
+            <div className="flex gap-2 items-center">
+              <div className="overflow-hidden w-[25px] h-[25px] rounded-full">
+                <img src={imageUrl} />
+              </div>
+              <Typography.SubTitle2>{name}</Typography.SubTitle2>
+            </div>
+          );
         },
       },
       {
@@ -69,7 +78,10 @@ function LiveStockTable() {
       {
         accessorKey: "accumulatedVolume",
         header: "누적거래량",
-        cell: (info) => formatNumber(info.getValue() as number),
+        cell: (info) => {
+          const quantity = info.getValue() as number;
+          return <Typography.P1>{`${quantity}주`}</Typography.P1>;
+        },
       },
     ],
     []
@@ -83,9 +95,9 @@ function LiveStockTable() {
 
   return (
     <div>
-      <div className="w-full overflow-auto rounded border border-gray-300">
+      <div className="w-full overflow-auto rounded ">
         <table className="min-w-full text-sm ">
-          <thead className="bg-gray-100 text-gray-800">
+          <thead className="text-otl-gray">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header, idx) => (
@@ -107,11 +119,19 @@ function LiveStockTable() {
             ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className="border-t">
+            {table.getRowModel().rows.map((row, index) => (
+              <tr
+                key={row.id}
+                className={cn(
+                  "border-t",
+                  index % 2 === 0 ? "bg-otl-sub" : "bg-white"
+                )}
+              >
                 {row.getVisibleCells().map((cell, idx) => (
                   <td
-                    className={idx === 0 ? "px-4 py-2" : "px-4 py-2 text-right"}
+                    className={cn(
+                      idx === 0 ? "px-4 py-2" : "px-4 py-2 text-right"
+                    )}
                     key={cell.id}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}

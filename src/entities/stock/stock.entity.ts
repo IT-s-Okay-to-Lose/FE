@@ -11,6 +11,7 @@ export interface StockPortfolio {
 // 실시간 차트에 쓰이는 시세 정보
 export interface MarketStock {
   id: number;
+  imageUrl: string;
   name: string;
   code: string;
   currentPrice: number;
