@@ -9,11 +9,15 @@ import { useMemo, useState } from "react";
 import type { MarketStock } from "@/entities/stock/stock.entity";
 import { mockStockData } from "@/entities/stock/stock.mock";
 import Typography from "@/shared/components/atoms/Typography";
+import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
+import { useNavigate } from "react-router-dom";
 
 const STOCK_PER_PAGE = 8;
 function LiveStockTable() {
+  const navigation = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const paginatedData = useMemo(() => {
@@ -95,8 +99,8 @@ function LiveStockTable() {
 
   return (
     <div>
-      <div className="w-full overflow-auto rounded ">
-        <table className="min-w-full text-sm ">
+      <div className="w-full overflow-auto rounded">
+        <table className="min-w-full text-sm">
           <thead className="text-otl-gray">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
@@ -119,26 +123,33 @@ function LiveStockTable() {
             ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map((row, index) => (
-              <tr
-                key={row.id}
-                className={cn(
-                  "border-t",
-                  index % 2 === 0 ? "bg-otl-sub" : "bg-white"
-                )}
-              >
-                {row.getVisibleCells().map((cell, idx) => (
-                  <td
-                    className={cn(
-                      idx === 0 ? "px-4 py-2" : "px-4 py-2 text-right"
-                    )}
-                    key={cell.id}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
+            {table.getRowModel().rows.map((row, index) => {
+              const code = row.original.code;
+              return (
+                <tr
+                  key={row.id}
+                  onClick={() => navigation(`${URL.DETAIL}?stock_id=${code}`)}
+                  className={cn(
+                    "border-t border-gray-50 cursor-pointer hover:bg-gray-100",
+                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  )}
+                >
+                  {row.getVisibleCells().map((cell, idx) => (
+                    <td
+                      className={cn(
+                        idx === 0 ? "px-4 py-2" : "px-4 py-2 text-right"
+                      )}
+                      key={cell.id}
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
