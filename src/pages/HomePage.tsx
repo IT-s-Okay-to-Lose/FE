@@ -23,6 +23,7 @@ function HomePage() {
         <div className="hidden laptop:flex laptop:flex-col laptop:gap-[50px]">
           <MarketIndexSummary />
           <News />
+          <p>test</p>
         </div>
       </div>
     </div>
