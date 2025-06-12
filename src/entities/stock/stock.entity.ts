@@ -12,6 +12,7 @@ export interface StockPortfolio {
 export interface MarketStock {
   id: number;
   name: string;
+  code: string;
   currentPrice: number;
   fluctuationRate: number;
   accumulatedVolume: number;
