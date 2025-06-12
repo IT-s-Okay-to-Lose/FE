@@ -14,7 +14,7 @@ function HomePage() {
 
   return (
     <div className="w-full">
-      <div className="mb-8">
+      <div className="mb-[90px]">
         <Header />
       </div>
       <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
