@@ -24,6 +24,7 @@ function HomePage() {
           <MarketIndexSummary />
           <News />
         </div>
+        <p>test</p>
       </div>
     </div>
   );
