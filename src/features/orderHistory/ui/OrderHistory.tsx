@@ -35,8 +35,8 @@ function OrderHistory() {
             onChange={setFilterTab}
           />
           <div className="max-h-[111px] overflow-scroll flex flex-col gap-2">
-            {orderData.map((data, index) => (
-              <HistoryRow data={data} key={index} />
+            {orderData.map((data) => (
+              <HistoryRow data={data} key={data.id} />
             ))}
           </div>
         </Card.Content>

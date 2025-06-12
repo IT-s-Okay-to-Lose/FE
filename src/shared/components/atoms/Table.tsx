@@ -9,23 +9,23 @@ function Table() {
       name: "종목",
     },
     {
-      prop: "quantity",
-      name: "보유수량",
-    },
-    {
-      prop: "price",
-      name: "매수금액/평가금액",
+      prop: "currentPrice",
+      name: "현재가",
     },
     {
       prop: "fluctuationRate",
       name: "등락률",
     },
+    {
+      prop: "accumulatedVolume",
+      name: "누적거래량",
+    },
   ];
 
-  // averagePrice, evaluatedPrice를 문자열로 합쳐서 price 필드를 만드는 데이터 가공
   const dataWithPriceField = mockStockData.map((stock) => ({
     ...stock,
-    price: `${formatNumber(stock.averagePrice)} / ${formatNumber(stock.evaluatedPrice)}`,
+    currentPrice: `${formatNumber(stock.currentPrice)}원`,
+    fluctuationRate: `${stock.fluctuationRate}%`,
   }));
 
   return (

@@ -6,6 +6,7 @@ export type OrderStatus = "대기" | "완료";
 
 // 주문 엔티티
 export interface OrderHistoryItem {
+  id: number;
   date: Date; // ISO Date 객체
   type: OrderType;
   quantity: number;

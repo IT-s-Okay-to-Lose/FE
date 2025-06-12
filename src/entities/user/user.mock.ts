@@ -2,6 +2,7 @@ import type { OrderHistoryItem } from "./user.entity";
 
 export const mockPendingOrderData: OrderHistoryItem[] = [
   {
+    id: 1,
     date: new Date("2025-04-25T11:30:00"),
     type: "sell",
     quantity: 50,
@@ -9,6 +10,7 @@ export const mockPendingOrderData: OrderHistoryItem[] = [
     status: "대기",
   },
   {
+    id: 2,
     date: new Date("2025-04-27T08:45:00"),
     type: "buy",
     quantity: 30,
@@ -19,6 +21,7 @@ export const mockPendingOrderData: OrderHistoryItem[] = [
 
 export const mockCompletedOrderData: OrderHistoryItem[] = [
   {
+    id: 3,
     date: new Date("2025-04-24T10:00:00"),
     type: "buy",
     quantity: 100,
@@ -26,6 +29,7 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
     status: "완료",
   },
   {
+    id: 4,
     date: new Date("2025-04-26T09:15:00"),
     type: "buy",
     quantity: 20,
@@ -33,6 +37,7 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
     status: "완료",
   },
   {
+    id: 5,
     date: new Date("2025-04-26T14:50:00"),
     type: "sell",
     quantity: 80,

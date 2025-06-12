@@ -1,5 +1,6 @@
 // 모의투자 보유 주식 정보
 export interface StockPortfolio {
+  id: number;
   name: string;
   quantity: number;
   averagePrice: number;
@@ -9,6 +10,7 @@ export interface StockPortfolio {
 
 // 실시간 차트에 쓰이는 시세 정보
 export interface MarketStock {
+  id: number;
   name: string;
   currentPrice: number;
   fluctuationRate: number;
