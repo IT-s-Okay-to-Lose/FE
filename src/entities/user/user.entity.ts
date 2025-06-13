@@ -31,3 +31,6 @@ export interface OrderHistoryItem {
   pricePerStock: number;
   status: OrderStatus;
 }
+
+// 수익 데이터: [시간, 수익]
+export type ProfitData = [string, number];

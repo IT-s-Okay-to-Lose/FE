@@ -26,3 +26,5 @@ export type CandleData = [string, number, number, number, number];
 
 // 거래량 데이터: [시간, 거래량]
 export type VolumeData = [string, number];
+
+
