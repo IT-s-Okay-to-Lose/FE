@@ -1,7 +1,9 @@
 // 모의투자 보유 주식 정보
 export interface StockPortfolio {
   id: number;
+  imageUrl: string;
   name: string;
+  code: string;
   quantity: number;
   averagePrice: number;
   evaluatedPrice: number;

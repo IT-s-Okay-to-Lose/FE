@@ -2,7 +2,46 @@ import type {
   CandleData,
   MarketStock,
   VolumeData,
+  StockPortfolio,
 } from "@/entities/stock/stock.entity";
+
+// 내 모의투자 현황 주식 목데이터
+export const mockPortfolioData: StockPortfolio[] = [
+  {
+    id: 1,
+    name: "삼성전자",
+    code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+    quantity: 13,
+    averagePrice: 650000,
+    evaluatedPrice: 720000,
+    fluctuationRate: 10.77,
+  },
+  {
+    id: 2,
+    name: "SK하이닉스",
+    code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+    quantity: 5,
+    averagePrice: 500000,
+    evaluatedPrice: 530000,
+    fluctuationRate: 6.0,
+  },
+  {
+    id: 3,
+    name: "LG화학",
+    code: "0001",
+    imageUrl:
+      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+
+    quantity: 8,
+    averagePrice: 210000,
+    evaluatedPrice: 200000,
+    fluctuationRate: -4.76,
+  },
+];
 
 // 메인페이지 실시간 차트 주식 목데이터
 export const mockStockData: MarketStock[] = [
