@@ -6,10 +6,10 @@ import {
 } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-import Typography from "@/shared/components/atoms/Typography";
-import URL from "@/shared/constants/URL";
 import type { StockPortfolio } from "@/entities/stock/stock.entity";
 import { mockPortfolioData } from "@/entities/stock/stock.mock";
+import Typography from "@/shared/components/atoms/Typography";
+import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
 import { useNavigate } from "react-router-dom";
@@ -79,7 +79,7 @@ function InvestmentStatusTable() {
         header: "등락률",
         cell: (info) => {
           const fluctuationRate = info.getValue() as number;
-          return <Typography.P1>{`${fluctuationRate}`}</Typography.P1>;
+          return <Typography.P1>{`${fluctuationRate}%`}</Typography.P1>;
         },
       },
     ],
