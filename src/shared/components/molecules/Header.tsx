@@ -1,3 +1,4 @@
+import { mockUserInfo } from "@/entities/user/user.mock";
 import URL from "@/shared/constants/URL";
 import { Link, useLocation } from "react-router-dom";
 import Typography from "../atoms/Typography";
@@ -42,7 +43,9 @@ function Header() {
         </div>
 
         <div className="w-[155px] flex justify-end">
-          <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray"></div>
+          <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray overflow-hidden">
+            <img src={mockUserInfo.imageUrl} />
+          </div>
         </div>
       </div>
     </div>
