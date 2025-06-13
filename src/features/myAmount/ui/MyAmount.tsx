@@ -1,6 +1,8 @@
-import Typography from "@/shared/components/atoms/Typography";
-import Card from "@/shared/components/atoms/Card";
+import { mockUserBalanceSummary } from "@/entities/user/user.mock";
 import Button from "@/shared/components/atoms/Button";
+import Card from "@/shared/components/atoms/Card";
+import Typography from "@/shared/components/atoms/Typography";
+import { formatNumber } from "@/shared/utils/format";
 
 function MyAmount() {
   return (
@@ -15,7 +17,9 @@ function MyAmount() {
             <Card.Header>주문 가능 금액</Card.Header>
           </Typography.Head3>
           <Typography.SubTitle1>
-            <Card.Content>100,000,000원</Card.Content>
+            <Card.Content>
+              {formatNumber(mockUserBalanceSummary.availableAmount)}원
+            </Card.Content>
           </Typography.SubTitle1>
         </Card>
         <Card className="w-full gap-6">
@@ -23,7 +27,9 @@ function MyAmount() {
             <Card.Header>현재 투자 중인 금액</Card.Header>
           </Typography.Head3>
           <Typography.SubTitle1>
-            <Card.Content>50,000,000원</Card.Content>
+            <Card.Content>
+              {formatNumber(mockUserBalanceSummary.investedAmount)}원
+            </Card.Content>
           </Typography.SubTitle1>
         </Card>
       </div>

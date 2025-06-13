@@ -1,4 +1,26 @@
-import type { OrderHistoryItem } from "./user.entity";
+import type {
+  OrderHistoryItem,
+  UserBalanceSummary,
+  UserInfo,
+  UserPortfolioSummary,
+} from "./user.entity";
+
+export const mockUserInfo: UserInfo = {
+  name: "강민재",
+  imageUrl:
+    "https://firebasestorage.googleapis.com/v0/b/blog-2b12b.appspot.com/o/profile_sponge.png?alt=media&token=63e9e64d-3c8f-4ee7-9b75-18095ca6af16",
+  joinDate: new Date("2025-04-25T11:30:00"),
+};
+
+export const mockUserPortfolioSummary: UserPortfolioSummary = {
+  totalAsset: 250234750,
+  returnRate: -120.8,
+};
+
+export const mockUserBalanceSummary: UserBalanceSummary = {
+  availableAmount: 20000000,
+  investedAmount: 350000,
+};
 
 export const mockPendingOrderData: OrderHistoryItem[] = [
   {
