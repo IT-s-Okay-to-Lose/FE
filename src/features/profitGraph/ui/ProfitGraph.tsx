@@ -1,6 +1,6 @@
 import Typography from "@/shared/components/atoms/Typography";
 import RoundTab from "@/shared/components/molecules/RoundTab";
-import { mockProfitData } from "@/entities/stock/stock.mock";
+import { mockProfitData } from "@/entities/user/user.mock";
 
 import { useState } from "react";
 import ReactECharts from "echarts-for-react";

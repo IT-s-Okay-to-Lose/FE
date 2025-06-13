@@ -3,6 +3,7 @@ import type {
   UserBalanceSummary,
   UserInfo,
   UserPortfolioSummary,
+  ProfitData,
 } from "./user.entity";
 
 export const mockUserInfo: UserInfo = {
@@ -66,4 +67,20 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
     pricePerStock: 14000,
     status: "완료",
   },
+];
+
+// 투자 모아보기 페이지 수익 그래프 목데이터
+export const mockProfitData: ProfitData[] = [
+  ["2023-10-01T09:00:00", 12000],
+  ["2023-10-01T09:05:00", 79009],
+  ["2023-10-01T09:10:00", 32501],
+  ["2023-10-01T09:15:00", 17807],
+  ["2023-10-01T09:20:00", 67802],
+  ["2023-10-01T09:25:00", -8936],
+  ["2023-10-01T09:30:00", 16407],
+  ["2023-10-01T09:35:00", -5033],
+  ["2023-10-01T09:40:00", 61320],
+  ["2023-10-01T09:45:00", 20980],
+  ["2023-10-01T09:50:00", 49408],
+  ["2023-10-01T09:55:00", 91007],
 ];
