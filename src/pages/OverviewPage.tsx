@@ -4,8 +4,7 @@ import useMediaQuery from "@/shared/hooks/useMediaQuery";
 import UserInfo from "@/features/userInfo/ui/UserInfo";
 import InvestmentStatus from "@/features/investmentStatus/ui/InvestmentStatus";
 import ProfitGraph from "@/features/profitGraph/ui/ProfitGraph";
-import AvailableAmount from "@/features/myAmount/ui/AvailableAmount";
-import InvestmentAmount from "@/features/myAmount/ui/InvestmentAmount";
+import MyAmount from "@/features/myAmount/ui/MyAmount";
 
 function OverviewPage() {
   const isTabletOrAbove = useMediaQuery();
@@ -26,10 +25,7 @@ function OverviewPage() {
             <InvestmentStatus />
             <ProfitGraph />
           </div>
-          <div className="flex flex-col gap-10">
-            <AvailableAmount />
-            <InvestmentAmount />
-          </div>
+          <MyAmount />
         </div>
       </div>
     </div>

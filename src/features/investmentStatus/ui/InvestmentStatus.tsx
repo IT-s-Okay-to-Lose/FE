@@ -11,6 +11,7 @@ import URL from "@/shared/constants/URL";
 import type { StockPortfolio } from "@/entities/stock/stock.entity";
 import { mockPortfolioData } from "@/entities/stock/stock.mock";
 import cn from "@/shared/utils/cn";
+import { formatNumber } from "@/shared/utils/format";
 import { useNavigate } from "react-router-dom";
 
 function InvestmentStatus() {
@@ -58,7 +59,9 @@ function InvestmentStatusTable() {
         header: "매수금액",
         cell: (info) => {
           const averagePrice = info.getValue() as number;
-          return <Typography.P1>{`${averagePrice}`}</Typography.P1>;
+          return (
+            <Typography.P1>{`${formatNumber(averagePrice)}원`}</Typography.P1>
+          );
         },
       },
       {
@@ -66,7 +69,9 @@ function InvestmentStatusTable() {
         header: "평가금액",
         cell: (info) => {
           const evaluatedPrice = info.getValue() as number;
-          return <Typography.P1>{`${evaluatedPrice}`}</Typography.P1>;
+          return (
+            <Typography.P1>{`${formatNumber(evaluatedPrice)}원`}</Typography.P1>
+          );
         },
       },
       {
