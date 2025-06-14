@@ -47,7 +47,7 @@ export const mockProfitData: ProfitData[] = [
 ];
 
 // ---------------------------------------------------------------
-// [detail page] 대기 주문 리스트
+// [detail page] 주문 내역: 대기 주문 리스트
 export const mockPendingOrderData: OrderHistoryItem[] = [
   {
     id: 1,
@@ -67,7 +67,7 @@ export const mockPendingOrderData: OrderHistoryItem[] = [
   },
 ];
 
-// [detail page] 완료 주문 리스트
+// [detail page] 주문 내역: 완료 주문 리스트
 export const mockCompletedOrderData: OrderHistoryItem[] = [
   {
     id: 3,
@@ -94,6 +94,14 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
     status: "완료",
   },
 ];
+
+// [detail page] 내 주식 엔티티
+export const mockMyStockData = {
+  totalAmount: 538000,
+  quantity: 100,
+  charge: 164,
+  totalProfit: -19243,
+};
 
 // ---------------------------------------------------------------
 // [dashboard page] 대시보드 상단 원금, 총 수익, ROI

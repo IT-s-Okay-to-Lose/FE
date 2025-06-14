@@ -38,6 +38,14 @@ export interface OrderHistoryItem {
   status: OrderStatus;
 }
 
+// [detail page] 내 주식 엔티티
+export interface MyStock {
+  totalAmount: number; // 총 금액
+  quantity: number; // 수량
+  charge: number; // 수수료
+  totalProfit: number; // 총 수익
+}
+
 // ---------------------------------------------------------------
 // [dashboard page] 대시보드 상단 원금, 총 수익, ROI
 export interface UserInvestmentSummary {

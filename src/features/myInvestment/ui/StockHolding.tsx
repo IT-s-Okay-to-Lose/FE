@@ -1,7 +1,7 @@
-import Typography from "@/shared/components/atoms/Typography";
+import { mockStockHoldingData } from "@/entities/user/user.mock";
 import Card from "@/shared/components/atoms/Card";
+import Typography from "@/shared/components/atoms/Typography";
 import PieChart from "./PieChart";
-import { mockStockHoldingData } from "@/entities/stock/stock.mock";
 
 function StockHolding() {
   return (
