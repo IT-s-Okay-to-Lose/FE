@@ -27,4 +27,9 @@ export type CandleData = [string, number, number, number, number];
 // 거래량 데이터: [시간, 거래량]
 export type VolumeData = [string, number];
 
-
+// 파이 차트용 보유 종목 정보
+export interface StockHoldingData {
+  stockName: string;
+  percent: number;
+  color: string;
+}

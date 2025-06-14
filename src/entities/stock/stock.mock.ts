@@ -3,6 +3,7 @@ import type {
   MarketStock,
   VolumeData,
   StockPortfolio,
+  StockHoldingData,
 } from "@/entities/stock/stock.entity";
 
 // 내 모의투자 현황 주식 목데이터
@@ -370,3 +371,20 @@ export const mockVolumeData: VolumeData[] = [
   ["2023-10-01T13:05:00", 9251],
 ];
 
+export const mockStockHoldingData: StockHoldingData[] = [
+  {
+    stockName: "엔비디아",
+    percent: 48.8,
+    color: "#FF6384",
+  },
+  {
+    stockName: "삼성전자",
+    percent: 30.2,
+    color: "#36A2EB",
+  },
+  {
+    stockName: "하이닉스",
+    percent: 21,
+    color: "#FFCE56",
+  },
+];
