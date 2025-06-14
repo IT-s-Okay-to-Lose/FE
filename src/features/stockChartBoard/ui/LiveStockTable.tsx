@@ -5,36 +5,62 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import type { MarketStock } from "@/entities/stock/stock.entity";
-import { mockStockData } from "@/entities/stock/stock.mock";
+import type {
+  DynamicStockData,
+  StaticStockMeta,
+  Stock,
+} from "@/entities/stock/stock.entity";
+import {
+  mockDynamicStockData,
+  mockStaticStockMeta,
+} from "@/entities/stock/stock.mock";
 import Typography from "@/shared/components/atoms/Typography";
 import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
-import { useNavigate } from "react-router-dom";
 
-const STOCK_PER_PAGE = 8;
+const STOCK_PER_PAGE = 5;
+
+function mergeStockData(
+  meta: StaticStockMeta[],
+  dynamic: DynamicStockData[]
+): Stock[] {
+  const map = new Map<number, DynamicStockData>(dynamic.map((d) => [d.id, d]));
+  return meta
+    .filter((m) => map.has(m.id))
+    .map((m) => ({
+      ...m,
+      ...map.get(m.id)!,
+    }));
+}
+
 function LiveStockTable() {
   const navigation = useNavigate();
-
   const [currentPage, setCurrentPage] = useState(1);
 
+  // 병합 및 정렬된 데이터 -> 누적거래량을 기준으로 정렬
+  const mergedAndSorted = useMemo(() => {
+    const merged = mergeStockData(mockStaticStockMeta, mockDynamicStockData);
+    return merged.sort((a, b) => b.accumulatedVolume - a.accumulatedVolume);
+  }, []);
+
+  // 테이블 페이지네이션
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * STOCK_PER_PAGE;
-    return mockStockData.slice(startIndex, startIndex + STOCK_PER_PAGE);
-  }, [currentPage]);
+    return mergedAndSorted.slice(startIndex, startIndex + STOCK_PER_PAGE);
+  }, [currentPage, mergedAndSorted]);
 
-  const totalPages = Math.ceil(mockStockData.length / STOCK_PER_PAGE);
+  const totalPages = Math.ceil(mergedAndSorted.length / STOCK_PER_PAGE);
 
-  const columns = useMemo<ColumnDef<MarketStock>[]>(
+  const columns = useMemo<ColumnDef<Stock>[]>(
     () => [
       {
         accessorKey: "name",
         header: "종목",
         cell: (info) => {
           const { name, imageUrl } = info.row.original;
-
           return (
             <div className="flex gap-2 items-center">
               <div className="overflow-hidden w-[25px] h-[25px] rounded-full">
@@ -48,13 +74,11 @@ function LiveStockTable() {
       {
         accessorKey: "currentPrice",
         header: "현재가",
-        cell: (info) => {
-          return (
-            <div>
-              <Typography.P1>{`${formatNumber(info.getValue() as number)}원`}</Typography.P1>
-            </div>
-          );
-        },
+        cell: (info) => (
+          <Typography.P1>
+            {`${formatNumber(info.getValue() as number)}원`}
+          </Typography.P1>
+        ),
       },
       {
         accessorKey: "fluctuationRate",
@@ -82,10 +106,11 @@ function LiveStockTable() {
       {
         accessorKey: "accumulatedVolume",
         header: "누적거래량",
-        cell: (info) => {
-          const quantity = info.getValue() as number;
-          return <Typography.P1>{`${quantity}주`}</Typography.P1>;
-        },
+        cell: (info) => (
+          <Typography.P1>{`${formatNumber(
+            info.getValue() as number
+          )}주`}</Typography.P1>
+        ),
       },
     ],
     []

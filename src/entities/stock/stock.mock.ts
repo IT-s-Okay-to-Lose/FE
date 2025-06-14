@@ -1,8 +1,9 @@
 import type {
   CandleData,
-  MarketStock,
+  DynamicStockData,
   MarketStockInfo,
   MarketStockPriceInfo,
+  StaticStockMeta,
   StockPortfolio,
   VolumeData,
 } from "@/entities/stock/stock.entity";
@@ -47,16 +48,14 @@ export const mockPortfolioData: StockPortfolio[] = [
 
 // ---------------------------------------------------------------
 //  [main page] 실시간 차트 주식 목데이터
-export const mockStockData: MarketStock[] = [
+
+export const mockStaticStockMeta: StaticStockMeta[] = [
   {
     id: 1,
     name: "삼성전자",
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-    currentPrice: 650000,
-    accumulatedVolume: 720000,
-    fluctuationRate: 10.77,
   },
   {
     id: 2,
@@ -64,9 +63,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-    currentPrice: 500000,
-    accumulatedVolume: 530000,
-    fluctuationRate: 6.0,
   },
   {
     id: 3,
@@ -74,10 +70,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 2100000,
-    accumulatedVolume: 2000000,
-    fluctuationRate: -4.76,
   },
   {
     id: 4,
@@ -85,10 +77,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 1200000,
-    accumulatedVolume: 1300000,
-    fluctuationRate: 8.33,
   },
   {
     id: 5,
@@ -96,10 +84,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 600000,
-    accumulatedVolume: 550000,
-    fluctuationRate: -8.33,
   },
   {
     id: 6,
@@ -107,9 +91,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-    currentPrice: 400000,
-    accumulatedVolume: 450000,
-    fluctuationRate: 12.5,
   },
   {
     id: 7,
@@ -117,9 +98,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-    currentPrice: 700000,
-    accumulatedVolume: 665000,
-    fluctuationRate: -5.0,
   },
   {
     id: 8,
@@ -127,9 +105,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-    currentPrice: 900000,
-    accumulatedVolume: 990000,
-    fluctuationRate: 10.0,
   },
   {
     id: 9,
@@ -137,10 +112,6 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 800000,
-    accumulatedVolume: 820000,
-    fluctuationRate: 2.5,
   },
   {
     id: 10,
@@ -148,120 +119,72 @@ export const mockStockData: MarketStock[] = [
     code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+  },
+];
 
-    currentPrice: 950000,
-    accumulatedVolume: 910000,
-    fluctuationRate: -4.21,
+export const mockDynamicStockData: DynamicStockData[] = [
+  {
+    id: 1,
+    currentPrice: 650000,
+    accumulatedVolume: 720000,
+    fluctuationRate: 10.77,
   },
   {
-    id: 11,
-    name: "한화솔루션",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 1100000,
-    accumulatedVolume: 1230000,
-    fluctuationRate: 11.82,
+    id: 2,
+    currentPrice: 500000,
+    accumulatedVolume: 530000,
+    fluctuationRate: 6.0,
   },
   {
-    id: 12,
-    name: "LG전자",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 720000,
-    accumulatedVolume: 690000,
-    fluctuationRate: -4.17,
-  },
-  {
-    id: 13,
-    name: "KT",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 640000,
-    accumulatedVolume: 660000,
-    fluctuationRate: 3.12,
-  },
-  {
-    id: 14,
-    name: "SK텔레콤",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 1000000,
-    accumulatedVolume: 1020000,
-    fluctuationRate: 2.0,
-  },
-  {
-    id: 15,
-    name: "셀트리온",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 1500000,
-    accumulatedVolume: 1450000,
-    fluctuationRate: -3.33,
-  },
-  {
-    id: 16,
-    name: "하나금융지주",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 400000,
-    accumulatedVolume: 420000,
-    fluctuationRate: 5.0,
-  },
-  {
-    id: 17,
-    name: "신한지주",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 390000,
-    accumulatedVolume: 410000,
-    fluctuationRate: 5.13,
-  },
-  {
-    id: 18,
-    name: "엔씨소프트",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
-
-    currentPrice: 1800000,
-    accumulatedVolume: 1700000,
-    fluctuationRate: -5.56,
-  },
-  {
-    id: 19,
-    name: "크래프톤",
-    code: "0001",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+    id: 3,
 
     currentPrice: 2100000,
     accumulatedVolume: 2000000,
     fluctuationRate: -4.76,
   },
   {
-    id: 20,
-    code: "0001",
-    name: "두산에너빌리티",
-    imageUrl:
-      "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+    id: 4,
 
-    currentPrice: 850000,
-    accumulatedVolume: 930000,
-    fluctuationRate: 9.41,
+    currentPrice: 1200000,
+    accumulatedVolume: 1300000,
+    fluctuationRate: 8.33,
+  },
+  {
+    id: 5,
+
+    currentPrice: 600000,
+    accumulatedVolume: 550000,
+    fluctuationRate: -8.33,
+  },
+  {
+    id: 6,
+    currentPrice: 400000,
+    accumulatedVolume: 450000,
+    fluctuationRate: 12.5,
+  },
+  {
+    id: 7,
+    currentPrice: 700000,
+    accumulatedVolume: 665000,
+    fluctuationRate: -5.0,
+  },
+  {
+    id: 8,
+    currentPrice: 900000,
+    accumulatedVolume: 990000,
+    fluctuationRate: 10.0,
+  },
+  {
+    id: 9,
+    currentPrice: 800000,
+    accumulatedVolume: 820000,
+    fluctuationRate: 2.5,
+  },
+  {
+    id: 10,
+    currentPrice: 950000,
+    accumulatedVolume: 910000,
+    fluctuationRate: -4.21,
   },
 ];
 
