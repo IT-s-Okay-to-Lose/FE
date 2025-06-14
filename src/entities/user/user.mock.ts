@@ -4,6 +4,9 @@ import type {
   UserInfo,
   UserPortfolioSummary,
   ProfitData,
+  UserInvestmentSummary,
+  RealizedProfitSummary,
+  RealizedProfitDetail,
 } from "./user.entity";
 
 export const mockUserInfo: UserInfo = {
@@ -83,4 +86,50 @@ export const mockProfitData: ProfitData[] = [
   ["2023-10-01T09:45:00", 20980],
   ["2023-10-01T09:50:00", 49408],
   ["2023-10-01T09:55:00", 91007],
+];
+
+// 대시보드 상단 원금, 총 수익 목데이터
+export const mockUserInvestmentSummary: UserInvestmentSummary = {
+  totalCash: 10000000000,
+  totalProfit: 2000000,
+  roi: 7.41,
+};
+
+export const mockRealizedProfitSummary: RealizedProfitSummary = {
+  totalIncome: 50000,
+  dividendIncome: 25000,
+  saleIncome: 25000,
+};
+
+export const mockRealizedProfitDetail: RealizedProfitDetail[] = [
+  {
+    date: "2025-06-28",
+    items: [
+      {
+        stockName: "삼성전자",
+        type: "판매수익",
+        amount: 14200,
+      },
+      {
+        stockName: "삼성전자",
+        type: "배당금",
+        amount: 5000,
+      },
+    ],
+  },
+  {
+    date: "2025-06-28",
+    items: [
+      {
+        stockName: "하이닉스",
+        type: "판매수익",
+        amount: 20000,
+      },
+      {
+        stockName: "삼성전자",
+        type: "배당금",
+        amount: 3000,
+      },
+    ],
+  },
 ];

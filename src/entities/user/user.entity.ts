@@ -34,3 +34,28 @@ export interface OrderHistoryItem {
 
 // 수익 데이터: [시간, 수익]
 export type ProfitData = [string, number];
+
+// 대시보드 상단 원금, 총 수익, ROI
+export interface UserInvestmentSummary {
+  totalCash: number;
+  totalProfit: number;
+  roi: number;
+}
+
+// 대시보드 실현 수익 요약
+export interface RealizedProfitSummary {
+  totalIncome: number;
+  dividendIncome: number;
+  saleIncome: number;
+}
+
+// 대시보드 실현 수익 상세
+export interface RealizedProfitItem {
+  stockName: string;
+  type: "판매수익" | "배당금";
+  amount: number;
+}
+export interface RealizedProfitDetail {
+  date: string; 
+  items: RealizedProfitItem[];
+}
