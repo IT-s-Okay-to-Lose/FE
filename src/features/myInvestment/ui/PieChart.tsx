@@ -1,5 +1,5 @@
+import { mockStockHoldingData } from "@/entities/user/user.mock";
 import ReactECharts from "echarts-for-react";
-import { mockStockHoldingData } from "@/entities/stock/stock.mock";
 
 function PieChart() {
   const chartData = mockStockHoldingData.map((item) => ({
