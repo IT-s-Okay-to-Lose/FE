@@ -23,7 +23,7 @@ export type ProfitData = [string, number];
 // ---------------------------------------------------------------
 
 // 주문 타입: 구매 or 판매
-export type OrderType = "buy" | "sell";
+export type OrderType = "구매" | "판매";
 
 // 주문 상태: 대기 or 완료
 export type OrderStatus = "대기" | "완료";
