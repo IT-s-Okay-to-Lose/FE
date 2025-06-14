@@ -3,6 +3,7 @@ import type {
   ProfitData,
   RealizedProfitDetail,
   RealizedProfitSummary,
+  StockHoldingData,
   UserBalanceSummary,
   UserInfo,
   UserInvestmentSummary,
@@ -17,7 +18,7 @@ export const mockUserInfo: UserInfo = {
   joinDate: new Date("2025-04-25T11:30:00"),
 };
 
-// [overview page] 유저 정보 카드
+// [overview page] 유저 프로필 카드 옆 잔액, 수익률 데이터
 export const mockUserPortfolioSummary: UserPortfolioSummary = {
   totalAsset: 250234750,
   returnRate: -120.8,
@@ -95,14 +96,14 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
 ];
 
 // ---------------------------------------------------------------
-// [dashboard page] 상단 원금, 총 수익 목데이터
+// [dashboard page] 대시보드 상단 원금, 총 수익, ROI
 export const mockUserInvestmentSummary: UserInvestmentSummary = {
   totalCash: 10000000000,
   totalProfit: 2000000,
   roi: 7.41,
 };
 
-// [dashboard page] 실현 수익 데이터
+// [dashboard page] 실현 수익 요약 데이터
 export const mockRealizedProfitSummary: RealizedProfitSummary = {
   totalIncome: 50000,
   dividendIncome: 25000,
@@ -140,5 +141,24 @@ export const mockRealizedProfitDetail: RealizedProfitDetail[] = [
         amount: 3000,
       },
     ],
+  },
+];
+
+// [dashboard page] 보유 종목 파이 차트 데이터
+export const mockStockHoldingData: StockHoldingData[] = [
+  {
+    stockName: "엔비디아",
+    percent: 48.8,
+    color: "#FF6384",
+  },
+  {
+    stockName: "삼성전자",
+    percent: 30.2,
+    color: "#36A2EB",
+  },
+  {
+    stockName: "하이닉스",
+    percent: 21,
+    color: "#FFCE56",
   },
 ];

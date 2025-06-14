@@ -1,12 +1,11 @@
 import type {
   CandleData,
   MarketStock,
-  VolumeData,
   StockPortfolio,
-  StockHoldingData,
+  VolumeData,
 } from "@/entities/stock/stock.entity";
 
-// 내 모의투자 현황 주식 목데이터
+// [overview page] 내 모의투자 현황 주식 목데이터
 export const mockPortfolioData: StockPortfolio[] = [
   {
     id: 1,
@@ -44,7 +43,8 @@ export const mockPortfolioData: StockPortfolio[] = [
   },
 ];
 
-// 메인페이지 실시간 차트 주식 목데이터
+// ---------------------------------------------------------------
+//  [main page] 실시간 차트 주식 목데이터
 export const mockStockData: MarketStock[] = [
   {
     id: 1,
@@ -263,7 +263,8 @@ export const mockStockData: MarketStock[] = [
   },
 ];
 
-// 차트 상세 페이지 그래프 캔들 목데이터
+// ---------------------------------------------------------------
+// [detail page] 그래프 캔들 목데이터
 export const mockCandleData: CandleData[] = [
   ["2023-10-01T09:00:00", 101.55, 99.83, 99.29, 103.04],
   ["2023-10-01T09:05:00", 100.8, 98.24, 96.47, 101.65],
@@ -317,7 +318,7 @@ export const mockCandleData: CandleData[] = [
   ["2023-10-01T13:05:00", 102.39, 104.55, 102.32, 105.42],
 ];
 
-// 차트 상세 페이지 그래프 거래량 목데이터
+// [detail page] 그래프 거래량 목데이터
 export const mockVolumeData: VolumeData[] = [
   ["2023-10-01T09:00:00", 4238],
   ["2023-10-01T09:05:00", 7909],
@@ -369,22 +370,4 @@ export const mockVolumeData: VolumeData[] = [
   ["2023-10-01T12:55:00", 6757],
   ["2023-10-01T13:00:00", 2859],
   ["2023-10-01T13:05:00", 9251],
-];
-
-export const mockStockHoldingData: StockHoldingData[] = [
-  {
-    stockName: "엔비디아",
-    percent: 48.8,
-    color: "#FF6384",
-  },
-  {
-    stockName: "삼성전자",
-    percent: 30.2,
-    color: "#36A2EB",
-  },
-  {
-    stockName: "하이닉스",
-    percent: 21,
-    color: "#FFCE56",
-  },
 ];

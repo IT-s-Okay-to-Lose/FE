@@ -1,4 +1,4 @@
-// 모의투자 보유 주식 정보
+// [overview page] 내 모의투자 현황 주식
 export interface StockPortfolio {
   id: number;
   imageUrl: string;
@@ -10,7 +10,8 @@ export interface StockPortfolio {
   fluctuationRate: number;
 }
 
-// 실시간 차트에 쓰이는 시세 정보
+// ---------------------------------------------------------------
+//  [main page] 실시간 차트 주식
 export interface MarketStock {
   id: number;
   imageUrl: string;
@@ -21,15 +22,9 @@ export interface MarketStock {
   accumulatedVolume: number;
 }
 
-// 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
+// ---------------------------------------------------------------
+// [detail page] 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
 export type CandleData = [string, number, number, number, number];
 
-// 거래량 데이터: [시간, 거래량]
+// [detail page] 거래량 데이터: [시간, 거래량]
 export type VolumeData = [string, number];
-
-// 파이 차트용 보유 종목 정보
-export interface StockHoldingData {
-  stockName: string;
-  percent: number;
-  color: string;
-}
