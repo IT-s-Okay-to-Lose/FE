@@ -1,6 +1,7 @@
 import type {
   CandleData,
   MarketStock,
+  MarketStockInfo,
   StockPortfolio,
   VolumeData,
 } from "@/entities/stock/stock.entity";
@@ -264,6 +265,18 @@ export const mockStockData: MarketStock[] = [
 ];
 
 // ---------------------------------------------------------------
+// [detail page] 주식 상세 정보
+export const mockStockDetailData: MarketStockInfo = {
+  id: 1,
+  name: "삼성전자",
+  code: "0001",
+  imageUrl:
+    "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+  currentPrice: 650000,
+  fluctuationRate: 10.77,
+  priceChange: 1200,
+};
+
 // [detail page] 그래프 캔들 목데이터
 export const mockCandleData: CandleData[] = [
   ["2023-10-01T09:00:00", 101.55, 99.83, 99.29, 103.04],

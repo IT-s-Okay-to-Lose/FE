@@ -14,15 +14,25 @@ export interface StockPortfolio {
 //  [main page] 실시간 차트 주식
 export interface MarketStock {
   id: number;
-  imageUrl: string;
-  name: string;
-  code: string;
-  currentPrice: number;
-  fluctuationRate: number;
-  accumulatedVolume: number;
+  imageUrl: string; // 종목 사진
+  name: string; // 주식 종목 이름
+  code: string; // 주식 종목 코드
+  currentPrice: number; // 현재가
+  fluctuationRate: number; // 등락률
+  accumulatedVolume: number; // 누적거래량
 }
 
 // ---------------------------------------------------------------
+//  [ detail page] 주식 정보
+export interface MarketStockInfo {
+  id: number;
+  imageUrl: string; // 종목 사진
+  name: string; // 주식 종목 이름
+  code: string; // 주식 종목 코드
+  currentPrice: number; // 현재가
+  priceChange: number; // 전일 대비 가격 변화 금액
+  fluctuationRate: number; // 전일 대비 등락률
+}
 // [detail page] 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
 export type CandleData = [string, number, number, number, number];
 
