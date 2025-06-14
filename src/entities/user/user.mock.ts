@@ -1,14 +1,15 @@
 import type {
   OrderHistoryItem,
+  ProfitData,
+  RealizedProfitDetail,
+  RealizedProfitSummary,
   UserBalanceSummary,
   UserInfo,
-  UserPortfolioSummary,
-  ProfitData,
   UserInvestmentSummary,
-  RealizedProfitSummary,
-  RealizedProfitDetail,
+  UserPortfolioSummary,
 } from "./user.entity";
 
+// [overview page] 유저 정보
 export const mockUserInfo: UserInfo = {
   name: "강민재",
   imageUrl:
@@ -16,16 +17,36 @@ export const mockUserInfo: UserInfo = {
   joinDate: new Date("2025-04-25T11:30:00"),
 };
 
+// [overview page] 유저 정보 카드
 export const mockUserPortfolioSummary: UserPortfolioSummary = {
   totalAsset: 250234750,
   returnRate: -120.8,
 };
 
+// [overview page] 나의 금액
 export const mockUserBalanceSummary: UserBalanceSummary = {
   availableAmount: 20000000,
   investedAmount: 350000,
 };
 
+// [overview page] 최근 수익 그래프 목데이터
+export const mockProfitData: ProfitData[] = [
+  ["2023-10-01T09:00:00", 12000],
+  ["2023-10-01T09:05:00", 79009],
+  ["2023-10-01T09:10:00", 32501],
+  ["2023-10-01T09:15:00", 17807],
+  ["2023-10-01T09:20:00", 67802],
+  ["2023-10-01T09:25:00", -8936],
+  ["2023-10-01T09:30:00", 16407],
+  ["2023-10-01T09:35:00", -5033],
+  ["2023-10-01T09:40:00", 61320],
+  ["2023-10-01T09:45:00", 20980],
+  ["2023-10-01T09:50:00", 49408],
+  ["2023-10-01T09:55:00", 91007],
+];
+
+// ---------------------------------------------------------------
+// [detail page] 대기 주문 리스트
 export const mockPendingOrderData: OrderHistoryItem[] = [
   {
     id: 1,
@@ -45,6 +66,7 @@ export const mockPendingOrderData: OrderHistoryItem[] = [
   },
 ];
 
+// [detail page] 완료 주문 리스트
 export const mockCompletedOrderData: OrderHistoryItem[] = [
   {
     id: 3,
@@ -72,35 +94,22 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
   },
 ];
 
-// 투자 모아보기 페이지 수익 그래프 목데이터
-export const mockProfitData: ProfitData[] = [
-  ["2023-10-01T09:00:00", 12000],
-  ["2023-10-01T09:05:00", 79009],
-  ["2023-10-01T09:10:00", 32501],
-  ["2023-10-01T09:15:00", 17807],
-  ["2023-10-01T09:20:00", 67802],
-  ["2023-10-01T09:25:00", -8936],
-  ["2023-10-01T09:30:00", 16407],
-  ["2023-10-01T09:35:00", -5033],
-  ["2023-10-01T09:40:00", 61320],
-  ["2023-10-01T09:45:00", 20980],
-  ["2023-10-01T09:50:00", 49408],
-  ["2023-10-01T09:55:00", 91007],
-];
-
-// 대시보드 상단 원금, 총 수익 목데이터
+// ---------------------------------------------------------------
+// [dashboard page] 상단 원금, 총 수익 목데이터
 export const mockUserInvestmentSummary: UserInvestmentSummary = {
   totalCash: 10000000000,
   totalProfit: 2000000,
   roi: 7.41,
 };
 
+// [dashboard page] 실현 수익 데이터
 export const mockRealizedProfitSummary: RealizedProfitSummary = {
   totalIncome: 50000,
   dividendIncome: 25000,
   saleIncome: 25000,
 };
 
+// [dashboard page] 실현 수익 상세 데이터
 export const mockRealizedProfitDetail: RealizedProfitDetail[] = [
   {
     date: "2025-06-28",
