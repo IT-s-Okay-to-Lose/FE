@@ -2,6 +2,7 @@ import type {
   CandleData,
   MarketStock,
   MarketStockInfo,
+  MarketStockPriceInfo,
   StockPortfolio,
   VolumeData,
 } from "@/entities/stock/stock.entity";
@@ -272,6 +273,10 @@ export const mockStockDetailData: MarketStockInfo = {
   code: "0001",
   imageUrl:
     "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
+};
+
+// [detail page] 주식 가격 정보
+export const mockStockCurrentPrice: MarketStockPriceInfo = {
   currentPrice: 650000,
   fluctuationRate: 10.77,
   priceChange: 1200,
