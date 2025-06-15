@@ -1,4 +1,4 @@
-// 모의투자 보유 주식 정보
+// [overview page] 내 모의투자 현황 주식
 export interface StockPortfolio {
   id: number;
   imageUrl: string;
@@ -10,26 +10,63 @@ export interface StockPortfolio {
   fluctuationRate: number;
 }
 
-// 실시간 차트에 쓰이는 시세 정보
+// ---------------------------------------------------------------
+// [main page] 실시간 차트 주식
+
+export interface Stock {
+  id: number;
+  code: string; // 주식 종목 코드
+  name: string; // 주식 종목 이름
+  imageUrl: string; // 종목 사진
+  currentPrice: number; // 현재가
+  fluctuationRate: number; // 등락률 %
+  accumulatedVolume: number; // 누적거래량
+}
+
+// 변하지 않는 메타데이터
+export interface StaticStockMeta {
+  id: number;
+  code: string; // 주식 종목 코드
+  name: string; // 주식 종목 이름
+  imageUrl: string; // 종목 사진
+}
+
+// 실시간으로 갱신되는 동적 데이터
+export interface DynamicStockData {
+  id: number; // static과 연결
+  currentPrice: number; // 현재가
+  fluctuationRate: number; // 등락률 %
+  accumulatedVolume: number; // 누적거래량
+}
+
 export interface MarketStock {
   id: number;
-  imageUrl: string;
-  name: string;
-  code: string;
-  currentPrice: number;
-  fluctuationRate: number;
-  accumulatedVolume: number;
+  imageUrl: string; // 종목 사진
+  name: string; // 주식 종목 이름
+  code: string; // 주식 종목 코드
+  currentPrice: number; // 현재가
+  fluctuationRate: number; // 등락률
+  accumulatedVolume: number; // 누적거래량
 }
 
-// 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
+// ---------------------------------------------------------------
+// [detail page] 주식 정보
+export interface MarketStockInfo {
+  id: number;
+  imageUrl: string; // 종목 사진
+  name: string; // 주식 종목 이름
+  code: string; // 주식 종목 코드
+}
+
+// [detail page] 주식 가격 정보
+export interface MarketStockPriceInfo {
+  currentPrice: number; // 현재가
+  priceChange: number; // 전일 대비 가격 변화 금액
+  fluctuationRate: number; // 전일 대비 등락률
+}
+
+// [detail page] 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
 export type CandleData = [string, number, number, number, number];
 
-// 거래량 데이터: [시간, 거래량]
+// [detail page] 거래량 데이터: [시간, 거래량]
 export type VolumeData = [string, number];
-
-// 파이 차트용 보유 종목 정보
-export interface StockHoldingData {
-  stockName: string;
-  percent: number;
-  color: string;
-}

@@ -1,28 +1,34 @@
-// 기본 유저 정보
+// [overview page] 유저 정보
 export interface UserInfo {
   name: string;
   imageUrl: string;
   joinDate: Date; // ISO Date 객체
 }
 
-// 유저 프로필 카드 옆 잔액, 수익률 데이터
+// [overview page] 유저 프로필 카드 옆 잔액, 수익률 데이터
 export interface UserPortfolioSummary {
   totalAsset: number; //  250234750
   returnRate: number; // 120.8 (%)
 }
 
+// [overview page] 나의 금액
 export interface UserBalanceSummary {
   availableAmount: number; // 주문 가능 금액
   investedAmount: number; // 현재 투자 중인 금액
 }
 
+// // [overview page] 최근 수익 그래프 데이터: [시간, 수익]
+export type ProfitData = [string, number];
+
+// ---------------------------------------------------------------
+
 // 주문 타입: 구매 or 판매
-export type OrderType = "buy" | "sell";
+export type OrderType = "구매" | "판매";
 
 // 주문 상태: 대기 or 완료
 export type OrderStatus = "대기" | "완료";
 
-// 주문 엔티티
+// [detail page] 주문 엔티티
 export interface OrderHistoryItem {
   id: number;
   date: Date; // ISO Date 객체
@@ -32,30 +38,44 @@ export interface OrderHistoryItem {
   status: OrderStatus;
 }
 
-// 수익 데이터: [시간, 수익]
-export type ProfitData = [string, number];
+// [detail page] 내 주식 엔티티
+export interface MyStock {
+  totalAmount: number; // 총 금액
+  quantity: number; // 수량
+  charge: number; // 수수료
+  totalProfit: number; // 총 수익
+}
 
-// 대시보드 상단 원금, 총 수익, ROI
+// ---------------------------------------------------------------
+// [dashboard page] 대시보드 상단 원금, 총 수익, ROI
 export interface UserInvestmentSummary {
   totalCash: number;
   totalProfit: number;
   roi: number;
 }
 
-// 대시보드 실현 수익 요약
+// [dashboard page] 실현 수익 요약 데이터
 export interface RealizedProfitSummary {
   totalIncome: number;
   dividendIncome: number;
   saleIncome: number;
 }
 
-// 대시보드 실현 수익 상세
+// [dashboard page] 실현 수익 상세 데이터
 export interface RealizedProfitItem {
   stockName: string;
   type: "판매수익" | "배당금";
   amount: number;
 }
+
 export interface RealizedProfitDetail {
-  date: string; 
+  date: string;
   items: RealizedProfitItem[];
+}
+
+// [dashboard page] 보유 종목 파이 차트 데이터
+export interface StockHoldingData {
+  stockName: string;
+  percent: number;
+  color: string;
 }
