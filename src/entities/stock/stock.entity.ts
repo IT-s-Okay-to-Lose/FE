@@ -12,7 +12,6 @@ export interface StockPortfolio {
 
 // ---------------------------------------------------------------
 // [main page] 실시간 차트 주식
-
 export interface Stock {
   id: number;
   code: string; // 주식 종목 코드
@@ -23,7 +22,7 @@ export interface Stock {
   accumulatedVolume: number; // 누적거래량
 }
 
-// 변하지 않는 메타데이터
+// [main page] 실시간 차트 주식 변하지 않는 메타데이터
 export interface StaticStockMeta {
   id: number;
   code: string; // 주식 종목 코드
@@ -31,21 +30,11 @@ export interface StaticStockMeta {
   imageUrl: string; // 종목 사진
 }
 
-// 실시간으로 갱신되는 동적 데이터
+// [main page] 실시간 차트 주식 실시간으로 갱신되는 동적 데이터
 export interface DynamicStockData {
   id: number; // static과 연결
   currentPrice: number; // 현재가
   fluctuationRate: number; // 등락률 %
-  accumulatedVolume: number; // 누적거래량
-}
-
-export interface MarketStock {
-  id: number;
-  imageUrl: string; // 종목 사진
-  name: string; // 주식 종목 이름
-  code: string; // 주식 종목 코드
-  currentPrice: number; // 현재가
-  fluctuationRate: number; // 등락률
   accumulatedVolume: number; // 누적거래량
 }
 
