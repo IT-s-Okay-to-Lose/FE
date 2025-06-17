@@ -1,7 +1,7 @@
 import Button from "@/shared/components/atoms/Button";
 import Card from "@/shared/components/atoms/Card";
-import Input from "@/shared/components/atoms/Input";
 import Typography from "@/shared/components/atoms/Typography";
+import UnitInput from "@/shared/components/atoms/UnitInput";
 import BoxTab from "@/shared/components/molecules/BoxTab";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 import { useState } from "react";
@@ -31,12 +31,12 @@ function SellStock() {
             />
           </div>
           <div className="flex justify-end w-full">
-            <Input className="w-[240px]" />
+            <UnitInput unit="원" className="w-[220px]" />
           </div>
 
           <div className="flex justify-between items-center">
             <Typography.SubTitle2>수량</Typography.SubTitle2>
-            <Input className="w-[240px]" />
+            <UnitInput unit="주" className="w-[220px]" />
           </div>
           <div className="w-full flex justify-end">
             <RoundTab.Small
