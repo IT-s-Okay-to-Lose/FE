@@ -5,6 +5,7 @@ import Card from "@/shared/components/atoms/Card";
 import Input from "@/shared/components/atoms/Input";
 import Select from "@/shared/components/atoms/Select";
 import Typography from "@/shared/components/atoms/Typography";
+import UnitInput from "@/shared/components/atoms/UnitInput";
 import BoxTab from "@/shared/components/molecules/BoxTab";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 
@@ -66,6 +67,7 @@ function TestPage() {
         </div>
       </div>
       <Input placeholder="input" />
+      <UnitInput unit="주" />
 
       <Select>
         <Select.Option key={1} value={"text"}>
