@@ -15,6 +15,7 @@ export function News() {
             id={news.id}
             title={news.title}
             press={news.press}
+            imageUrl={news.imageUrl}
           />
         ))}
       </div>
@@ -22,14 +23,16 @@ export function News() {
   );
 }
 
-function NewsRow({ id, title, press }: News) {
+function NewsRow({ id, title, press, imageUrl }: News) {
   return (
     <div key={id} className="flex gap-3 justify-between">
       <div className="w-[165px]">
         <Typography.P1>{title}</Typography.P1>
         <Typography.P2 className="text-otl-gray">{press}</Typography.P2>
       </div>
-      <div className="w-[60px] h-[60px] bg-otl-sub rounded-md"></div>
+      <div className="w-[60px] h-[60px] rounded-md overflow-hidden size-fit">
+        <img src={imageUrl} className="w-[60px] h-[60px]" />
+      </div>
     </div>
   );
 }
