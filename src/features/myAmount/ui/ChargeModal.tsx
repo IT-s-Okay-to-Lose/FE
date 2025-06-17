@@ -1,7 +1,7 @@
+import Button from "@/shared/components/atoms/Button";
 import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
-import Button from "@/shared/components/atoms/Button";
-import Input from "@/shared/components/atoms/Input";
+import UnitInput from "@/shared/components/atoms/UnitInput";
 
 interface ModalProps {
   onClose: () => void;
@@ -28,7 +28,7 @@ function ChargeModal({ onClose }: ModalProps) {
           </button>
         </Card.Header>
         <Card.Content className="gap-[15px]">
-          <Input className="grow" />
+          <UnitInput unit="원" className="grow" />
           <Typography.Caption className="flex justify-end">
             최대 금액 30,000,000원
           </Typography.Caption>
