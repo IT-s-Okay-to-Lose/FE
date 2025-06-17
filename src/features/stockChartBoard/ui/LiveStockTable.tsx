@@ -21,7 +21,7 @@ import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
 
-const STOCK_PER_PAGE = 5;
+const STOCK_PER_PAGE = 9;
 
 function mergeStockData(
   meta: StaticStockMeta[],
@@ -124,7 +124,7 @@ function LiveStockTable() {
 
   return (
     <div>
-      <div className="w-full overflow-auto rounded">
+      <div className="w-full h-[500px] overflow-auto rounded">
         <table className="min-w-full text-sm">
           <thead className="text-otl-gray">
             {table.getHeaderGroups().map((headerGroup) => (
