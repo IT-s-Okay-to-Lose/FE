@@ -165,7 +165,7 @@ export const mockDynamicStockData: DynamicStockData[] = [
     fluctuationRate: 2.5,
   },
   {
-    stock_code: "0020",
+    stock_code: "0010",
     currentPrice: 950000,
     accumulatedVolume: 910000,
     fluctuationRate: -4.21,

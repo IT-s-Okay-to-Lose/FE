@@ -27,12 +27,14 @@ function mergeStockData(
   meta: StaticStockMeta[],
   dynamic: DynamicStockData[]
 ): Stock[] {
-  const map = new Map<number, DynamicStockData>(dynamic.map((d) => [d.id, d]));
+  const map = new Map<string, DynamicStockData>(
+    dynamic.map((d) => [d.stock_code, d])
+  );
   return meta
-    .filter((m) => map.has(m.id))
+    .filter((m) => map.has(m.stock_code))
     .map((m) => ({
       ...m,
-      ...map.get(m.id)!,
+      ...map.get(m.stock_code)!,
     }));
 }
 
@@ -149,7 +151,7 @@ function LiveStockTable() {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row, index) => {
-              const code = row.original.code;
+              const code = row.original.stock_code;
               return (
                 <tr
                   key={row.id}
