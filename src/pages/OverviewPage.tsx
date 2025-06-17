@@ -1,10 +1,11 @@
+import InvestmentStatus from "@/features/investmentStatus/ui/InvestmentStatus";
+import MyAmount from "@/features/myAmount/ui/MyAmount";
+import ProfitGraph from "@/features/profitGraph/ui/ProfitGraph";
+import UserInfo from "@/features/userInfo/ui/UserInfo";
+import Footer from "@/shared/components/molecules/Footer";
 import Header from "@/shared/components/molecules/Header";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
-import UserInfo from "@/features/userInfo/ui/UserInfo";
-import InvestmentStatus from "@/features/investmentStatus/ui/InvestmentStatus";
-import ProfitGraph from "@/features/profitGraph/ui/ProfitGraph";
-import MyAmount from "@/features/myAmount/ui/MyAmount";
 
 function OverviewPage() {
   const isTabletOrAbove = useMediaQuery();
@@ -28,6 +29,7 @@ function OverviewPage() {
           <MyAmount />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

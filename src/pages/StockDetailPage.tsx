@@ -4,6 +4,7 @@ import StockChart from "@/features/stockChartBoard/ui/StockChart";
 import StockDetail from "@/features/stockDetail/ui/StockDetail";
 import BuyStock from "@/features/stockOrder/ui/BuyStock";
 import SellStock from "@/features/stockOrder/ui/SellStock";
+import Footer from "@/shared/components/molecules/Footer";
 import Header from "@/shared/components/molecules/Header";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
@@ -32,6 +33,7 @@ function StockDetailPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
