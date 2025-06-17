@@ -7,7 +7,9 @@ function Footer() {
         <Typography.SubTitle1>IT{"'"}s Okay to Lose</Typography.SubTitle1>
         <div className="border-b-[1px] border-black/30 my-4" />
         <div className="flex justify-between items-center">
-          <i className="bi bi-github text-2xl" />
+          <a href="https://github.com/IT-s-Okay-to-Lose">
+            <i className="bi bi-github text-2xl" />
+          </a>
           <Typography.Caption>
             © IT’s Okay to Lose Inc. All rights reserved{" "}
           </Typography.Caption>
