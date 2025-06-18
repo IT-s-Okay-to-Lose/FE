@@ -118,7 +118,7 @@ function InvestmentStatusTable() {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row, index) => {
-            const code = row.original.code;
+            const code = row.original.stock_code;
             return (
               <tr
                 key={row.id}

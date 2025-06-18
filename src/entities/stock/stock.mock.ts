@@ -11,9 +11,8 @@ import type {
 // [overview page] 내 모의투자 현황 주식 목데이터
 export const mockPortfolioData: StockPortfolio[] = [
   {
-    id: 1,
     name: "삼성전자",
-    code: "0001",
+    stock_code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     quantity: 13,
@@ -22,9 +21,8 @@ export const mockPortfolioData: StockPortfolio[] = [
     fluctuationRate: 10.77,
   },
   {
-    id: 2,
     name: "SK하이닉스",
-    code: "0001",
+    stock_code: "0002",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
     quantity: 5,
@@ -33,9 +31,8 @@ export const mockPortfolioData: StockPortfolio[] = [
     fluctuationRate: 6.0,
   },
   {
-    id: 3,
     name: "LG화학",
-    code: "0001",
+    stock_code: "0003",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
 
@@ -51,72 +48,62 @@ export const mockPortfolioData: StockPortfolio[] = [
 
 export const mockStaticStockMeta: StaticStockMeta[] = [
   {
-    id: 1,
     name: "삼성전자",
-    code: "0001",
+    stock_code: "0001",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 2,
     name: "SK하이닉스",
-    code: "0001",
+    stock_code: "0002",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 3,
     name: "LG화학",
-    code: "0001",
+    stock_code: "0003",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 4,
     name: "NAVER",
-    code: "0001",
+    stock_code: "0004",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 5,
     name: "카카오",
-    code: "0001",
+    stock_code: "0005",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 6,
     name: "현대차",
-    code: "0001",
+    stock_code: "0006",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 7,
     name: "기아",
-    code: "0001",
+    stock_code: "0007",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 8,
     name: "POSCO홀딩스",
-    code: "0001",
+    stock_code: "0008",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 9,
     name: "삼성SDI",
-    code: "0001",
+    stock_code: "0009",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
   {
-    id: 10,
     name: "롯데케미칼",
-    code: "0001",
+    stock_code: "0010",
     imageUrl:
       "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
   },
@@ -124,64 +111,61 @@ export const mockStaticStockMeta: StaticStockMeta[] = [
 
 export const mockDynamicStockData: DynamicStockData[] = [
   {
-    id: 1,
+    stock_code: "0001",
     currentPrice: 650000,
     accumulatedVolume: 720000,
     fluctuationRate: 10.77,
   },
   {
-    id: 2,
+    stock_code: "0002",
     currentPrice: 500000,
     accumulatedVolume: 530000,
     fluctuationRate: 6.0,
   },
   {
-    id: 3,
-
+    stock_code: "0003",
     currentPrice: 2100000,
     accumulatedVolume: 2000000,
     fluctuationRate: -4.76,
   },
   {
-    id: 4,
-
+    stock_code: "0004",
     currentPrice: 1200000,
     accumulatedVolume: 1300000,
     fluctuationRate: 8.33,
   },
   {
-    id: 5,
-
+    stock_code: "0005",
     currentPrice: 600000,
     accumulatedVolume: 550000,
     fluctuationRate: -8.33,
   },
   {
-    id: 6,
+    stock_code: "0006",
     currentPrice: 400000,
     accumulatedVolume: 450000,
     fluctuationRate: 12.5,
   },
   {
-    id: 7,
+    stock_code: "0007",
     currentPrice: 700000,
     accumulatedVolume: 665000,
     fluctuationRate: -5.0,
   },
   {
-    id: 8,
+    stock_code: "0008",
     currentPrice: 900000,
     accumulatedVolume: 990000,
     fluctuationRate: 10.0,
   },
   {
-    id: 9,
+    stock_code: "0009",
     currentPrice: 800000,
     accumulatedVolume: 820000,
     fluctuationRate: 2.5,
   },
   {
-    id: 10,
+    stock_code: "0010",
     currentPrice: 950000,
     accumulatedVolume: 910000,
     fluctuationRate: -4.21,
@@ -191,9 +175,8 @@ export const mockDynamicStockData: DynamicStockData[] = [
 // ---------------------------------------------------------------
 // [detail page] 주식 상세 정보
 export const mockStockDetailData: MarketStockInfo = {
-  id: 1,
+  stock_code: "0001",
   name: "삼성전자",
-  code: "0001",
   imageUrl:
     "https://thumb.tossinvest.com/image/resized/48x0/https%3A%2F%2Fstatic.toss.im%2Fpng-icons%2Fsecurities%2Ficn-sec-fill-065350.png",
 };
