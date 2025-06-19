@@ -1,15 +1,24 @@
 import type { News } from "@/entities/news/news.entity";
+import { useNewsStore } from "@/entities/news/news.store";
 import Typography from "@/shared/components/atoms/Typography";
 import { useEffect, useState } from "react";
-import { getNews } from "../services/news.service";
+import { getNewsWithCache } from "../services/news.service";
 
 export function News() {
   const [news, setNews] = useState<News[]>([]);
+  const lastFetched = useNewsStore((state) => state.lastFetched);
 
   async function getNewsFunction() {
-    const result = await getNews();
+    const result = await getNewsWithCache();
     setNews(result);
   }
+
+  const formattedTime = lastFetched
+    ? new Date(lastFetched).toLocaleTimeString("ko-KR", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    : "";
 
   useEffect(() => {
     getNewsFunction();
@@ -29,6 +38,9 @@ export function News() {
             press={news.press}
           />
         ))}
+        <Typography.P2 className="text-right text-gray-500">
+          {formattedTime && `마지막 업데이트 시간 ${formattedTime}`}
+        </Typography.P2>
       </div>
     </div>
   );
