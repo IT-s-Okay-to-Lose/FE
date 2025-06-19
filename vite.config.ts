@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 import { defineConfig } from "vite";
 
+const isDev = process.env.NODE_ENV === "development";
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -10,11 +12,19 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  server: {
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, "certs/key.pem")),
-      cert: fs.readFileSync(path.resolve(__dirname, "certs/cert.pem")),
+  server: Object.assign(
+    {
+      port: 5137,
     },
-    port: 5137,
-  },
+    isDev &&
+      fs.existsSync("./certs/key.pem") &&
+      fs.existsSync("./certs/cert.pem")
+      ? {
+          https: {
+            key: fs.readFileSync("./certs/key.pem"),
+            cert: fs.readFileSync("./certs/cert.pem"),
+          },
+        }
+      : {}
+  ),
 });
