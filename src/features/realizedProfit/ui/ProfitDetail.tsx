@@ -1,11 +1,31 @@
+import type { RealizedDetail } from "@/entities/user/user.entity";
 import Typography from "@/shared/components/atoms/Typography";
-import { mockRealizedProfitDetail } from "@/entities/user/user.mock";
 import { formatNumber } from "@/shared/utils/format";
+import { getRealizedDetail } from "../services/RealizedProfit.service";
+import { useState, useEffect } from "react";
 
-function ProfitDetail() {
+type ProfitDetailProps = {
+  year: number;
+  month: number;
+};
+
+function ProfitDetail({ year, month }: ProfitDetailProps) {
+  const [realizedDetail, setRealizedDetail] = useState<RealizedDetail[]>([]);
+
+  async function getRealizedDetailFunction() {
+    const result = await getRealizedDetail(year, month);
+    setRealizedDetail(result);
+  }
+
+  useEffect(() => {
+    getRealizedDetailFunction();
+  }, [year, month]);
+
+  if (!realizedDetail) return;
+
   return (
     <div className="flex flex-col gap-[30px]">
-      {mockRealizedProfitDetail.map((data, idx) => (
+      {realizedDetail.map((data, idx) => (
         <div key={idx} className="flex flex-col">
           <Typography.SubTitle1 className="mb-5">
             {data.date}
