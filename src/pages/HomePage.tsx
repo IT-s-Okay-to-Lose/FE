@@ -11,6 +11,20 @@ import useMediaQuery from "@/shared/hooks/useMediaQuery";
 function HomePage() {
   const isTabletOrAbove = useMediaQuery();
 
+  async function login() {
+    console.log("login");
+    const result = await fetch(
+      "https://iotl.store/oauth2/authorization/naver",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
+
+    const res = await result.json();
+    console.log(res);
+  }
+
   if (!isTabletOrAbove) return <ScreenTooSmall />;
 
   return (
@@ -20,6 +34,7 @@ function HomePage() {
       </div>
       <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
         <StockChartBoard />
+        <button onClick={login}>로그인</button>
 
         <div className="hidden laptop:flex laptop:flex-col laptop:gap-[50px]">
           <MarketIndexSummary />
