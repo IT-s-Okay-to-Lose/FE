@@ -1,21 +1,22 @@
-import type { HoldingRatio } from "@/entities/user/user.entity";
 import ReactECharts from "echarts-for-react";
-import { getHoldingRatio } from "../services/myInvestment.service";
-import { useState, useEffect } from "react";
+// import type { HoldingRatio } from "@/entities/user/user.entity";
+// import { getHoldingRatio } from "../services/myInvestment.service";
+// import { useState, useEffect } from "react";
+import { mockHoldingRatio } from "@/entities/user/user.mock";
 
 function PieChart() {
-  const [holdingRatio, setHoldingRatio] = useState<HoldingRatio[]>([]);
+  // const [holdingRatio, setHoldingRatio] = useState<HoldingRatio[]>([]);
 
-  async function getHoldingFunction() {
-    const result = await getHoldingRatio();
-    setHoldingRatio(result);
-  }
+  // async function getHoldingFunction() {
+  //   const result = await getHoldingRatio();
+  //   setHoldingRatio(result);
+  // }
 
-  useEffect(() => {
-    getHoldingFunction();
-  }, []);
+  // useEffect(() => {
+  //   getHoldingFunction();
+  // }, []);
 
-  const chartData = holdingRatio.map((item) => ({
+  const chartData = mockHoldingRatio.map((item) => ({
     name: item.stockName,
     value: item.percent,
     itemStyle: {

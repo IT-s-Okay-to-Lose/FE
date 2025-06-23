@@ -112,14 +112,14 @@ export const mockUserInvestmentSummary: UserInvestmentSummary = {
 };
 
 // [dashboard page] 실현 수익 요약 데이터
-export const mockRealizedProfitSummary: RealizedSummary = {
+export const mockRealizedSummary: RealizedSummary = {
   totalIncome: 50000,
   dividendIncome: 25000,
   saleIncome: 25000,
 };
 
 // [dashboard page] 실현 수익 상세 데이터
-export const mockRealizedProfitDetail: RealizedDetail[] = [
+export const mockRealizedDetail: RealizedDetail[] = [
   {
     date: "2025-06-28",
     items: [
@@ -153,7 +153,7 @@ export const mockRealizedProfitDetail: RealizedDetail[] = [
 ];
 
 // [dashboard page] 보유 종목 파이 차트 데이터
-export const mockStockHoldingData: HoldingRatio[] = [
+export const mockHoldingRatio: HoldingRatio[] = [
   {
     stockName: "엔비디아",
     percent: 48.8,
