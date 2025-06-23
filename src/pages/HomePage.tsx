@@ -13,16 +13,18 @@ function HomePage() {
 
   async function login() {
     console.log("login");
-    const result = await fetch(
-      "https://iotl.store/oauth2/authorization/naver",
-      {
-        method: "GET",
-        credentials: "include",
-      }
-    );
 
-    const res = await result.json();
-    console.log(res);
+    window.location.href = "http://localhost:8080/oauth2/authorization/kakao";
+    // const result = await fetch(
+    //   "https://iotl.store/oauth2/authorization/naver",
+    //   {
+    //     method: "GET",
+    //     credentials: "include",
+    //   }
+    // );
+
+    // const res = await result.json();
+    // console.log(res);
   }
 
   if (!isTabletOrAbove) return <ScreenTooSmall />;
