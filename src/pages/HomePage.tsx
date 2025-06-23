@@ -14,7 +14,7 @@ function HomePage() {
   async function login() {
     console.log("login");
 
-    window.location.href = "http://localhost:8080/oauth2/authorization/kakao";
+    window.location.href = "https://iotl.store/oauth2/authorization/kakao";
     // const result = await fetch(
     //   "https://iotl.store/oauth2/authorization/naver",
     //   {
