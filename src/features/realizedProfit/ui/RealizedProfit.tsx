@@ -1,12 +1,16 @@
-import Typography from "@/shared/components/atoms/Typography";
 import Card from "@/shared/components/atoms/Card";
+import Typography from "@/shared/components/atoms/Typography";
+import { useState } from "react";
 import MonthlyProfit from "./MonthlyProfit";
 import ProfitDetail from "./ProfitDetail";
-import { useState } from "react";
 
 function RealizedProfit() {
-  const [currentMonth, setCurrentMonth] = useState(6);
-  const [currentYear, setCurrentYear] = useState(2025);
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const [currentMonth, setCurrentMonth] = useState(month);
+  const [currentYear, setCurrentYear] = useState(year);
 
   const handleMonthChange = (direction: "prev" | "next") => {
     let newMonth = currentMonth + (direction === "prev" ? -1 : 1);
