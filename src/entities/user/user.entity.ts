@@ -55,26 +55,26 @@ export interface UserInvestmentSummary {
 }
 
 // [dashboard page] 실현 수익 요약 데이터
-export interface RealizedProfitSummary {
+export interface RealizedSummary {
   totalIncome: number;
-  dividendIncome: number;
   saleIncome: number;
+  dividendIncome: number;
 }
 
 // [dashboard page] 실현 수익 상세 데이터
-export interface RealizedProfitItem {
+export interface RealizedItem {
   stockName: string;
   type: "판매수익" | "배당금";
   amount: number;
 }
 
-export interface RealizedProfitDetail {
+export interface RealizedDetail {
   date: string;
-  items: RealizedProfitItem[];
+  items: RealizedItem[];
 }
 
 // [dashboard page] 보유 종목 파이 차트 데이터
-export interface StockHoldingData {
+export interface HoldingRatio {
   stockName: string;
   percent: number;
   color: string;

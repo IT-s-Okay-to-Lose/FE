@@ -1,22 +1,28 @@
+import type { RealizedSummary } from "@/entities/user/user.entity";
 import Typography from "@/shared/components/atoms/Typography";
-import { mockRealizedProfitSummary } from "@/entities/user/user.mock";
 import { formatNumber } from "@/shared/utils/format";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getRealizedSummary } from "../services/RealizedProfit.service";
 
-function MonthlyProfit() {
-  const [currentMonth, setCurrentMonth] = useState("06");
+type MonthlyProfitProps = {
+  year: number;
+  month: number;
+  handleMonthChange: (direction: "prev" | "next") => void;
+};
 
-  const handleMonthChange = (direction: "prev" | "next") => {
-    let monthNum = parseInt(currentMonth, 10);
+function MonthlyProfit({ year, month, handleMonthChange }: MonthlyProfitProps) {
+  const [realizedSummary, setRealizedSummary] = useState<RealizedSummary>();
 
-    monthNum += direction === "prev" ? -1 : 1;
+  async function getRealizedSummaryFunction() {
+    const result = await getRealizedSummary(year, month);
+    setRealizedSummary(result);
+  }
 
-    // 1 ~ 12 범위 유지
-    if (monthNum < 1) monthNum = 12;
-    if (monthNum > 12) monthNum = 1;
+  useEffect(() => {
+    getRealizedSummaryFunction();
+  }, [year, month]);
 
-    setCurrentMonth(monthNum.toString().padStart(2, "0"));
-  };
+  if (!realizedSummary) return;
 
   return (
     <div className="flex flex-col items-center gap-[50px]">
@@ -25,26 +31,28 @@ function MonthlyProfit() {
           className="bi bi-caret-left-fill text-3xl cursor-pointer"
           onClick={() => handleMonthChange("prev")}
         />
-        <Typography.Head2>{parseInt(currentMonth)}월 수익</Typography.Head2>
+        <Typography.Head2>
+          {year}년 {month}월 수익
+        </Typography.Head2>
         <i
           className="bi bi-caret-right-fill text-3xl cursor-pointer"
           onClick={() => handleMonthChange("next")}
         />
       </div>
       <Typography.Head1>
-        {formatNumber(mockRealizedProfitSummary.totalIncome)}원
+        {formatNumber(realizedSummary.totalIncome)}원
       </Typography.Head1>
       <div className="w-full flex flex-col gap-5">
         <div className="flex justify-between items-center">
           <Typography.SubTitle1>판매수익</Typography.SubTitle1>
           <Typography.P1>
-            {formatNumber(mockRealizedProfitSummary.saleIncome)}원
+            {formatNumber(realizedSummary.saleIncome)}원
           </Typography.P1>
         </div>
         <div className="flex justify-between items-center">
           <Typography.SubTitle1>배당금</Typography.SubTitle1>
           <Typography.P1>
-            {formatNumber(mockRealizedProfitSummary.dividendIncome)}원
+            {formatNumber(realizedSummary.dividendIncome)}원
           </Typography.P1>
         </div>
       </div>
