@@ -1,8 +1,9 @@
-import type { RealizedSummary } from "@/entities/user/user.entity";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
-import { useState, useEffect } from "react";
-import { getRealizedSummary } from "../services/RealizedProfit.service";
+// import { useState, useEffect } from "react";
+// import type { RealizedSummary } from "@/entities/user/user.entity";
+// import { getRealizedSummary } from "../services/RealizedProfit.service";
+import { mockRealizedSummary } from "@/entities/user/user.mock";
 
 type MonthlyProfitProps = {
   year: number;
@@ -11,18 +12,18 @@ type MonthlyProfitProps = {
 };
 
 function MonthlyProfit({ year, month, handleMonthChange }: MonthlyProfitProps) {
-  const [realizedSummary, setRealizedSummary] = useState<RealizedSummary>();
+  // const [realizedSummary, setRealizedSummary] = useState<RealizedSummary>();
 
-  async function getRealizedSummaryFunction() {
-    const result = await getRealizedSummary(year, month);
-    setRealizedSummary(result);
-  }
+  // async function getRealizedSummaryFunction() {
+  //   const result = await getRealizedSummary(year, month);
+  //   setRealizedSummary(result);
+  // }
 
-  useEffect(() => {
-    getRealizedSummaryFunction();
-  }, [year, month]);
+  // useEffect(() => {
+  //   getRealizedSummaryFunction();
+  // }, [year, month]);
 
-  if (!realizedSummary) return;
+  // if (!realizedSummary) return;
 
   return (
     <div className="flex flex-col items-center gap-[50px]">
@@ -40,19 +41,19 @@ function MonthlyProfit({ year, month, handleMonthChange }: MonthlyProfitProps) {
         />
       </div>
       <Typography.Head1>
-        {formatNumber(realizedSummary.totalIncome)}원
+        {formatNumber(mockRealizedSummary.totalIncome)}원
       </Typography.Head1>
       <div className="w-full flex flex-col gap-5">
         <div className="flex justify-between items-center">
           <Typography.SubTitle1>판매수익</Typography.SubTitle1>
           <Typography.P1>
-            {formatNumber(realizedSummary.saleIncome)}원
+            {formatNumber(mockRealizedSummary.saleIncome)}원
           </Typography.P1>
         </div>
         <div className="flex justify-between items-center">
           <Typography.SubTitle1>배당금</Typography.SubTitle1>
           <Typography.P1>
-            {formatNumber(realizedSummary.dividendIncome)}원
+            {formatNumber(mockRealizedSummary.dividendIncome)}원
           </Typography.P1>
         </div>
       </div>
