@@ -3,7 +3,7 @@ import { useNewsStore } from "@/entities/news/news.store";
 
 export async function getNews(): Promise<News[]> {
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/v1/news/top3`,
+    `${import.meta.env.VITE_APP_API_URL}/api/v1/news/top3`,
     { method: "GET" }
   );
 

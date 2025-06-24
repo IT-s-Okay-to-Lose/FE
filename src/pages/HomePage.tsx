@@ -3,29 +3,29 @@ import Header from "@/shared/components/molecules/Header";
 import { News } from "@/features/news/ui/News";
 import { StockChartBoard } from "@/features/stockChartBoard/ui/StockChartBoard";
 
+import reissue from "@/features/login/service/login.service";
 import { MarketIndexSummary } from "@/features/marketIndexSummary/ui/MarketIndexSummary";
 import Footer from "@/shared/components/molecules/Footer";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
+import URL from "@/shared/constants/URL";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
+import { useEffect } from "react";
 
 function HomePage() {
   const isTabletOrAbove = useMediaQuery();
 
-  async function login() {
-    console.log("login");
-
-    window.location.href = "https://iotl.store/oauth2/authorization/kakao";
-    // const result = await fetch(
-    //   "https://iotl.store/oauth2/authorization/naver",
-    //   {
-    //     method: "GET",
-    //     credentials: "include",
-    //   }
-    // );
-
-    // const res = await result.json();
-    // console.log(res);
+  function login(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    localStorage.setItem("login", "true");
+    window.location.href = URL.LOGIN.KAKAO;
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("login") == "true") {
+      reissue();
+      localStorage.removeItem("login");
+    }
+  }, []);
 
   if (!isTabletOrAbove) return <ScreenTooSmall />;
 

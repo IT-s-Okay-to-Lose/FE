@@ -9,23 +9,23 @@ import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: URL.HOME,
+    path: URL.PAGE.HOME,
     element: <HomePage />,
   },
   {
-    path: URL.DASHBOARD,
+    path: URL.PAGE.DASHBOARD,
     element: <DashboardPage />,
   },
   {
-    path: URL.OVERVIEW,
+    path: URL.PAGE.OVERVIEW,
     element: <OverviewPage />,
   },
   {
-    path: URL.DETAIL,
+    path: URL.PAGE.DETAIL,
     element: <StockDetailPage />,
   },
   {
-    path: URL.TEST,
+    path: URL.PAGE.TEST,
     element: <TestPage />,
   },
 ]);

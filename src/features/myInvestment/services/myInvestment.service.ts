@@ -1,13 +1,13 @@
 import type {
-  UserInvestmentSummary,
   HoldingRatio,
+  UserInvestmentSummary,
 } from "@/entities/user/user.entity";
 
 export async function getInvestmentSummary(): Promise<UserInvestmentSummary> {
   const userId = 1;
 
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/dashboard/summary?userId=${userId}`,
+    `${import.meta.env.VITE_APP_API_URL}/api/dashboard/summary?userId=${userId}`,
     { method: "GET" }
   );
 
@@ -18,7 +18,7 @@ export async function getHoldingRatio(): Promise<HoldingRatio[]> {
   const userId = 1;
 
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/dashboard/holding-ratio?userId=${userId}`,
+    `${import.meta.env.VITE_APP_API_URL}/api/dashboard/holding-ratio?userId=${userId}`,
     { method: "GET" }
   );
 

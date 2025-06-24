@@ -10,7 +10,6 @@ export function News() {
 
   async function getNewsFunction() {
     const result = await getNewsWithCache();
-    console.log(result);
     setNews(result);
   }
 

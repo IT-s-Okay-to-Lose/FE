@@ -10,7 +10,7 @@ export async function getRealizedSummary(
   const userId = 1;
 
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/dashboard/realized-summary?userId=${userId}&year=${year}&month=${month}`,
+    `${import.meta.env.VITE_APP_API_URL}/api/dashboard/realized-summary?userId=${userId}&year=${year}&month=${month}`,
     { method: "GET" }
   );
 
@@ -24,7 +24,7 @@ export async function getRealizedDetail(
   const userId = 1;
 
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/dashboard/realized-detail?userId=${userId}&year=${year}&month=${month}`,
+    `${import.meta.env.VITE_APP_API_URL}/api/dashboard/realized-detail?userId=${userId}&year=${year}&month=${month}`,
     { method: "GET" }
   );
 
