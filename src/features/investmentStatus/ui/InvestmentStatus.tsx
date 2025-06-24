@@ -122,7 +122,9 @@ function InvestmentStatusTable() {
             return (
               <tr
                 key={row.id}
-                onClick={() => navigation(`${URL.DETAIL}?stock_id=${code}`)}
+                onClick={() =>
+                  navigation(`${URL.PAGE.DETAIL}?stock_id=${code}`)
+                }
                 className={cn(
                   "border-t border-gray-50 cursor-pointer hover:bg-gray-100",
                   index % 2 === 0 ? "bg-gray-50" : "bg-white"

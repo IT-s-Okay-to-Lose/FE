@@ -15,10 +15,10 @@ function Header() {
         <Typography.SubTitle1>IT{"'"}s Okay to Lose</Typography.SubTitle1>
 
         <div className="flex gap-7 items-center">
-          <Link to={URL.HOME}>
+          <Link to={URL.PAGE.HOME}>
             <Typography.SubTitle2
               className={
-                isActive(URL.HOME) || isActive(URL.DETAIL)
+                isActive(URL.PAGE.HOME) || isActive(URL.PAGE.DETAIL)
                   ? "font-bold"
                   : "font-normal"
               }
@@ -26,16 +26,20 @@ function Header() {
               홈
             </Typography.SubTitle2>
           </Link>
-          <Link to={URL.DASHBOARD}>
+          <Link to={URL.PAGE.DASHBOARD}>
             <Typography.SubTitle2
-              className={isActive(URL.DASHBOARD) ? "font-bold" : "font-normal"}
+              className={
+                isActive(URL.PAGE.DASHBOARD) ? "font-bold" : "font-normal"
+              }
             >
               대시보드
             </Typography.SubTitle2>
           </Link>
-          <Link to={URL.OVERVIEW}>
+          <Link to={URL.PAGE.OVERVIEW}>
             <Typography.SubTitle2
-              className={isActive(URL.OVERVIEW) ? "font-bold" : "font-normal"}
+              className={
+                isActive(URL.PAGE.OVERVIEW) ? "font-bold" : "font-normal"
+              }
             >
               투자 모아보기
             </Typography.SubTitle2>
