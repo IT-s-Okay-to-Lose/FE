@@ -37,6 +37,8 @@ export default {
         "otl-success": "#009F2C",
         "otl-stock-up": "#FF0000",
         "otl-stock-down": "#0000FF",
+        kakao: "#FEE503",
+        naver: "#02C75B",
       },
     },
   },
