@@ -7,9 +7,15 @@ import { MarketIndexSummary } from "@/features/marketIndexSummary/ui/MarketIndex
 import Footer from "@/shared/components/molecules/Footer";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
+import { useEffect } from "react";
+import { login } from "@/features/login/service/login.service";
 
 function HomePage() {
   const isTabletOrAbove = useMediaQuery();
+
+  useEffect(() => {
+    login();
+  }, []);
 
   if (!isTabletOrAbove) return <ScreenTooSmall />;
 
