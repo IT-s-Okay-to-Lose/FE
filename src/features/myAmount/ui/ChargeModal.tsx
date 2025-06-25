@@ -20,7 +20,7 @@ function ChargeModal({ onClose }: ModalProps) {
       className="fixed inset-0 z-5 flex items-center justify-center bg-black/50"
       onClick={handleBackgroundClick}
     >
-      <Card className="w-[335px] h-[320px] justify-between bg-white">
+      <Card className="w-[335px] h-[320px] justify-between bg-white shadow-none">
         <Card.Header className="flex justify-between items-center">
           <Typography.Head3>돈 채우기</Typography.Head3>
           <button onClick={onClose}>
