@@ -1,10 +1,10 @@
 import { mockUserInfo } from "@/entities/user/user.mock";
-import URL from "@/shared/constants/URL";
-import { Link, useLocation } from "react-router-dom";
-import Typography from "../atoms/Typography";
 import { useUserStore } from "@/entities/user/user.store";
 import LoginModal from "@/features/login/ui/LoginModal";
+import URL from "@/shared/constants/URL";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Typography from "../atoms/Typography";
 
 function Header() {
   const location = useLocation();
@@ -16,7 +16,7 @@ function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <>
+    <div className="">
       <div className="flex justify-center">
         <div className="flex w-full max-w-[850px] laptop:max-w-[1150px] px-6 py-3 justify-between items-center">
           <Typography.SubTitle1>IT{"'"}s Okay to Lose</Typography.SubTitle1>
@@ -52,22 +52,29 @@ function Header() {
               </Typography.SubTitle2>
             </Link>
           </div>
-          {isLoggedIn ? (
-            <div className="w-[155px] flex justify-end">
-              <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray overflow-hidden">
-                <img src={mockUserInfo.imageUrl} />
+          <div className="w-[160px] h-[40px] items-center flex justify-center">
+            {isLoggedIn ? (
+              <div className="w-[155px] flex justify-end">
+                <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray overflow-hidden">
+                  <img src={mockUserInfo.imageUrl} />
+                </div>
               </div>
-            </div>
-          ) : (
-            <div onClick={() => setIsModalOpen(true)}>
-              <Typography.P1 className="cursor-pointer">로그인</Typography.P1>
-            </div>
-          )}
+            ) : (
+              <div
+                onClick={() => setIsModalOpen(true)}
+                className="px-4 py-1 rounded-sm bg-otl-main bg-opacity-20 transition-all hover:bg-opacity-30 "
+              >
+                <Typography.P1 className="cursor-pointer text-otl-main font-bold">
+                  로그인
+                </Typography.P1>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {isModalOpen && <LoginModal onClose={() => setIsModalOpen(false)} />}
-    </>
+    </div>
   );
 }
 
