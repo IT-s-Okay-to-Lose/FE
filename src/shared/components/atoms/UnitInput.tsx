@@ -1,20 +1,15 @@
 import cn from "@/shared/utils/cn";
 import type { InputHTMLAttributes } from "react";
+import type { UseFormRegisterReturn } from "react-hook-form";
 import Typography from "./Typography";
 
 interface UnitInputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
-  name?: string;
   unit?: string;
+  register?: UseFormRegisterReturn;
 }
 
-interface UnitInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  name?: string;
-  unit?: string;
-}
-
-const UnitInput = ({ className, unit, ...props }: UnitInputProps) => {
+const UnitInput = ({ className, unit, register, ...props }: UnitInputProps) => {
   return (
     <div
       className={cn(
@@ -28,6 +23,7 @@ const UnitInput = ({ className, unit, ...props }: UnitInputProps) => {
           "w-[270px] h-[50px] focus:h-[48px] rounded-md border-none bg-white p-3 text-[16px] text-right font-semibold text-black placeholder:text-otl-gray focus:outline-none",
           className
         )}
+        {...(register ?? {})}
         {...props}
       />
       <Typography.SubTitle2>{unit}</Typography.SubTitle2>
