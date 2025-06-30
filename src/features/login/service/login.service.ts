@@ -10,6 +10,15 @@ export async function reissue() {
   return result;
 }
 
+export async function test() {
+  const result = await fetch(`${import.meta.env.VITE_APP_API_URL}/test`, {
+    method: "GET",
+    credentials: "include",
+  });
+
+  return await result.json();
+}
+
 export function loginRedirect(e: React.MouseEvent<HTMLButtonElement>) {
   e.preventDefault();
   localStorage.setItem("login", "true");
