@@ -1,8 +1,8 @@
-import type { JSX } from "react";
-import cn from "@/shared/utils/cn";
 import Icons from "@/asset/Icons";
-import Typography from "@/shared/components/atoms/Typography";
 import Card from "@/shared/components/atoms/Card";
+import Typography from "@/shared/components/atoms/Typography";
+import cn from "@/shared/utils/cn";
+import type { JSX } from "react";
 import { loginRedirect } from "../service/login.service";
 
 interface LoginModalProps {
@@ -34,27 +34,34 @@ function LoginModal({ onClose }: LoginModalProps) {
       onClick={handleBackgroundClick}
     >
       <Card className="w-[335px] h-[320px] bg-white gap-12 shadow-none">
-        <Card.Header className="flex justify-between items-center">
-          <Typography.Head3>로그인 하기</Typography.Head3>
+        <Card.Header className="flex justify-end items-center">
           <button onClick={onClose}>
             <i className="bi bi-x-lg text-xl" />
           </button>
         </Card.Header>
-        <Card.Content className="gap-[10px]">
-          <SnsLoginButton
-            platform="Kakao"
-            icon={<Icons.Kakao />}
-            bgColor="bg-kakao"
-            textColor="text-black"
-            onClick={loginRedirect}
-          />
-          <SnsLoginButton
-            platform="NAVER"
-            icon={<Icons.Naver />}
-            bgColor="bg-naver"
-            textColor="text-white"
-            onClick={onClickNaverLoginButton}
-          />
+        <Card.Content className="gap-[30px] mt-[-29px] text-center">
+          <div>
+            <Typography.Head3>IT{"'"}s Okay to Lose</Typography.Head3>
+            <Typography.SubTitle2 className="text-otl-gray">
+              잃어도 괜찮은 주식 모의투자 사이트
+            </Typography.SubTitle2>
+          </div>
+          <div className="flex flex-col gap-4">
+            <SnsLoginButton
+              platform="Kakao"
+              icon={<Icons.Kakao />}
+              bgColor="bg-kakao"
+              textColor="text-black"
+              onClick={loginRedirect}
+            />
+            <SnsLoginButton
+              platform="NAVER"
+              icon={<Icons.Naver />}
+              bgColor="bg-naver"
+              textColor="text-white"
+              onClick={onClickNaverLoginButton}
+            />
+          </div>
           {/* <SnsLoginButton
             platform="Google"
             icon={<Icons.Google />}
@@ -80,7 +87,7 @@ const SnsLoginButton = ({
       onClick={onClick}
       className={cn(
         bgColor,
-        "flex w-full items-center justify-center gap-[10px] rounded-lg py-[10px]",
+        "flex w-full items-center justify-center gap-[10px] rounded-sm py-[10px]",
         platform === "Google" && "border border-gray-300"
       )}
     >
