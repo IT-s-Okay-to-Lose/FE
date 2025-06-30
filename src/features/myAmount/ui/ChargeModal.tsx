@@ -63,6 +63,10 @@ function ChargeModal({ onClose }: ModalProps) {
                     value: 30000000,
                     message: "최대 금액은 30,000,000원 입니다.",
                   },
+                  min: {
+                    value: 1,
+                    message: "충전 금액은 1원 이상이어야 합니다.",
+                  },
                 })}
                 unit="원"
                 className="grow"
