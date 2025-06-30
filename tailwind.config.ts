@@ -23,9 +23,9 @@ export default {
         xxs: "calc(var(--font-size) - 8px)", // 가장 작은 사이즈 추가
       },
       borderRadius: {
-        lg: "var(--radius)",
+        lg: "14px",
         md: "10px",
-        sm: "calc(var(--radius) - 4px)",
+        sm: "6px",
       },
       colors: {
         "otl-main": "#398DEE",
