@@ -52,7 +52,7 @@ function Header() {
               </Typography.SubTitle2>
             </Link>
           </div>
-          <div className="w-[160px] h-[40px] items-center flex justify-center">
+          <div className="w-[160px] h-[40px] items-center flex justify-end">
             {isLoggedIn ? (
               <div className="w-[155px] flex justify-end">
                 <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray overflow-hidden">
