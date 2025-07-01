@@ -1,9 +1,10 @@
+import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import ReactECharts from "echarts-for-react";
 import { useMemo } from "react";
 
 interface CandleChartProps {
-  data: [string, number, number, number, number][];
-  volumeData: [string, number][];
+  data: CandleData[];
+  volumeData: VolumeData[];
 }
 
 export default function Chart2({ data, volumeData }: CandleChartProps) {
@@ -115,6 +116,7 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
             },
           };
         }),
+        barWidth: 5,
       },
     ],
   };
