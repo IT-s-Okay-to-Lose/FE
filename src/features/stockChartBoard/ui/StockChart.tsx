@@ -18,7 +18,7 @@ function StockChart() {
   const selectedCode = "005930";
 
   useEffect(() => {
-    const socket = new WebSocket("ws://10.10.0.142:8080/ws/chart");
+    const socket = new WebSocket(`${import.meta.env.VITE_WS_API_URL}/ws/chart`);
     wsRef.current = socket;
 
     socket.onopen = () => {
