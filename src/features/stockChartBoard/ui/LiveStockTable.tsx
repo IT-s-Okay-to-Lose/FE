@@ -4,57 +4,112 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import type {
-  DynamicStockData,
-  StaticStockMeta,
   Stock,
+  StaticStockMeta,
+  DynamicStockData,
 } from "@/entities/stock/stock.entity";
-import {
-  mockDynamicStockData,
-  mockStaticStockMeta,
-} from "@/entities/stock/stock.mock";
+// import {
+//   mockDynamicStockData,
+//   mockStaticStockMeta,
+// } from "@/entities/stock/stock.mock";
 import Typography from "@/shared/components/atoms/Typography";
 import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
+import { getMergedStock } from "../services/LiveStockTable.service";
 
 const STOCK_PER_PAGE = 9;
-
-function mergeStockData(
-  meta: StaticStockMeta[],
-  dynamic: DynamicStockData[]
-): Stock[] {
-  const map = new Map<string, DynamicStockData>(
-    dynamic.map((d) => [d.stock_code, d])
-  );
-  return meta
-    .filter((m) => map.has(m.stock_code))
-    .map((m) => ({
-      ...m,
-      ...map.get(m.stock_code)!,
-    }));
-}
 
 function LiveStockTable() {
   const navigation = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
+  const [mergedStock, setMergedStock] = useState<Stock[]>([]);
 
-  // 병합 및 정렬된 데이터 -> 누적거래량을 기준으로 정렬
-  const mergedAndSorted = useMemo(() => {
-    const merged = mergeStockData(mockStaticStockMeta, mockDynamicStockData);
-    return merged.sort((a, b) => b.accumulatedVolume - a.accumulatedVolume);
+  const staticMap = useRef<Record<string, StaticStockMeta>>({});
+  const dynamicMap = useRef<Record<string, DynamicStockData>>({});
+  const wsRef = useRef<WebSocket | null>(null);
+
+  // 병합 및 정렬된 초기 데이터 로드 -> 누적거래량을 기준으로 정렬
+  async function getMergedStockFunction() {
+    const result = await getMergedStock();
+
+    // staticMap, dynamicMap 초기화
+    result.forEach((stock) => {
+      staticMap.current[stock.code] = {
+        code: stock.code,
+        name: stock.name,
+        imageUrl: stock.imageUrl,
+      };
+      dynamicMap.current[stock.code] = {
+        code: stock.code,
+        currentPrice: stock.currentPrice,
+        fluctuationRate: stock.fluctuationRate,
+        accumulatedVolume: stock.accumulatedVolume,
+      };
+    });
+
+    setMergedStock(result);
+  }
+
+  // WebSocket 수신 시  데이터를 병합해 다시 반영
+  function renderStocks() {
+    const combined: Stock[] = [];
+
+    for (const code in staticMap.current) {
+      combined.push({
+        ...staticMap.current[code],
+        ...dynamicMap.current[code],
+      });
+    }
+
+    // 누적 거래량 기준 정렬 후 상태 반영
+    setMergedStock(
+      combined.sort((a, b) => b.accumulatedVolume - a.accumulatedVolume)
+    );
+  }
+
+  useEffect(() => {
+    // 최초 마운트 시: 초기 데이터 로딩 & 웹소켓 연결
+    getMergedStockFunction();
+
+    const socket = new WebSocket(`${import.meta.env.VITE_WS_API_URL}/ws/stock`);
+    wsRef.current = socket;
+
+    socket.onopen = () => {
+      console.log("Socket 연결됨");
+    };
+
+    // 실시간 데이터 수신 처리
+    socket.onmessage = (event) => {
+      // console.log("📥 [WebSocket 수신]:", event.data);
+      try {
+        const updates: DynamicStockData[] = JSON.parse(event.data);
+
+        // 동적 데이터 갱신
+        updates.forEach((stock) => {
+          dynamicMap.current[stock.code] = stock;
+        });
+        // 병합 및 상태 갱신
+        renderStocks();
+      } catch (e) {
+        console.error("JSON 파싱 실패:", e);
+      }
+    };
+
+    return () => socket.close();
   }, []);
 
   // 테이블 페이지네이션
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * STOCK_PER_PAGE;
-    return mergedAndSorted.slice(startIndex, startIndex + STOCK_PER_PAGE);
-  }, [currentPage, mergedAndSorted]);
+    return mergedStock.slice(startIndex, startIndex + STOCK_PER_PAGE);
+  }, [currentPage, mergedStock]);
 
-  const totalPages = Math.ceil(mergedAndSorted.length / STOCK_PER_PAGE);
+  const totalPages = Math.ceil(mergedStock.length / STOCK_PER_PAGE);
 
   const columns = useMemo<ColumnDef<Stock>[]>(
     () => [
@@ -151,7 +206,7 @@ function LiveStockTable() {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row, index) => {
-              const code = row.original.stock_code;
+              const code = row.original.code;
               return (
                 <tr
                   key={row.id}
