@@ -1,4 +1,5 @@
 import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
+import { formatDateToNoon } from "@/shared/utils/format";
 
 export function openChartSocket(
   candleWsRef: React.RefObject<WebSocket | null>,
@@ -22,13 +23,23 @@ export function openChartSocket(
     const data = JSON.parse(event.data);
 
     const candles = data.candle;
+
     if (
       Array.isArray(candles) &&
       candles.length === 5 &&
       typeof candles[0] === "string"
     ) {
       setCandleData((prev) => {
-        if (prev.length === 0) return [candles as CandleData];
+        if (prev.length === 0)
+          return [
+            [
+              formatDateToNoon(candles[0]),
+              candles[1],
+              candles[2],
+              candles[3],
+              candles[4],
+            ] as CandleData,
+          ];
 
         const last = prev[prev.length - 1];
 
@@ -82,12 +93,15 @@ export function openVolumeSocket(
     ) {
       setVolumeData((prev) => {
         if (prev.length === 0) {
-          return [volumes as VolumeData];
+          return [[formatDateToNoon(volumes[0]), volumes[1]] as VolumeData];
         }
 
+        const last = prev[prev.length - 1];
+
+        const updatedVolume: VolumeData = [last[0], volumes[1]];
+
         const updated = [...prev];
-        const lastIndex = updated.length - 1;
-        updated[lastIndex] = volumes as VolumeData;
+        updated[updated.length - 1] = updatedVolume;
 
         return updated;
       });

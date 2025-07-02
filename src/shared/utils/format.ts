@@ -10,6 +10,11 @@ export function formatFullDateToKorean(date: Date): string {
   return `${year}년 ${month}월 ${day}일`;
 }
 
+// 2025-06-22T01:05:09 -> 2025-06-22T00:00:00
+export function formatDateToNoon(date: string): string {
+  return date.split("T")[0] + "T00:00:00";
+}
+
 // 날짜 포맷 (예: "6월 12일")
 export function formatDateToKorean(date: Date): string {
   const month = date.getMonth() + 1;
