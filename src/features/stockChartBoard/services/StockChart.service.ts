@@ -20,15 +20,30 @@ export function openChartSocket(
 
   socket.onmessage = (event) => {
     const data = JSON.parse(event.data);
-    const candles = data.candle;
 
+    const candles = data.candle;
     if (
       Array.isArray(candles) &&
       candles.length === 5 &&
-      typeof candles[0] === "string" &&
-      typeof candles[1] === "number"
+      typeof candles[0] === "string"
     ) {
-      setCandleData((prev) => [...prev, candles as CandleData]);
+      setCandleData((prev) => {
+        if (prev.length === 0) return [candles as CandleData];
+
+        const last = prev[prev.length - 1];
+
+        const updatedCandle: CandleData = [
+          last[0],
+          last[1],
+          candles[2],
+          Math.min(last[3], candles[3]),
+          Math.max(last[4], candles[4]),
+        ];
+
+        const updated = [...prev];
+        updated[updated.length - 1] = updatedCandle;
+        return updated;
+      });
     } else {
       console.warn("⚠️ 잘못된 candle 데이터", candles);
     }
@@ -65,7 +80,17 @@ export function openVolumeSocket(
       typeof volumes[0] === "string" &&
       typeof volumes[1] === "number"
     ) {
-      setVolumeData((prev) => [...prev, volumes as VolumeData]);
+      setVolumeData((prev) => {
+        if (prev.length === 0) {
+          return [volumes as VolumeData];
+        }
+
+        const updated = [...prev];
+        const lastIndex = updated.length - 1;
+        updated[lastIndex] = volumes as VolumeData;
+
+        return updated;
+      });
     } else {
       console.warn("⚠️ 잘못된 volume 데이터", volumes);
     }

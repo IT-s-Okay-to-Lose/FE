@@ -4,32 +4,21 @@ import Typography from "@/shared/components/atoms/Typography";
 import RoundTab from "@/shared/components/molecules/RoundTab";
 import Chart2 from "@/shared/components/organisms/Chart2";
 
-import { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import {
-  openChartSocket,
-  openVolumeSocket,
-} from "../services/StockChart.service";
+import { option } from "@/pages/StockDetailPage";
 
-const option = ["일", "주", "월", "년"];
+interface SocketChartProps {
+  filterTab: string;
+  setFilterTab: React.Dispatch<React.SetStateAction<string>>;
+  candleData: CandleData[];
+  volumeData: VolumeData[];
+}
 
-function StockChart() {
-  const [searchParams] = useSearchParams();
-  const selectedCode = searchParams.get("stock_id");
-
-  const [filterTab, setFilterTab] = useState(option[0]);
-
-  const [candleData, setCandleData] = useState<CandleData[]>([]);
-  const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
-
-  const candleWsRef = useRef<WebSocket | null>(null);
-  const volumeWsRef = useRef<WebSocket | null>(null);
-
-  useEffect(() => {
-    openChartSocket(candleWsRef, selectedCode, setCandleData);
-    openVolumeSocket(volumeWsRef, selectedCode, setVolumeData);
-  }, []);
-
+function StockChart({
+  filterTab,
+  setFilterTab,
+  candleData,
+  volumeData,
+}: SocketChartProps) {
   return (
     <Card>
       <Card.Header>
