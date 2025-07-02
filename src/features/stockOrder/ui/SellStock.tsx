@@ -13,7 +13,7 @@ function SellStock() {
     <div>
       <Card className="w-[355px]">
         <Card.Header className="mb-6">
-          <Typography.Head2>구매하기</Typography.Head2>
+          <Typography.Head2>판매하기</Typography.Head2>
         </Card.Header>
         <Card.Content className="flex flex-col gap-3">
           <div className="flex justify-between items-center h-9">
