@@ -1,6 +1,6 @@
 import { mockUserInfo } from "@/entities/user/user.mock";
 import { useUserStore } from "@/entities/user/user.store";
-import LoginModal from "@/features/login/ui/LoginModal";
+import LoginModal from "@/features/user/login/ui/LoginModal";
 import URL from "@/shared/constants/URL";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
