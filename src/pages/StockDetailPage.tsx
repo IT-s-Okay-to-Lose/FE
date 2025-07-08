@@ -1,14 +1,14 @@
 import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
-import MyOrder from "@/features/myOrder/ui/MyOrder";
-import OrderHistory from "@/features/orderHistory/ui/OrderHistory";
 import {
   openChartSocket,
   openVolumeSocket,
-} from "@/features/stockChartBoard/services/StockChart.service";
-import StockChart from "@/features/stockChartBoard/ui/StockChart";
-import StockDetail from "@/features/stockDetail/ui/StockDetail";
-import BuyStock from "@/features/stockOrder/ui/BuyStock";
-import SellStock from "@/features/stockOrder/ui/SellStock";
+} from "@/features/stock/stockChartBoard/services/StockChart.service";
+import StockChart from "@/features/stock/stockChartBoard/ui/StockChart";
+import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
+import BuyStock from "@/features/stock/stockOrder/ui/BuyStock";
+import SellStock from "@/features/stock/stockOrder/ui/SellStock";
+import MyOrder from "@/features/user/myOrder/ui/MyOrder";
+import OrderHistory from "@/features/user/orderHistory/ui/OrderHistory";
 import Footer from "@/shared/components/molecules/Footer";
 import Header from "@/shared/components/molecules/Header";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";

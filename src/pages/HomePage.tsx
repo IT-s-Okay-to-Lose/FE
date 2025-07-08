@@ -1,14 +1,14 @@
 import Header from "@/shared/components/molecules/Header";
 
 import { News } from "@/features/news/ui/News";
-import { StockChartBoard } from "@/features/stockChartBoard/ui/StockChartBoard";
+import { StockChartBoard } from "@/features/stock/stockChartBoard/ui/StockChartBoard";
 
-import { MarketIndexSummary } from "@/features/marketIndexSummary/ui/MarketIndexSummary";
+import { MarketIndexSummary } from "@/features/market/ui/MarketIndexSummary";
+import { login, test } from "@/features/user/login/service/login.service";
 import Footer from "@/shared/components/molecules/Footer";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
 import { useEffect } from "react";
-import { login, test } from "@/features/login/service/login.service";
 
 function HomePage() {
   const isTabletOrAbove = useMediaQuery();

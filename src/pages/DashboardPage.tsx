@@ -1,11 +1,11 @@
+import InvestmentInfo from "@/features/user/myInvestment/ui/InvestmentInfo";
+import StockHolding from "@/features/user/myInvestment/ui/StockHolding";
+import RealizedProfit from "@/features/user/realizedProfit/ui/RealizedProfit";
+import Typography from "@/shared/components/atoms/Typography";
+import Footer from "@/shared/components/molecules/Footer";
 import Header from "@/shared/components/molecules/Header";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
-import Typography from "@/shared/components/atoms/Typography";
-import InvestmentInfo from "@/features/myInvestment/ui/InvestmentInfo";
-import StockHolding from "@/features/myInvestment/ui/StockHolding";
-import RealizedProfit from "@/features/realizedProfit/ui/RealizedProfit";
-import Footer from "@/shared/components/molecules/Footer";
 
 function DashboardPage() {
   const isTabletOrAbove = useMediaQuery();
