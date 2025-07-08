@@ -8,7 +8,7 @@ const URL = {
     TEST: "/test",
   },
   LOGIN: {
-    KAKAO: "https://iotl.store/oauth2/authorization/kakao",
+    KAKAO: `${import.meta.env.VITE_APP_API_URL}/oauth2/authorization/kakao`,
   },
 };
 
