@@ -50,8 +50,12 @@ export interface MarketStockPriceInfo {
   fluctuationRate: number; // 전일 대비 등락률
 }
 
-// [detail page] 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
+/**
+ * [detail page] 캔들 데이터: [시간, 시가, 고가, 저가, 종가]
+ */
 export type CandleData = [string, number, number, number, number];
 
-// [detail page] 거래량 데이터: [시간, 거래량]
+/**
+ * [detail page] 거래량 데이터: [시간, 거래량]
+ */
 export type VolumeData = [string, number];
