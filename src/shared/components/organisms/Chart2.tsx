@@ -11,12 +11,14 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
   const [minTime, maxTime] = useMemo(() => {
     if (data.length === 0) {
       const now = new Date();
-      const oneHourAgo = new Date(now.getTime() - 1 * 60 * 60 * 1000 * 24);
+      const oneHourAgo = new Date(now.getTime() - 1 * 60 * 60 * 1000 * 24 * 60);
       return [oneHourAgo.toISOString(), now.toISOString()];
     }
 
     const lastTime = new Date(data[data.length - 1][0]); // 최신 캔들 시간
-    const oneHourAgo = new Date(lastTime.getTime() - 1 * 60 * 60 * 1000 * 24);
+    const oneHourAgo = new Date(
+      lastTime.getTime() - 1 * 60 * 60 * 1000 * 24 * 60
+    );
     return [oneHourAgo.toISOString(), lastTime.toISOString()];
   }, [data]);
 
