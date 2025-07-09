@@ -1,11 +1,11 @@
 import type {
-  StaticStockMeta,
   DynamicStockData,
+  StaticStockMeta,
 } from "@/entities/stock/stock.entity";
 
 async function getStaticStocks(): Promise<StaticStockMeta[]> {
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/stocks/meta`,
+    `${import.meta.env.VITE_APP_API_URL}/auth/api/stocks/meta`,
     { method: "GET" }
   );
 
@@ -14,7 +14,7 @@ async function getStaticStocks(): Promise<StaticStockMeta[]> {
 
 async function getDynamicStocks(query: string): Promise<DynamicStockData[]> {
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/stocks/dynamic?${query}`,
+    `${import.meta.env.VITE_APP_API_URL}/auth/api/stocks/dynamic?${query}`,
     { method: "GET" }
   );
 

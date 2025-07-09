@@ -1,6 +1,6 @@
 import type {
-  MarketIndex,
   ExchangeIndex,
+  MarketIndex,
 } from "@/entities/market/market.entity";
 // import { mockMarketIndexData } from "@/entities/market/market.mock";
 import Typography from "@/shared/components/atoms/Typography";

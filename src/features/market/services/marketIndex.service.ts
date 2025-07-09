@@ -1,13 +1,13 @@
 import type {
-  MarketIndex,
-  ExchangeIndex,
   CombinedMarketIndex,
+  ExchangeIndex,
+  MarketIndex,
 } from "@/entities/market/market.entity";
 import { useMarketIndexStore } from "@/entities/market/market.store";
 
 async function getKospiIndex(): Promise<MarketIndex> {
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/market-index/KOSPI`,
+    `${import.meta.env.VITE_APP_API_URL}/auth/api/market-index/KOSPI`,
     { method: "GET" }
   );
 
@@ -16,7 +16,7 @@ async function getKospiIndex(): Promise<MarketIndex> {
 
 async function getKosdaqIndex(): Promise<MarketIndex> {
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/market-index/KOSDAQ`,
+    `${import.meta.env.VITE_APP_API_URL}/auth/api/market-index/KOSDAQ`,
     { method: "GET" }
   );
 
@@ -25,7 +25,7 @@ async function getKosdaqIndex(): Promise<MarketIndex> {
 
 async function getExchangeIndex(): Promise<ExchangeIndex> {
   const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/exchange`,
+    `${import.meta.env.VITE_APP_API_URL}/auth/api/exchange`,
     { method: "GET" }
   );
 

@@ -6,7 +6,9 @@ export function openChartSocket(
   selectedCode: string | null,
   setCandleData: React.Dispatch<React.SetStateAction<CandleData[]>>
 ) {
-  const socket = new WebSocket(`${import.meta.env.VITE_WS_API_URL}/ws/chart`);
+  const socket = new WebSocket(
+    `${import.meta.env.VITE_WS_API_URL}/auth/ws/chart`
+  );
   candleWsRef.current = socket;
 
   socket.onopen = () => {
@@ -69,7 +71,7 @@ export function openVolumeSocket(
   setVolumeData: React.Dispatch<React.SetStateAction<VolumeData[]>>
 ) {
   const volumeSocket = new WebSocket(
-    `${import.meta.env.VITE_WS_API_URL}/ws/volume`
+    `${import.meta.env.VITE_WS_API_URL}/auth/ws/volume`
   );
   volumeWsRef.current = volumeSocket;
 
