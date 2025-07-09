@@ -1,4 +1,4 @@
-import { API_END_POINT } from "@/shared/constants/fetcher";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function chargeMoney(amount: number) {
   // 임시 endpoint

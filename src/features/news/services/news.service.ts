@@ -1,6 +1,6 @@
 import type { News } from "@/entities/news/news.entity";
 import { useNewsStore } from "@/entities/news/news.store";
-import { API_END_POINT } from "@/shared/constants/fetcher";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function getNews(): Promise<News[]> {
   const { url, method } = API_END_POINT.news.getNews();

@@ -1,4 +1,4 @@
-import { Method } from "@/shared/constants/fetcher";
+import { Method } from "@/shared/utils/fetcher";
 
 export const market = {
   getKospi: () => ({

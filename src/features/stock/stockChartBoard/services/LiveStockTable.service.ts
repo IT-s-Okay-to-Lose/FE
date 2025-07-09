@@ -2,7 +2,7 @@ import type {
   DynamicStockData,
   StaticStockMeta,
 } from "@/entities/stock/stock.entity";
-import { API_END_POINT } from "@/shared/constants/fetcher";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 async function getStaticStocks(): Promise<StaticStockMeta[]> {
   const { url, method } = API_END_POINT.stock.getStaticStocks();

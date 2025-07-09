@@ -2,7 +2,7 @@ import type {
   RealizedDetail,
   RealizedSummary,
 } from "@/entities/user/user.entity";
-import { API_END_POINT } from "@/shared/constants/fetcher";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function getRealizedSummary(
   year: number,

@@ -4,7 +4,7 @@ import type {
   MarketIndex,
 } from "@/entities/market/market.entity";
 import { useMarketIndexStore } from "@/entities/market/market.store";
-import { API_END_POINT } from "@/shared/constants/fetcher";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 async function getKospiIndex(): Promise<MarketIndex> {
   const { url, method } = API_END_POINT.market.getKospi();

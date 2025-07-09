@@ -1,5 +1,5 @@
 import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
-import { API_END_POINT } from "@/shared/constants/fetcher";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 import { formatDateToNoon } from "@/shared/utils/format";
 
 export function openChartSocket(

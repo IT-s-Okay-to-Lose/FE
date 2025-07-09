@@ -1,6 +1,6 @@
 import { useUserStore } from "@/entities/user/user.store";
-import { API_END_POINT } from "@/shared/constants/fetcher";
 import URL from "@/shared/constants/URL";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function reissue() {
   const { url, method } = API_END_POINT.user.reissue();
