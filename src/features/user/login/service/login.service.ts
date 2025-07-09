@@ -1,9 +1,11 @@
 import { useUserStore } from "@/entities/user/user.store";
+import { API_END_POINT } from "@/shared/constants/fetcher";
 import URL from "@/shared/constants/URL";
 
 export async function reissue() {
-  const result = await fetch(`${import.meta.env.VITE_APP_API_URL}/reissue`, {
-    method: "GET",
+  const { url, method } = API_END_POINT.user.reissue();
+  const result = await fetch(url, {
+    method: method,
     credentials: "include",
   });
 
@@ -11,8 +13,9 @@ export async function reissue() {
 }
 
 export async function test() {
-  const result = await fetch(`${import.meta.env.VITE_APP_API_URL}/test`, {
-    method: "GET",
+  const { url, method } = API_END_POINT.user.test();
+  const result = await fetch(url, {
+    method: method,
     credentials: "include",
   });
 
