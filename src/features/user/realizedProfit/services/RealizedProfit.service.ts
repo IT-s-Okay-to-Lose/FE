@@ -2,6 +2,7 @@ import type {
   RealizedDetail,
   RealizedSummary,
 } from "@/entities/user/user.entity";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function getRealizedSummary(
   year: number,
@@ -9,10 +10,12 @@ export async function getRealizedSummary(
 ): Promise<RealizedSummary> {
   const userId = 1;
 
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/dashboard/realized-summary?userId=${userId}&year=${year}&month=${month}`,
-    { method: "GET" }
+  const { url, method } = API_END_POINT.user.getRealizedSummary(
+    userId,
+    year,
+    month
   );
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }
@@ -23,10 +26,12 @@ export async function getRealizedDetail(
 ): Promise<RealizedDetail[]> {
   const userId = 1;
 
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/api/dashboard/realized-detail?userId=${userId}&year=${year}&month=${month}`,
-    { method: "GET" }
+  const { url, method } = API_END_POINT.user.getRealizedDetail(
+    userId,
+    year,
+    month
   );
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }

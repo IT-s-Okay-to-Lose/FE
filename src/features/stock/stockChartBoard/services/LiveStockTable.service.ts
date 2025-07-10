@@ -2,21 +2,18 @@ import type {
   DynamicStockData,
   StaticStockMeta,
 } from "@/entities/stock/stock.entity";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 async function getStaticStocks(): Promise<StaticStockMeta[]> {
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/auth/api/stocks/meta`,
-    { method: "GET" }
-  );
+  const { url, method } = API_END_POINT.stock.getStaticStocks();
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }
 
 async function getDynamicStocks(query: string): Promise<DynamicStockData[]> {
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/auth/api/stocks/dynamic?${query}`,
-    { method: "GET" }
-  );
+  const { url, method } = API_END_POINT.stock.getDynamicStocks(query);
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }

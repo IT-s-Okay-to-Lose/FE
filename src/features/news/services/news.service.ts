@@ -1,11 +1,10 @@
 import type { News } from "@/entities/news/news.entity";
 import { useNewsStore } from "@/entities/news/news.store";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function getNews(): Promise<News[]> {
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/auth/api/v1/news/top3`,
-    { method: "GET" }
-  );
+  const { url, method } = API_END_POINT.news.getNews();
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }

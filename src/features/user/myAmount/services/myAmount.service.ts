@@ -1,7 +1,10 @@
+import { API_END_POINT } from "@/shared/utils/fetcher";
+
 export async function chargeMoney(amount: number) {
   // 임시 endpoint
-  const result = await fetch(`${import.meta.env.VITE_APP_API_URL}/api/charge`, {
-    method: "POST",
+  const { url, method } = API_END_POINT.user.postCharge();
+  const result = await fetch(url, {
+    method: method,
     credentials: "include",
     body: JSON.stringify({
       amount: amount,

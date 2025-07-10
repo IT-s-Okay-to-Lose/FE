@@ -1,4 +1,5 @@
 import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 import { formatDateToNoon } from "@/shared/utils/format";
 
 export function openChartSocket(
@@ -6,9 +7,8 @@ export function openChartSocket(
   selectedCode: string | null,
   setCandleData: React.Dispatch<React.SetStateAction<CandleData[]>>
 ) {
-  const socket = new WebSocket(
-    `${import.meta.env.VITE_WS_API_URL}/auth/ws/chart`
-  );
+  const { url } = API_END_POINT.stock.getCandleData();
+  const socket = new WebSocket(url);
   candleWsRef.current = socket;
 
   socket.onopen = () => {
@@ -70,9 +70,8 @@ export function openVolumeSocket(
   selectedCode: string | null,
   setVolumeData: React.Dispatch<React.SetStateAction<VolumeData[]>>
 ) {
-  const volumeSocket = new WebSocket(
-    `${import.meta.env.VITE_WS_API_URL}/auth/ws/volume`
-  );
+  const { url } = API_END_POINT.stock.getVolumeData();
+  const volumeSocket = new WebSocket(url);
   volumeWsRef.current = volumeSocket;
 
   volumeSocket.onopen = () => {

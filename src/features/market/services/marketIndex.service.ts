@@ -4,30 +4,25 @@ import type {
   MarketIndex,
 } from "@/entities/market/market.entity";
 import { useMarketIndexStore } from "@/entities/market/market.store";
+import { API_END_POINT } from "@/shared/utils/fetcher";
 
 async function getKospiIndex(): Promise<MarketIndex> {
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/auth/api/market-index/KOSPI`,
-    { method: "GET" }
-  );
+  const { url, method } = API_END_POINT.market.getKospi();
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }
 
 async function getKosdaqIndex(): Promise<MarketIndex> {
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/auth/api/market-index/KOSDAQ`,
-    { method: "GET" }
-  );
+  const { url, method } = API_END_POINT.market.getKosdaq();
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }
 
 async function getExchangeIndex(): Promise<ExchangeIndex> {
-  const result = await fetch(
-    `${import.meta.env.VITE_APP_API_URL}/auth/api/exchange`,
-    { method: "GET" }
-  );
+  const { url, method } = API_END_POINT.market.getExchange();
+  const result = await fetch(url, { method: method });
 
   return await result.json();
 }
