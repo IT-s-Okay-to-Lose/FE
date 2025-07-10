@@ -4,13 +4,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import type {
-  Stock,
-  StaticStockMeta,
   DynamicStockData,
+  StaticStockMeta,
+  Stock,
 } from "@/entities/stock/stock.entity";
 // import {
 //   mockDynamicStockData,
