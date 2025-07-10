@@ -29,6 +29,7 @@ export async function postStockOrder(
   const { url, method } = API_END_POINT.stock.postStockOrder();
   const result = await fetch(url, {
     method: method,
+    credentials: "include",
     body: JSON.stringify({
       stockCode,
       orderType,
