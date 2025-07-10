@@ -11,7 +11,5 @@ export async function chargeMoney(amount: number) {
     }),
   });
 
-  const res = await result.json();
-
-  return res;
+  return await result.json();
 }

@@ -2,6 +2,20 @@ import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import { API_END_POINT } from "@/shared/utils/fetcher";
 import { formatDateToNoon } from "@/shared/utils/format";
 
+export async function getPrevCandleData(selectedCode: string) {
+  const { url, method } = API_END_POINT.stock.getPrevCandleData(selectedCode);
+  const result = await fetch(url, { method: method });
+
+  return await result.json();
+}
+
+export async function getPrevVolumeData(selectedCode: string) {
+  const { url, method } = API_END_POINT.stock.getPrevVolumeData(selectedCode);
+  const result = await fetch(url, { method: method });
+
+  return await result.json();
+}
+
 export function openChartSocket(
   candleWsRef: React.RefObject<WebSocket | null>,
   selectedCode: string | null,
