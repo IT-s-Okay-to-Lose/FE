@@ -15,4 +15,12 @@ export const stock = {
   getVolumeData: () => ({
     url: `${import.meta.env.VITE_WS_API_URL}/auth/ws/volume`,
   }),
+  postStockOrder: () => ({
+    url: `${import.meta.env.VITE_APP_API_URL}/api/orders`,
+    method: Method.POST,
+  }),
+  getOrderHistory: (stockCode: string) => ({
+    url: `${import.meta.env.VITE_APP_API_URL}/api/orders/history?stockCode=${stockCode}`,
+    method: Method.GET,
+  }),
 };
