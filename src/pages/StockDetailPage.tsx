@@ -17,7 +17,7 @@ import useMediaQuery from "@/shared/hooks/useMediaQuery";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export const option = ["일", "주", "월", "년"];
+// export const option = ["일", "주", "월", "년"];
 
 function StockDetailPage() {
   const isTabletOrAbove = useMediaQuery();
@@ -25,10 +25,13 @@ function StockDetailPage() {
   const [searchParams] = useSearchParams();
   const selectedCode = searchParams.get("stock_id");
 
-  const [filterTab, setFilterTab] = useState(option[0]);
+  // const [filterTab, setFilterTab] = useState(option[0]);
 
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
+
+  // const [prevCandleData, setPrevCandleData] = useState([]);
+  // const [prevVolumeData, setPrevVolumeData] = useState([]);
 
   const candleWsRef = useRef<WebSocket | null>(null);
   const volumeWsRef = useRef<WebSocket | null>(null);
@@ -49,8 +52,8 @@ function StockDetailPage() {
         <div className="w-full max-w-[1100px] flex flex-col gap-4">
           <StockDetail candleData={candleData} />
           <StockChart
-            filterTab={filterTab}
-            setFilterTab={setFilterTab}
+            // filterTab={filterTab}
+            // setFilterTab={setFilterTab}
             candleData={candleData}
             volumeData={volumeData}
           />
