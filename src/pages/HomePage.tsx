@@ -1,9 +1,9 @@
 import Header from "@/shared/components/molecules/Header";
 
 import { News } from "@/features/news/ui/News";
-import { StockChartBoard } from "@/features/stock/stockChartBoard/ui/StockChartBoard";
 
 import { MarketIndexSummary } from "@/features/market/ui/MarketIndexSummary";
+import { StockTableBoard } from "@/features/stock/liveStockTable/ui/StockTableBoard";
 import { login, test } from "@/features/user/login/service/login.service";
 import Footer from "@/shared/components/molecules/Footer";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
@@ -26,7 +26,7 @@ function HomePage() {
         <Header />
       </div>
       <div className="w-full m-auto flex justify-center mt-10 gap-[60px]">
-        <StockChartBoard />
+        <StockTableBoard />
         <div className="hidden laptop:flex laptop:flex-col laptop:gap-[50px]">
           <MarketIndexSummary />
           <News />
