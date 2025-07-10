@@ -48,11 +48,12 @@ function IndexRow({ data }: { data: MarketIndex }) {
         <Typography.SubTitle1
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
-          {currentValue.toLocaleString()} {isUp ? "+" : ""}
+          {currentValue.toLocaleString()}
         </Typography.SubTitle1>
         <Typography.SubTitle2
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
+          {isUp ? "+" : ""}
           {changeAmount.toLocaleString()} ({isUp ? "+" : ""}
           {changeRate.toFixed(2)}%)
         </Typography.SubTitle2>
@@ -75,11 +76,12 @@ function ExchangeRow({ data }: { data: ExchangeIndex }) {
         <Typography.SubTitle1
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
-          {rate.toLocaleString()} {isUp ? "+" : ""}
+          {rate.toLocaleString()}
         </Typography.SubTitle1>
         <Typography.SubTitle2
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
+          {isUp ? "+" : ""}
           {difference.toLocaleString()} ({isUp ? "+" : ""}
           {percent.toFixed(2)}%)
         </Typography.SubTitle2>
