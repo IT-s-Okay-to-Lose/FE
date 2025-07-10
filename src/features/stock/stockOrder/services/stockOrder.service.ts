@@ -1,12 +1,5 @@
 import { API_END_POINT } from "@/shared/utils/fetcher";
 
-interface PostStockOrderRequest {
-  stockCode: string;
-  orderType: "BUY" | "SELL";
-  quantity: number;
-  price: number;
-}
-
 interface PostStockOrderResponse {
   orderId: number;
   stockCode: string;
@@ -15,10 +8,6 @@ interface PostStockOrderResponse {
   quantity: number;
   status: "PENDING" | "COMPLETED" | "CANCELED" | "PARTIAL";
   createdAt: string;
-}
-
-interface OrderHistoryRequest {
-  stockCode: string;
 }
 
 interface OrderHistoryResponse {
@@ -31,12 +20,12 @@ interface OrderHistoryResponse {
   createdAt: string;
 }
 
-export async function postStockOrder({
-  stockCode,
-  orderType,
-  quantity,
-  price,
-}: PostStockOrderRequest): Promise<PostStockOrderResponse> {
+export async function postStockOrder(
+  stockCode: string,
+  orderType: "BUY" | "SELL",
+  quantity: number,
+  price: number
+): Promise<PostStockOrderResponse> {
   const { url, method } = API_END_POINT.stock.postStockOrder();
   const result = await fetch(url, {
     method: method,
@@ -51,9 +40,9 @@ export async function postStockOrder({
   return await result.json();
 }
 
-export async function orderHistory({
-  stockCode,
-}: OrderHistoryRequest): Promise<OrderHistoryResponse> {
+export async function orderHistory(
+  stockCode: string
+): Promise<OrderHistoryResponse> {
   const { url, method } = API_END_POINT.stock.getOrderHistory(stockCode);
   const result = await fetch(url, { method: method });
 

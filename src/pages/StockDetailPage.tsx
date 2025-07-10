@@ -2,7 +2,8 @@ import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import {
   openChartSocket,
   openVolumeSocket,
-} from "@/features/stock/stockChartBoard/services/StockChart.service";
+} from "@/features/stock/stockChartBoard/services/stockChart.service";
+
 import StockChart from "@/features/stock/stockChartBoard/ui/StockChart";
 import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
 import BuyStock from "@/features/stock/stockOrder/ui/BuyStock";
@@ -55,8 +56,8 @@ function StockDetailPage() {
           />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">
-          <BuyStock />
-          <SellStock />
+          <BuyStock stockCode={selectedCode!} />
+          <SellStock stockCode={selectedCode!} />
           <div className="flex flex-col gap-2">
             <OrderHistory />
             <MyOrder />

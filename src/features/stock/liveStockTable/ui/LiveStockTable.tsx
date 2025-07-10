@@ -76,7 +76,9 @@ function LiveStockTable() {
     // 최초 마운트 시: 초기 데이터 로딩 & 웹소켓 연결
     getMergedStockFunction();
 
-    const socket = new WebSocket(`${import.meta.env.VITE_WS_API_URL}/ws/stock`);
+    const socket = new WebSocket(
+      `${import.meta.env.VITE_WS_API_URL}/auth/ws/stock`
+    );
     wsRef.current = socket;
 
     socket.onopen = () => {
