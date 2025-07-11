@@ -26,10 +26,18 @@ export function MarketIndexSummary() {
       <Typography.Head2 className="w-full text-right mb-3">
         지수 · 환율
       </Typography.Head2>
-      {marketIndices.map((data, index) => (
-        <IndexRow data={data} key={index} />
-      ))}
-      {exchange && <ExchangeRow data={exchange} />}
+      {marketIndices.length === 0 && !exchange ? (
+        <Typography.P1 className="text-right">
+          데이터를 불러올 수 없습니다.
+        </Typography.P1>
+      ) : (
+        <>
+          {marketIndices.map((data, index) => (
+            <IndexRow data={data} key={index} />
+          ))}
+          {exchange && <ExchangeRow data={exchange} />}
+        </>
+      )}
     </div>
   );
 }
@@ -48,11 +56,12 @@ function IndexRow({ data }: { data: MarketIndex }) {
         <Typography.SubTitle1
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
-          {currentValue.toLocaleString()} {isUp ? "+" : ""}
+          {currentValue.toLocaleString()}
         </Typography.SubTitle1>
         <Typography.SubTitle2
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
+          {isUp ? "+" : ""}
           {changeAmount.toLocaleString()} ({isUp ? "+" : ""}
           {changeRate.toFixed(2)}%)
         </Typography.SubTitle2>
@@ -75,11 +84,12 @@ function ExchangeRow({ data }: { data: ExchangeIndex }) {
         <Typography.SubTitle1
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
-          {rate.toLocaleString()} {isUp ? "+" : ""}
+          {rate.toLocaleString()}
         </Typography.SubTitle1>
         <Typography.SubTitle2
           className={`text-right ${isUp ? "text-otl-stock-up" : "text-otl-stock-down"}`}
         >
+          {isUp ? "+" : ""}
           {difference.toLocaleString()} ({isUp ? "+" : ""}
           {percent.toFixed(2)}%)
         </Typography.SubTitle2>

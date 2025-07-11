@@ -1,4 +1,4 @@
-import Icons from "@/asset/Icons";
+import Icons from "@/shared/asset/Icons";
 import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
 import cn from "@/shared/utils/cn";
