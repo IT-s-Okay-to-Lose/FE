@@ -1,5 +1,7 @@
 import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import {
+  getPrevCandleData,
+  getPrevVolumeData,
   openChartSocket,
   openVolumeSocket,
 } from "@/features/stock/stockChartBoard/services/liveStockChart.service";
@@ -30,13 +32,22 @@ function StockDetailPage() {
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
 
-  // const [prevCandleData, setPrevCandleData] = useState([]);
-  // const [prevVolumeData, setPrevVolumeData] = useState([]);
-
   const candleWsRef = useRef<WebSocket | null>(null);
   const volumeWsRef = useRef<WebSocket | null>(null);
 
+  async function getPrevCandle() {
+    const result = await getPrevCandleData(selectedCode!);
+    setCandleData(result);
+  }
+
+  async function getPrevVolume() {
+    const result = await getPrevVolumeData(selectedCode!);
+    setVolumeData(result);
+  }
+
   useEffect(() => {
+    getPrevCandle();
+    getPrevVolume();
     openChartSocket(candleWsRef, selectedCode, setCandleData);
     openVolumeSocket(volumeWsRef, selectedCode, setVolumeData);
   }, []);
@@ -51,12 +62,7 @@ function StockDetailPage() {
       <div className="w-full m-auto flex flex-col items-center justify-center  mt-10 gap-[30px]">
         <div className="w-full max-w-[1100px] flex flex-col gap-4">
           <StockDetail candleData={candleData} />
-          <StockChart
-            // filterTab={filterTab}
-            // setFilterTab={setFilterTab}
-            candleData={candleData}
-            volumeData={volumeData}
-          />
+          <StockChart candleData={candleData} volumeData={volumeData} />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">
           <BuyStock stockCode={selectedCode!} />

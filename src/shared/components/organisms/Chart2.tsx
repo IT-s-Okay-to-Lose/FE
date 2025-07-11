@@ -3,24 +3,24 @@ import ReactECharts from "echarts-for-react";
 import { useMemo } from "react";
 
 interface CandleChartProps {
-  data: CandleData[];
+  candleData: CandleData[];
   volumeData: VolumeData[];
 }
 
-export default function Chart2({ data, volumeData }: CandleChartProps) {
+export default function Chart2({ candleData, volumeData }: CandleChartProps) {
   const [minTime, maxTime] = useMemo(() => {
-    if (data.length === 0) {
+    if (candleData.length === 0) {
       const now = new Date();
       const oneHourAgo = new Date(now.getTime() - 1 * 60 * 60 * 1000 * 24 * 60);
       return [oneHourAgo.toISOString(), now.toISOString()];
     }
 
-    const lastTime = new Date(data[data.length - 1][0]); // 최신 캔들 시간
+    const lastTime = new Date(candleData[candleData.length - 1][0]); // 최신 캔들 시간
     const oneHourAgo = new Date(
       lastTime.getTime() - 1 * 60 * 60 * 1000 * 24 * 60
     );
     return [oneHourAgo.toISOString(), lastTime.toISOString()];
-  }, [data]);
+  }, [candleData]);
 
   const option = {
     tooltip: {
@@ -75,12 +75,12 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
     grid: [
       {
         left: "4%",
-        right: "0",
+        right: "1%",
         height: "50%",
       },
       {
         left: "4%",
-        right: "0",
+        right: "1%",
         top: "78%",
         height: "16%",
       },
@@ -89,7 +89,7 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
       {
         type: "candlestick",
         name: "가격",
-        data: data.map(([time, open, high, low, close]) => [
+        data: candleData.map(([time, open, high, low, close]) => [
           time,
           open,
           close,
@@ -102,23 +102,18 @@ export default function Chart2({ data, volumeData }: CandleChartProps) {
           borderColor: "#ff0000",
           borderColor0: "#0000ff",
         },
-        barWidth: 5,
+        barWidth: 8,
       },
       {
         type: "bar",
         name: "거래량",
         xAxisIndex: 1,
         yAxisIndex: 1,
-        data: data.map(([time, open, close], idx) => {
-          const volume = volumeData[idx]?.[1] ?? 0;
-          return {
-            value: [time, volume],
-            itemStyle: {
-              color: close >= open ? "#ff0000" : "#0000ff",
-            },
-          };
-        }),
-        barWidth: 5,
+        data: volumeData.map(([time, volume]) => [time, volume]),
+        itemStyle: {
+          color: "#808080",
+        },
+        barWidth: 8,
       },
     ],
   };

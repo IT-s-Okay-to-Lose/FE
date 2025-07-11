@@ -2,14 +2,18 @@ import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import { API_END_POINT } from "@/shared/utils/fetcher";
 import { formatDateToNoon } from "@/shared/utils/format";
 
-export async function getPrevCandleData(selectedCode: string) {
+export async function getPrevCandleData(
+  selectedCode: string
+): Promise<CandleData[]> {
   const { url, method } = API_END_POINT.stock.getPrevCandleData(selectedCode);
   const result = await fetch(url, { method: method });
 
   return await result.json();
 }
 
-export async function getPrevVolumeData(selectedCode: string) {
+export async function getPrevVolumeData(
+  selectedCode: string
+): Promise<VolumeData[]> {
   const { url, method } = API_END_POINT.stock.getPrevVolumeData(selectedCode);
   const result = await fetch(url, { method: method });
 
