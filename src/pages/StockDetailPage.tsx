@@ -27,7 +27,7 @@ function StockDetailPage() {
   const [searchParams] = useSearchParams();
   const selectedCode = searchParams.get("stock_id");
 
-  // const [filterTab, setFilterTab] = useState(option[0]);
+  //
 
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
@@ -65,8 +65,18 @@ function StockDetailPage() {
           <StockChart candleData={candleData} volumeData={volumeData} />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">
-          <BuyStock stockCode={selectedCode!} />
-          <SellStock stockCode={selectedCode!} />
+          <BuyStock
+            stockCode={selectedCode!}
+            currentPrice={
+              candleData.length > 0 ? candleData[candleData.length - 1][4] : 0
+            }
+          />
+          <SellStock
+            stockCode={selectedCode!}
+            currentPrice={
+              candleData.length > 0 ? candleData[candleData.length - 1][4] : 0
+            }
+          />
           <div className="flex flex-col gap-2">
             <OrderHistory />
             <MyOrder />

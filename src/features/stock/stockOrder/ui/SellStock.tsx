@@ -6,8 +6,13 @@ import { formatNumber } from "@/shared/utils/format";
 import { useState } from "react";
 import { postStockOrder } from "../services/stockOrder.service";
 
-function SellStock({ stockCode }: { stockCode: string }) {
-  const current_price = 300000;
+function SellStock({
+  stockCode,
+  currentPrice,
+}: {
+  stockCode: string;
+  currentPrice: number;
+}) {
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleClickBuyButton = async () => {
@@ -15,7 +20,7 @@ function SellStock({ stockCode }: { stockCode: string }) {
       stockCode,
       "SELL",
       quantity,
-      current_price
+      currentPrice
     );
 
     console.log(result);
@@ -31,7 +36,7 @@ function SellStock({ stockCode }: { stockCode: string }) {
           <div className="flex justify-between items-center h-9">
             <Typography.SubTitle2>주문 가격</Typography.SubTitle2>
             <Typography.SubTitle2>
-              {formatNumber(current_price)} 원
+              {formatNumber(currentPrice)} 원
             </Typography.SubTitle2>
           </div>
 
@@ -50,7 +55,7 @@ function SellStock({ stockCode }: { stockCode: string }) {
           <div className="w-full flex justify-between mb-[76px]">
             <Typography.SubTitle2>판매 가능 금액</Typography.SubTitle2>
             <Typography.SubTitle2>
-              {formatNumber(quantity * current_price)}원
+              {formatNumber(quantity * currentPrice)}원
             </Typography.SubTitle2>
           </div>
 
