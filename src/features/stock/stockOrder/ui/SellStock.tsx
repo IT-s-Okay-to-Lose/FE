@@ -4,10 +4,22 @@ import Typography from "@/shared/components/atoms/Typography";
 import UnitInput from "@/shared/components/atoms/UnitInput";
 import { formatNumber } from "@/shared/utils/format";
 import { useState } from "react";
+import { postStockOrder } from "../services/stockOrder.service";
 
-function SellStock() {
+function SellStock({ stockCode }: { stockCode: string }) {
   const current_price = 300000;
   const [quantity, setQuantity] = useState<number>(1);
+
+  const handleClickBuyButton = async () => {
+    const result = await postStockOrder(
+      stockCode,
+      "SELL",
+      quantity,
+      current_price
+    );
+
+    console.log(result);
+  };
 
   return (
     <div>
@@ -43,7 +55,7 @@ function SellStock() {
           </div>
 
           <div className="w-full flex justify-center">
-            <Button.Main>판매하기</Button.Main>
+            <Button.Main onClick={handleClickBuyButton}>판매하기</Button.Main>
           </div>
         </Card.Content>
       </Card>

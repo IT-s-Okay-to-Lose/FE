@@ -4,13 +4,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import type {
-  Stock,
-  StaticStockMeta,
   DynamicStockData,
+  StaticStockMeta,
+  Stock,
 } from "@/entities/stock/stock.entity";
 // import {
 //   mockDynamicStockData,
@@ -20,7 +20,7 @@ import Typography from "@/shared/components/atoms/Typography";
 import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
-import { getMergedStock } from "../services/LiveStockTable.service";
+import { getMergedStock } from "../services/liveStockTable.service";
 
 const STOCK_PER_PAGE = 9;
 
@@ -76,7 +76,9 @@ function LiveStockTable() {
     // 최초 마운트 시: 초기 데이터 로딩 & 웹소켓 연결
     getMergedStockFunction();
 
-    const socket = new WebSocket(`${import.meta.env.VITE_WS_API_URL}/ws/stock`);
+    const socket = new WebSocket(
+      `${import.meta.env.VITE_WS_API_URL}/auth/ws/stock`
+    );
     wsRef.current = socket;
 
     socket.onopen = () => {

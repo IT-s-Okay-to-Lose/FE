@@ -5,10 +5,22 @@ import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
 import UnitInput from "@/shared/components/atoms/UnitInput";
 import { formatNumber } from "@/shared/utils/format";
+import { postStockOrder } from "../services/stockOrder.service";
 
-function BuyStock() {
+function BuyStock({ stockCode }: { stockCode: string }) {
   const current_price = 300000;
   const [quantity, setQuantity] = useState<number>(1);
+
+  const handleClickBuyButton = async () => {
+    const result = await postStockOrder(
+      stockCode,
+      "BUY",
+      quantity,
+      current_price
+    );
+
+    console.log(result);
+  };
 
   return (
     <div>
@@ -50,7 +62,7 @@ function BuyStock() {
             </div>
           </div>
           <div className="w-full flex justify-center">
-            <Button.Point>구매하기</Button.Point>
+            <Button.Point onClick={handleClickBuyButton}>구매하기</Button.Point>
           </div>
         </Card.Content>
       </Card>

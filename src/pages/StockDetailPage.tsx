@@ -2,7 +2,8 @@ import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import {
   openChartSocket,
   openVolumeSocket,
-} from "@/features/stock/stockChartBoard/services/StockChart.service";
+} from "@/features/stock/stockChartBoard/services/liveStockChart.service";
+
 import StockChart from "@/features/stock/stockChartBoard/ui/StockChart";
 import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
 import BuyStock from "@/features/stock/stockOrder/ui/BuyStock";
@@ -16,7 +17,7 @@ import useMediaQuery from "@/shared/hooks/useMediaQuery";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export const option = ["일", "주", "월", "년"];
+// export const option = ["일", "주", "월", "년"];
 
 function StockDetailPage() {
   const isTabletOrAbove = useMediaQuery();
@@ -24,10 +25,13 @@ function StockDetailPage() {
   const [searchParams] = useSearchParams();
   const selectedCode = searchParams.get("stock_id");
 
-  const [filterTab, setFilterTab] = useState(option[0]);
+  // const [filterTab, setFilterTab] = useState(option[0]);
 
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
+
+  // const [prevCandleData, setPrevCandleData] = useState([]);
+  // const [prevVolumeData, setPrevVolumeData] = useState([]);
 
   const candleWsRef = useRef<WebSocket | null>(null);
   const volumeWsRef = useRef<WebSocket | null>(null);
@@ -48,15 +52,15 @@ function StockDetailPage() {
         <div className="w-full max-w-[1100px] flex flex-col gap-4">
           <StockDetail candleData={candleData} />
           <StockChart
-            filterTab={filterTab}
-            setFilterTab={setFilterTab}
+            // filterTab={filterTab}
+            // setFilterTab={setFilterTab}
             candleData={candleData}
             volumeData={volumeData}
           />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">
-          <BuyStock />
-          <SellStock />
+          <BuyStock stockCode={selectedCode!} />
+          <SellStock stockCode={selectedCode!} />
           <div className="flex flex-col gap-2">
             <OrderHistory />
             <MyOrder />
