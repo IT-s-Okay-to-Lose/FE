@@ -26,7 +26,6 @@ export async function getMergedStock() {
   const query = initialCodes.map((code) => `codes=${code}`).join("&");
 
   const dynamicResult = await getDynamicStocks(query);
-  console.log("dynamicResult", dynamicResult);
 
   const dynamicMap = new Map<string, DynamicStockData>(
     dynamicResult.map((d) => [d.code, d])
