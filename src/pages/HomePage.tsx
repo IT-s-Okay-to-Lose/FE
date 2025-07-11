@@ -4,7 +4,7 @@ import { News } from "@/features/news/ui/News";
 
 import { MarketIndexSummary } from "@/features/market/ui/MarketIndexSummary";
 import StockTableBoard from "@/features/stock/liveStockTable/ui/StockTableBoard";
-import { login, test } from "@/features/user/login/service/login.service";
+import { login } from "@/features/user/login/service/login.service";
 import Footer from "@/shared/components/molecules/Footer";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
@@ -15,7 +15,6 @@ function HomePage() {
 
   useEffect(() => {
     login();
-    test();
   }, []);
 
   if (!isTabletOrAbove) return <ScreenTooSmall />;
