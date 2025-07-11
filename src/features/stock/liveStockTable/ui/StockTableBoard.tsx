@@ -3,7 +3,7 @@ import Typography from "@/shared/components/atoms/Typography";
 // import { useState } from "react";
 import LiveStockTable from "./LiveStockTable";
 
-export function StockChartBoard() {
+function StockTableBoard() {
   // const filteringList = ["실시간", "1일", "3일"];
   // const [filterTab, setFilterTab] = useState(filteringList[0]);
 
@@ -24,3 +24,5 @@ export function StockChartBoard() {
     </div>
   );
 }
+
+export default StockTableBoard;
