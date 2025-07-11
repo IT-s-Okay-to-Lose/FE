@@ -20,7 +20,7 @@ import Typography from "@/shared/components/atoms/Typography";
 import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
-import { getMergedStock } from "../services/stockTable.service";
+import { getMergedStock } from "../services/liveStockTable.service";
 
 const STOCK_PER_PAGE = 9;
 

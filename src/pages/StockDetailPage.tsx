@@ -2,7 +2,7 @@ import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
 import {
   openChartSocket,
   openVolumeSocket,
-} from "@/features/stock/stockChartBoard/services/stockChart.service";
+} from "@/features/stock/stockChartBoard/services/liveStockChart.service";
 
 import StockChart from "@/features/stock/stockChartBoard/ui/StockChart";
 import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
