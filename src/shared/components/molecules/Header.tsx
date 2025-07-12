@@ -12,7 +12,6 @@ function Header() {
   const isActive = (path: string) => pathname === path;
 
   const { isLoggedIn } = useUserStore();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (

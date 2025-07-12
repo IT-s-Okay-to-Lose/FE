@@ -7,8 +7,13 @@ import UnitInput from "@/shared/components/atoms/UnitInput";
 import { formatNumber } from "@/shared/utils/format";
 import { postStockOrder } from "../services/stockOrder.service";
 
-function BuyStock({ stockCode }: { stockCode: string }) {
-  const current_price = 300000;
+function BuyStock({
+  stockCode,
+  currentPrice,
+}: {
+  stockCode: string;
+  currentPrice: number;
+}) {
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleClickBuyButton = async () => {
@@ -16,7 +21,7 @@ function BuyStock({ stockCode }: { stockCode: string }) {
       stockCode,
       "BUY",
       quantity,
-      current_price
+      currentPrice
     );
 
     console.log(result);
@@ -32,7 +37,7 @@ function BuyStock({ stockCode }: { stockCode: string }) {
           <div className="flex justify-between items-center h-9">
             <Typography.SubTitle2>주문 가격</Typography.SubTitle2>
             <Typography.SubTitle2>
-              {formatNumber(current_price)} 원
+              {formatNumber(currentPrice)} 원
             </Typography.SubTitle2>
           </div>
 
@@ -51,13 +56,13 @@ function BuyStock({ stockCode }: { stockCode: string }) {
             <div className="w-full flex justify-between">
               <Typography.SubTitle2>구매 가능 금액</Typography.SubTitle2>
               <Typography.SubTitle2>
-                {formatNumber(quantity * current_price)}원
+                {formatNumber(quantity * currentPrice)}원
               </Typography.SubTitle2>
             </div>
             <div className="w-full flex justify-between">
               <Typography.SubTitle2>총 구매 금액</Typography.SubTitle2>
               <Typography.SubTitle2>
-                {formatNumber(quantity * current_price)}원
+                {formatNumber(quantity * currentPrice)}원
               </Typography.SubTitle2>
             </div>
           </div>
