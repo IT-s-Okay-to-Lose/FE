@@ -15,7 +15,7 @@ interface AuthAction {
 }
 
 const initialUserState: AuthState = {
-  hasHydrated: true,
+  hasHydrated: false,
   userInfo: null,
   isLoggedIn: false,
 };
@@ -32,7 +32,7 @@ export const useUserStore = create<AuthState & AuthAction>()(
       }),
       {
         name: "auth",
-        storage: createJSONStorage(() => localStorage),
+        storage: createJSONStorage(() => sessionStorage),
         onRehydrateStorage: () => (state) => {
           state?.setHydrated?.(true);
         },
