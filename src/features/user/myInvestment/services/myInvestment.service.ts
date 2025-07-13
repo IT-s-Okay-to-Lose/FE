@@ -5,19 +5,15 @@ import type {
 import { API_END_POINT } from "@/shared/utils/fetcher";
 
 export async function getInvestmentSummary(): Promise<UserInvestmentSummary> {
-  const userId = 1;
-
-  const { url, method } = API_END_POINT.user.getInvestmentSummary(userId);
-  const result = await fetch(url, { method: method });
+  const { url, method } = API_END_POINT.user.getInvestmentSummary();
+  const result = await fetch(url, { method: method, credentials: "include" });
 
   return await result.json();
 }
 
 export async function getHoldingRatio(): Promise<HoldingRatio[]> {
-  const userId = 1;
-
-  const { url, method } = API_END_POINT.user.getHoldingRatio(userId);
-  const result = await fetch(url, { method: method });
+  const { url, method } = API_END_POINT.user.getHoldingRatio();
+  const result = await fetch(url, { method: method, credentials: "include" });
 
   return await result.json();
 }
