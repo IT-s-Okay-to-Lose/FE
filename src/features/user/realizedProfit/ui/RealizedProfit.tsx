@@ -41,7 +41,7 @@ function RealizedProfit() {
             handleMonthChange={handleMonthChange}
           />
           <div className="border border-grey my-[30px]" />
-          <ProfitDetail />
+          <ProfitDetail year={currentYear} month={currentMonth} />
         </Card.Content>
       </Card>
     </div>
