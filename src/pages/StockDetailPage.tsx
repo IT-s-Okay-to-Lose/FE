@@ -1,7 +1,12 @@
-import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
+import type {
+  CandleData,
+  MarketStockMeta,
+  VolumeData,
+} from "@/entities/stock/stock.entity";
 import {
   getPrevCandleData,
   getPrevVolumeData,
+  getStockMeta,
   openChartSocket,
   openVolumeSocket,
 } from "@/features/stock/stockChartBoard/services/liveStockChart.service";
@@ -19,15 +24,18 @@ import useMediaQuery from "@/shared/hooks/useMediaQuery";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-// export const option = ["일", "주", "월", "년"];
-
 function StockDetailPage() {
   const isTabletOrAbove = useMediaQuery();
 
   const [searchParams] = useSearchParams();
   const selectedCode = searchParams.get("stock_id");
 
-  //
+  const [stockMeta, setStockMeta] = useState<MarketStockMeta>({
+    name: "",
+    imageUrl: "",
+    stock_code: "",
+    marketType: "",
+  });
 
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
@@ -45,7 +53,13 @@ function StockDetailPage() {
     setVolumeData(result);
   }
 
+  async function getStockInfo() {
+    const result = await getStockMeta(selectedCode!);
+    setStockMeta(result);
+  }
+
   useEffect(() => {
+    getStockInfo();
     getPrevCandle();
     getPrevVolume();
     openChartSocket(candleWsRef, selectedCode, setCandleData);
@@ -61,7 +75,7 @@ function StockDetailPage() {
       </div>
       <div className="w-full m-auto flex flex-col items-center justify-center  mt-10 gap-[30px]">
         <div className="w-full max-w-[1100px] flex flex-col gap-4">
-          <StockDetail candleData={candleData} />
+          <StockDetail stockMeta={stockMeta} candleData={candleData} />
           <StockChart candleData={candleData} volumeData={volumeData} />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">

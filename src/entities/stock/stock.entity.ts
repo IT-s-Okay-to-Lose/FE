@@ -37,10 +37,11 @@ export interface DynamicStockData {
 
 // ---------------------------------------------------------------
 // [detail page] 주식 정보
-export interface MarketStockInfo {
+export interface MarketStockMeta {
   stock_code: string; // 주식 종목 코드
   imageUrl: string; // 종목 사진
   name: string; // 주식 종목 이름
+  marketType: string;
 }
 
 // [detail page] 주식 가격 정보
