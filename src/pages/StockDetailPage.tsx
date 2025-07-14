@@ -7,12 +7,12 @@ import type {
 import {
   getPrevCandleData,
   getPrevVolumeData,
-  getStockMeta,
   openChartSocket,
   openVolumeSocket,
 } from "@/features/stock/stockChartBoard/services/liveStockChart.service";
 
 import StockChart from "@/features/stock/stockChartBoard/ui/StockChart";
+import { getStockMeta } from "@/features/stock/stockDetail/services/stockDetail.service";
 import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
 import BuyStock from "@/features/stock/stockOrder/ui/BuyStock";
 import SellStock from "@/features/stock/stockOrder/ui/SellStock";

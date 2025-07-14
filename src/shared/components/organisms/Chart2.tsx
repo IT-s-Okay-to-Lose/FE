@@ -102,7 +102,7 @@ export default function Chart2({ candleData, volumeData }: CandleChartProps) {
           borderColor: "#ff0000",
           borderColor0: "#0000ff",
         },
-        barWidth: 8,
+        barWidth: 10,
       },
       {
         type: "bar",
@@ -113,7 +113,7 @@ export default function Chart2({ candleData, volumeData }: CandleChartProps) {
         itemStyle: {
           color: "#808080",
         },
-        barWidth: 8,
+        barWidth: 10,
       },
     ],
   };
