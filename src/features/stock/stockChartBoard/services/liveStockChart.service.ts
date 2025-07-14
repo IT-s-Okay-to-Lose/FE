@@ -1,6 +1,7 @@
 import type {
   CandleData,
   MarketStockMeta,
+  MarketStockPriceInfo,
   VolumeData,
 } from "@/entities/stock/stock.entity";
 import { API_END_POINT } from "@/shared/utils/fetcher";
@@ -35,7 +36,8 @@ export async function getPrevVolumeData(
 export function openChartSocket(
   candleWsRef: React.RefObject<WebSocket | null>,
   selectedCode: string | null,
-  setCandleData: React.Dispatch<React.SetStateAction<CandleData[]>>
+  setCandleData: React.Dispatch<React.SetStateAction<CandleData[]>>,
+  setMarketPriceInfo: React.Dispatch<React.SetStateAction<MarketStockPriceInfo>>
 ) {
   const { url } = API_END_POINT.stock.getCandleData();
   const socket = new WebSocket(url);
@@ -61,6 +63,7 @@ export function openChartSocket(
       candles.length === 5 &&
       typeof candles[0] === "string"
     ) {
+      setMarketPriceInfo(data.marketInfo);
       setCandleData((prev) => {
         if (prev.length === 0)
           return [

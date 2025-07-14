@@ -1,6 +1,7 @@
 import type {
   CandleData,
   MarketStockMeta,
+  MarketStockPriceInfo,
   VolumeData,
 } from "@/entities/stock/stock.entity";
 import {
@@ -36,6 +37,11 @@ function StockDetailPage() {
     stock_code: "",
     marketType: "",
   });
+  const [marketPriceInfo, setMarketPriceInfo] = useState<MarketStockPriceInfo>({
+    currentPrice: 0,
+    priceChange: 0,
+    fluctuationRate: 0,
+  });
 
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
@@ -62,7 +68,12 @@ function StockDetailPage() {
     getStockInfo();
     getPrevCandle();
     getPrevVolume();
-    openChartSocket(candleWsRef, selectedCode, setCandleData);
+    openChartSocket(
+      candleWsRef,
+      selectedCode,
+      setCandleData,
+      setMarketPriceInfo
+    );
     openVolumeSocket(volumeWsRef, selectedCode, setVolumeData);
   }, []);
 
@@ -75,7 +86,11 @@ function StockDetailPage() {
       </div>
       <div className="w-full m-auto flex flex-col items-center justify-center  mt-10 gap-[30px]">
         <div className="w-full max-w-[1100px] flex flex-col gap-4">
-          <StockDetail stockMeta={stockMeta} candleData={candleData} />
+          <StockDetail
+            stockMeta={stockMeta}
+            candleData={candleData}
+            marketPriceInfo={marketPriceInfo}
+          />
           <StockChart candleData={candleData} volumeData={volumeData} />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">

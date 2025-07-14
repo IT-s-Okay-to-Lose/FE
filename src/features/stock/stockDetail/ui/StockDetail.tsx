@@ -1,17 +1,19 @@
 import type {
   CandleData,
   MarketStockMeta,
+  MarketStockPriceInfo,
 } from "@/entities/stock/stock.entity";
-import { mockStockCurrentPrice } from "@/entities/stock/stock.mock";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
 
 function StockDetail({
   stockMeta,
   candleData,
+  marketPriceInfo,
 }: {
   stockMeta: MarketStockMeta;
   candleData: CandleData[];
+  marketPriceInfo: MarketStockPriceInfo;
 }) {
   return (
     <div>
@@ -29,8 +31,8 @@ function StockDetail({
       </Typography.Head1>
       <Typography.P1>
         전일 대비 <i className="bi bi-triangle-fill" />{" "}
-        {formatNumber(mockStockCurrentPrice.priceChange)}원 (
-        {mockStockCurrentPrice.fluctuationRate}%)
+        {formatNumber(marketPriceInfo.priceChange)}원 (
+        {marketPriceInfo.fluctuationRate}%)
       </Typography.P1>
     </div>
   );
