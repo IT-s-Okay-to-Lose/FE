@@ -13,9 +13,9 @@ import type {
 // [overview page] 유저 정보
 export const mockUserInfo: UserInfo = {
   name: "강민재",
-  imageUrl:
+  profileImage:
     "https://firebasestorage.googleapis.com/v0/b/blog-2b12b.appspot.com/o/profile_sponge.png?alt=media&token=63e9e64d-3c8f-4ee7-9b75-18095ca6af16",
-  joinDate: new Date("2025-04-25T11:30:00"),
+  createdAt: new Date("2025-04-25T11:30:00"),
 };
 
 // [overview page] 유저 프로필 카드 옆 잔액, 수익률 데이터
