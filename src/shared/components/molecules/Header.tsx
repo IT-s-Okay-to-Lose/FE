@@ -1,4 +1,4 @@
-import { mockUserInfo } from "@/entities/user/user.mock";
+// import { mockUserInfo } from "@/entities/user/user.mock";
 import { useUserStore } from "@/entities/user/user.store";
 import LoginModal from "@/features/user/login/ui/LoginModal";
 import URL from "@/shared/constants/URL";
@@ -11,7 +11,7 @@ function Header() {
   const pathname = location.pathname;
   const isActive = (path: string) => pathname === path;
 
-  const { isLoggedIn } = useUserStore();
+  const { isLoggedIn, userInfo } = useUserStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -55,7 +55,7 @@ function Header() {
             {isLoggedIn ? (
               <div className="w-[155px] flex justify-end">
                 <div className="border w-[40px] h-[40px] rounded-full bg-otl-gray overflow-hidden">
-                  <img src={mockUserInfo.imageUrl} />
+                  <img src={userInfo?.profileImage} />
                 </div>
               </div>
             ) : (
