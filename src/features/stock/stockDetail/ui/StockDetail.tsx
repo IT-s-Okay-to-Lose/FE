@@ -1,19 +1,27 @@
-import type { CandleData } from "@/entities/stock/stock.entity";
-import {
-  mockStockCurrentPrice,
-  mockStockDetailData,
-} from "@/entities/stock/stock.mock";
+import type {
+  CandleData,
+  MarketStockMeta,
+  MarketStockPriceInfo,
+} from "@/entities/stock/stock.entity";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
 
-function StockDetail({ candleData }: { candleData: CandleData[] }) {
+function StockDetail({
+  stockMeta,
+  candleData,
+  marketPriceInfo,
+}: {
+  stockMeta: MarketStockMeta;
+  candleData: CandleData[];
+  marketPriceInfo: MarketStockPriceInfo;
+}) {
   return (
     <div>
       <div className="flex gap-3 items-center">
         <div className="rounded-full w-[40px] h-[40px] overflow-hidden">
-          <img src={mockStockDetailData.imageUrl} />
+          <img src={stockMeta.imageUrl} />
         </div>
-        <Typography.Head2>{mockStockDetailData.name}</Typography.Head2>
+        <Typography.Head2>{stockMeta.name}</Typography.Head2>
       </div>
       <Typography.Head1>
         {candleData.length >= 1
@@ -23,8 +31,8 @@ function StockDetail({ candleData }: { candleData: CandleData[] }) {
       </Typography.Head1>
       <Typography.P1>
         전일 대비 <i className="bi bi-triangle-fill" />{" "}
-        {formatNumber(mockStockCurrentPrice.priceChange)}원 (
-        {mockStockCurrentPrice.fluctuationRate}%)
+        {formatNumber(marketPriceInfo.priceChange)}원 (
+        {marketPriceInfo.fluctuationRate}%)
       </Typography.P1>
     </div>
   );

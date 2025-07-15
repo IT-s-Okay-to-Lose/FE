@@ -1,4 +1,9 @@
-import type { CandleData, VolumeData } from "@/entities/stock/stock.entity";
+import type {
+  CandleData,
+  MarketStockMeta,
+  MarketStockPriceInfo,
+  VolumeData,
+} from "@/entities/stock/stock.entity";
 import {
   getPrevCandleData,
   getPrevVolumeData,
@@ -7,6 +12,7 @@ import {
 } from "@/features/stock/stockChartBoard/services/liveStockChart.service";
 
 import StockChart from "@/features/stock/stockChartBoard/ui/StockChart";
+import { getStockMeta } from "@/features/stock/stockDetail/services/stockDetail.service";
 import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
 import BuyStock from "@/features/stock/stockOrder/ui/BuyStock";
 import SellStock from "@/features/stock/stockOrder/ui/SellStock";
@@ -19,15 +25,23 @@ import useMediaQuery from "@/shared/hooks/useMediaQuery";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-// export const option = ["일", "주", "월", "년"];
-
 function StockDetailPage() {
   const isTabletOrAbove = useMediaQuery();
 
   const [searchParams] = useSearchParams();
   const selectedCode = searchParams.get("stock_id");
 
-  //
+  const [stockMeta, setStockMeta] = useState<MarketStockMeta>({
+    name: "",
+    imageUrl: "",
+    stock_code: "",
+    marketType: "",
+  });
+  const [marketPriceInfo, setMarketPriceInfo] = useState<MarketStockPriceInfo>({
+    currentPrice: 0,
+    priceChange: 0,
+    fluctuationRate: 0,
+  });
 
   const [candleData, setCandleData] = useState<CandleData[]>([]);
   const [volumeData, setVolumeData] = useState<VolumeData[]>([]);
@@ -45,10 +59,21 @@ function StockDetailPage() {
     setVolumeData(result);
   }
 
+  async function getStockInfo() {
+    const result = await getStockMeta(selectedCode!);
+    setStockMeta(result);
+  }
+
   useEffect(() => {
+    getStockInfo();
     getPrevCandle();
     getPrevVolume();
-    openChartSocket(candleWsRef, selectedCode, setCandleData);
+    openChartSocket(
+      candleWsRef,
+      selectedCode,
+      setCandleData,
+      setMarketPriceInfo
+    );
     openVolumeSocket(volumeWsRef, selectedCode, setVolumeData);
   }, []);
 
@@ -61,7 +86,11 @@ function StockDetailPage() {
       </div>
       <div className="w-full m-auto flex flex-col items-center justify-center  mt-10 gap-[30px]">
         <div className="w-full max-w-[1100px] flex flex-col gap-4">
-          <StockDetail candleData={candleData} />
+          <StockDetail
+            stockMeta={stockMeta}
+            candleData={candleData}
+            marketPriceInfo={marketPriceInfo}
+          />
           <StockChart candleData={candleData} volumeData={volumeData} />
         </div>
         <div className="w-full max-w-[1100px] flex justify-between">
