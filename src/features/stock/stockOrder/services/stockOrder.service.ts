@@ -30,6 +30,9 @@ export async function postStockOrder(
   const result = await fetch(url, {
     method: method,
     credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       stockCode,
       orderType,
