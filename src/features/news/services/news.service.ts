@@ -5,8 +5,8 @@ import { API_END_POINT } from "@/shared/utils/fetcher";
 export async function getNews(): Promise<News[]> {
   const { url, method } = API_END_POINT.news.getNews();
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 export async function getNewsWithCache(): Promise<News[]> {
