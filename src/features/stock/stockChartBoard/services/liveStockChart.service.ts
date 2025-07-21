@@ -59,16 +59,20 @@ export function openChartSocket(
   };
 
   socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-
+    const message = JSON.parse(event.data);
+    const data: {
+      candle: CandleData;
+      marketInfo: MarketStockPriceInfo;
+    } = message.data;
     const candles = data.candle;
+    const marketInfo = data.marketInfo;
 
     if (
       Array.isArray(candles) &&
       candles.length === 5 &&
       typeof candles[0] === "string"
     ) {
-      setMarketPriceInfo(data.marketInfo);
+      setMarketPriceInfo(marketInfo);
       setCandleData((prev) => {
         if (prev.length === 0)
           return [

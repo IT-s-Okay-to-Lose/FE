@@ -41,7 +41,8 @@ export async function postStockOrder(
     }),
   });
 
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 export async function orderHistory(
@@ -49,6 +50,6 @@ export async function orderHistory(
 ): Promise<OrderHistoryResponse> {
   const { url, method } = API_END_POINT.stock.getOrderHistory(stockCode);
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
