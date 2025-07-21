@@ -1,8 +1,8 @@
 // [overview page] 유저 정보
 export interface UserInfo {
   name: string;
-  imageUrl: string;
-  joinDate: Date; // ISO Date 객체
+  profileImage: string;
+  createdAt: Date; // ISO Date 객체
 }
 
 // [overview page] 유저 프로필 카드 옆 잔액, 수익률 데이터
