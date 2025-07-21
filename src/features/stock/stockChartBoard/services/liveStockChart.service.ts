@@ -12,8 +12,9 @@ export async function getPrevCandleData(
   const { url, method } = API_END_POINT.stock.getPrevCandleData(selectedCode);
   const result = await fetch(url, { method: method });
   const res = await result.json();
+  const data = res.data;
 
-  const normalized = res.map(
+  const normalized = data.map(
     ([date, open, high, low, close]: CandleData) =>
       [formatDateToNoon(date), open, high, low, close] as const
   );
@@ -28,8 +29,9 @@ export async function getPrevVolumeData(
   const result = await fetch(url, { method: method });
 
   const res = await result.json();
+  const data = res.data;
 
-  const normalized = res.map(
+  const normalized = data.map(
     ([date, volume]: VolumeData) => [formatDateToNoon(date), volume] as const
   );
 

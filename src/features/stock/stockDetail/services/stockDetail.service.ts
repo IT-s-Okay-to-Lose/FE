@@ -6,6 +6,6 @@ export async function getStockMeta(
 ): Promise<MarketStockMeta> {
   const { url, method } = API_END_POINT.stock.getStockMeta(selectedCode);
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
