@@ -35,4 +35,8 @@ export const stock = {
     url: `${import.meta.env.VITE_APP_API_URL}/auth/api/stocks/${selectedCode}/meta`,
     method: Method.GET,
   }),
+  getMarketInfo: (selectedCode: string) => ({
+    url: `${import.meta.env.VITE_APP_API_URL}/auth/api/stocks/${selectedCode}/marketinfo`,
+    method: Method.GET,
+  }),
 };

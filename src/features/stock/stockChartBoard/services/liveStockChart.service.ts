@@ -81,6 +81,22 @@ export function openChartSocket(
 
         const last = prev[prev.length - 1];
 
+        if (last[0] !== formatDateToNoon(candles[0])) {
+          const updatedCandle: CandleData = [
+            formatDateToNoon(candles[0]),
+
+            last[1],
+            candles[2],
+            Math.min(last[3], candles[3]),
+            Math.max(last[4], candles[4]),
+          ];
+
+          const updated = [...prev];
+          updated[updated.length] = updatedCandle;
+
+          return updated;
+        }
+
         const updatedCandle: CandleData = [
           last[0],
           last[1],
@@ -134,6 +150,18 @@ export function openVolumeSocket(
         }
 
         const last = prev[prev.length - 1];
+
+        if (last[0] !== formatDateToNoon(volumes[0])) {
+          const updatedVolume: VolumeData = [
+            formatDateToNoon(volumes[0]),
+            volumes[1],
+          ];
+
+          const updated = [...prev];
+          updated[updated.length] = updatedVolume;
+
+          return updated;
+        }
 
         const updatedVolume: VolumeData = [last[0], volumes[1]];
 
