@@ -89,7 +89,8 @@ function LiveStockTable() {
     socket.onmessage = (event) => {
       // console.log("📥 [WebSocket 수신]:", event.data);
       try {
-        const updates: DynamicStockData[] = JSON.parse(event.data);
+        const result = JSON.parse(event.data);
+        const updates: DynamicStockData[] = result.data;
 
         // 동적 데이터 갱신
         updates.forEach((stock) => {

@@ -7,13 +7,13 @@ import { API_END_POINT } from "@/shared/utils/fetcher";
 export async function getInvestmentSummary(): Promise<UserInvestmentSummary> {
   const { url, method } = API_END_POINT.user.getInvestmentSummary();
   const result = await fetch(url, { method: method, credentials: "include" });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 export async function getHoldingRatio(): Promise<HoldingRatio[]> {
   const { url, method } = API_END_POINT.user.getHoldingRatio();
   const result = await fetch(url, { method: method, credentials: "include" });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }

@@ -9,22 +9,22 @@ import { API_END_POINT } from "@/shared/utils/fetcher";
 async function getKospiIndex(): Promise<MarketIndex> {
   const { url, method } = API_END_POINT.market.getKospi();
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 async function getKosdaqIndex(): Promise<MarketIndex> {
   const { url, method } = API_END_POINT.market.getKosdaq();
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 async function getExchangeIndex(): Promise<ExchangeIndex> {
   const { url, method } = API_END_POINT.market.getExchange();
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 async function getMarketIndex(): Promise<CombinedMarketIndex> {

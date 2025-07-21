@@ -7,15 +7,16 @@ import { API_END_POINT } from "@/shared/utils/fetcher";
 async function getStaticStocks(): Promise<StaticStockMeta[]> {
   const { url, method } = API_END_POINT.stock.getStaticStocks();
   const result = await fetch(url, { method: method });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 async function getDynamicStocks(query: string): Promise<DynamicStockData[]> {
   const { url, method } = API_END_POINT.stock.getDynamicStocks(query);
   const result = await fetch(url, { method: method });
+  const res = await result.json();
 
-  return await result.json();
+  return res.data;
 }
 
 // 정적 + 동적 주식 데이터를 병합 & 정렬하여 반환하는 함수

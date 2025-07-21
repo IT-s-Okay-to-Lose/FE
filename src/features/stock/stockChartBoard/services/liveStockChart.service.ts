@@ -12,8 +12,9 @@ export async function getPrevCandleData(
   const { url, method } = API_END_POINT.stock.getPrevCandleData(selectedCode);
   const result = await fetch(url, { method: method });
   const res = await result.json();
+  const data = res.data;
 
-  const normalized = res.map(
+  const normalized = data.map(
     ([date, open, high, low, close]: CandleData) =>
       [formatDateToNoon(date), open, high, low, close] as const
   );
@@ -28,8 +29,9 @@ export async function getPrevVolumeData(
   const result = await fetch(url, { method: method });
 
   const res = await result.json();
+  const data = res.data;
 
-  const normalized = res.map(
+  const normalized = data.map(
     ([date, volume]: VolumeData) => [formatDateToNoon(date), volume] as const
   );
 
@@ -57,16 +59,20 @@ export function openChartSocket(
   };
 
   socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-
+    const message = JSON.parse(event.data);
+    const data: {
+      candle: CandleData;
+      marketInfo: MarketStockPriceInfo;
+    } = message.data;
     const candles = data.candle;
+    const marketInfo = data.marketInfo;
 
     if (
       Array.isArray(candles) &&
       candles.length === 5 &&
       typeof candles[0] === "string"
     ) {
-      setMarketPriceInfo(data.marketInfo);
+      setMarketPriceInfo(marketInfo);
       setCandleData((prev) => {
         if (prev.length === 0)
           return [
