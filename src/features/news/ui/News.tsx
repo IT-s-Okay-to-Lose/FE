@@ -2,14 +2,14 @@ import type { News } from "@/entities/news/news.entity";
 import { useNewsStore } from "@/entities/news/news.store";
 import Typography from "@/shared/components/atoms/Typography";
 import { useEffect, useState } from "react";
-import { getNewsWithCache } from "../services/news.service";
+import { getNews } from "../services/news.service";
 
 export function News() {
   const [news, setNews] = useState<News[]>([]);
   const lastFetched = useNewsStore((state) => state.lastFetched);
 
   async function getNewsFunction() {
-    const result = await getNewsWithCache();
+    const result = await getNews();
     setNews(result);
   }
 

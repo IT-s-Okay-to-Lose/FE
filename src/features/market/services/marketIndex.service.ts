@@ -3,7 +3,6 @@ import type {
   ExchangeIndex,
   MarketIndex,
 } from "@/entities/market/market.entity";
-import { useMarketIndexStore } from "@/entities/market/market.store";
 import { API_END_POINT } from "@/shared/utils/fetcher";
 
 async function getKospiIndex(): Promise<MarketIndex> {
@@ -41,26 +40,26 @@ async function getMarketIndex(): Promise<CombinedMarketIndex> {
 }
 
 export async function getMarketIndexWithCache(): Promise<CombinedMarketIndex> {
-  const { marketIndex, exchangeIndex, lastFetched, setMarketData } =
-    useMarketIndexStore.getState();
-  const now = new Date();
+  // const { marketIndex, exchangeIndex, lastFetched, setMarketData } =
+  //   useMarketIndexStore.getState();
+  // const now = new Date();
 
-  if (lastFetched) {
-    const last = new Date(lastFetched);
-    const diffMs = now.getTime() - last.getTime();
-    const diffHours = diffMs / (1000 * 60 * 60);
+  // if (lastFetched) {
+  //   const last = new Date(lastFetched);
+  //   const diffMs = now.getTime() - last.getTime();
+  //   const diffHours = diffMs / (1000 * 60 * 60);
 
-    if (diffHours < 24 && exchangeIndex) {
-      return { marketIndex, exchangeIndex };
-    }
-  }
+  //   if (diffHours < 24 && exchangeIndex) {
+  //     return { marketIndex, exchangeIndex };
+  //   }
+  // }
 
   const freshData = await getMarketIndex();
-  setMarketData(
-    freshData.marketIndex,
-    freshData.exchangeIndex,
-    now.toISOString()
-  );
+  // setMarketData(
+  //   freshData.marketIndex,
+  //   freshData.exchangeIndex,
+  //   now.toISOString()
+  // );
 
   return {
     marketIndex: freshData.marketIndex,
