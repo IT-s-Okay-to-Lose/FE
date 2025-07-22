@@ -1,10 +1,9 @@
 import { mockUserPortfolioSummary } from "@/entities/user/user.mock";
+import { useUserStore } from "@/entities/user/user.store";
 import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
 import cn from "@/shared/utils/cn";
 import { formatFullDateToKorean, formatNumber } from "@/shared/utils/format";
-import type { UserInfo } from "@/entities/user/user.entity";
-import { useUserStore } from "@/entities/user/user.store";
 
 function UserInfo() {
   const { userInfo } = useUserStore();
