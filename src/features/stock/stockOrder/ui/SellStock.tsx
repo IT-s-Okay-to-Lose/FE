@@ -16,14 +16,13 @@ function SellStock({
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleClickBuyButton = async () => {
-    const result = await postStockOrder(
-      stockCode,
-      "SELL",
-      quantity,
-      currentPrice
-    );
-
-    console.log(result);
+    try {
+      await postStockOrder(stockCode, "SELL", quantity, currentPrice);
+      alert("판매가 완료되었습니다.");
+    } catch (e) {
+      console.error(e);
+      alert("판매에 실패하였습니다.");
+    }
   };
 
   return (

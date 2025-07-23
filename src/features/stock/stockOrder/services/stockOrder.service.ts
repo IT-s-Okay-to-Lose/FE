@@ -41,8 +41,7 @@ export async function postStockOrder(
     }),
   });
 
-  const res = await result.json();
-  return res.data;
+  return await result.json();
 }
 
 export async function orderHistory(

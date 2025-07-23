@@ -17,14 +17,13 @@ function BuyStock({
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleClickBuyButton = async () => {
-    const result = await postStockOrder(
-      stockCode,
-      "BUY",
-      quantity,
-      currentPrice
-    );
-
-    console.log(result);
+    try {
+      await postStockOrder(stockCode, "BUY", quantity, currentPrice);
+      alert("구매가 완료되었습니다.");
+    } catch (e) {
+      console.error(e);
+      alert("구매에 실패하였습니다.");
+    }
   };
 
   return (
