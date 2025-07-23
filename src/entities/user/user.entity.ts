@@ -23,19 +23,20 @@ export type ProfitData = [string, number];
 // ---------------------------------------------------------------
 
 // 주문 타입: 구매 or 판매
-export type OrderType = "구매" | "판매";
+export type OrderType = "BUY" | "SELL";
 
 // 주문 상태: 대기 or 완료
-export type OrderStatus = "대기" | "완료";
+export type OrderStatus = "PENDING" | "DONE";
 
 // [detail page] 주문 엔티티
 export interface OrderHistoryItem {
-  id: number;
-  date: Date; // ISO Date 객체
-  type: OrderType;
+  orderId: number;
+  createdAt: Date; // ISO Date 객체
+  orderType: OrderType;
   quantity: number;
-  pricePerStock: number;
+  price: number;
   status: OrderStatus;
+  stockCode: string;
 }
 
 // [detail page] 내 주식 엔티티
