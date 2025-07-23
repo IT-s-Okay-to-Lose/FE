@@ -4,6 +4,7 @@ import type {
   ProfitData,
   RealizedDetail,
   RealizedSummary,
+  StockHoldings,
   UserBalanceSummary,
   UserInfo,
   UserInvestmentSummary,
@@ -101,8 +102,8 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
 ];
 
 // [detail page] 내 주식 엔티티
-export const mockMyStockData = {
-  totalAmount: 538000,
+export const mockStockHoldings: StockHoldings = {
+  totalPrice: 14000,
   quantity: 100,
   charge: 164,
   totalProfit: -19243,
