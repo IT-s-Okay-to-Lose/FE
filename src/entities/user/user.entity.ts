@@ -41,9 +41,9 @@ export interface OrderHistoryItem {
 
 // [detail page] 내 주식 엔티티
 export interface StockHoldings {
-  totalPrice: number; // 총 금액
+  totalAmount: number; // 총 금액
   quantity: number; // 수량
-  charge: number; // 수수료
+  expectedFee: number; // 수수료
   totalProfit: number; // 총 수익
 }
 

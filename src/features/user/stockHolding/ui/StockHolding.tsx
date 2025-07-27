@@ -1,5 +1,4 @@
 import type { StockHoldings } from "@/entities/user/user.entity";
-import { mockStockHoldings } from "@/entities/user/user.mock";
 import Card from "@/shared/components/atoms/Card";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
@@ -12,22 +11,21 @@ function StockHolding() {
   const selectedCode = searchParams.get("stock_id");
 
   const [stockHoldings, setStockHoldings] = useState<StockHoldings>({
-    totalPrice: 0,
+    totalAmount: 0,
     quantity: 0,
-    charge: 0,
+    expectedFee: 0,
     totalProfit: 0,
   });
 
   async function getStockHoldingsFunction() {
     const result = await getStockHoldings(selectedCode!);
-    setStockHoldings(result);
+    setStockHoldings(result.data);
   }
 
   useEffect(() => {
     getStockHoldingsFunction();
   }, []);
 
-  console.log(stockHoldings);
   return (
     <div>
       <Card className="w-[355px]">
@@ -37,16 +35,16 @@ function StockHolding() {
         <Card.Content className="flex flex-col gap-3 mt-6">
           <InfoRow
             title="총 금액"
-            contents={`${formatNumber(mockStockHoldings.totalPrice)}원`}
+            contents={`${formatNumber(stockHoldings.totalAmount)} 원`}
           />
-          <InfoRow title="수량" contents={`${mockStockHoldings.quantity}주`} />
+          <InfoRow title="수량" contents={`${stockHoldings.quantity} 주`} />
           <InfoRow
             title="수수료"
-            contents={`${formatNumber(mockStockHoldings.charge)}원 예상`}
+            contents={`${formatNumber(stockHoldings.expectedFee)} 원 예상`}
           />
           <InfoRow
             title="총 수익"
-            contents={`${formatNumber(mockStockHoldings.totalProfit)}원`}
+            contents={`${formatNumber(stockHoldings.totalProfit)} 원`}
           />
         </Card.Content>
       </Card>

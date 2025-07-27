@@ -103,9 +103,9 @@ export const mockCompletedOrderData: OrderHistoryItem[] = [
 
 // [detail page] 내 주식 엔티티
 export const mockStockHoldings: StockHoldings = {
-  totalPrice: 14000,
+  totalAmount: 14000,
   quantity: 100,
-  charge: 164,
+  expectedFee: 164,
   totalProfit: -19243,
 };
 
