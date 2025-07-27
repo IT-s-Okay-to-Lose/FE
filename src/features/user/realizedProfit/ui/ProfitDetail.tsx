@@ -1,9 +1,8 @@
+import type { RealizedDetail } from "@/entities/user/user.entity";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
+import { useEffect, useState } from "react";
 import { getRealizedDetail } from "../services/RealizedProfit.service";
-import type { RealizedDetail } from "@/entities/user/user.entity";
-import { useState, useEffect } from "react";
-// import { mockRealizedDetail } from "@/entities/user/user.mock";
 
 type ProfitDetailProps = {
   year: number;
@@ -22,8 +21,15 @@ function ProfitDetail({ year, month }: ProfitDetailProps) {
     getRealizedDetailFunction();
   }, [year, month]);
 
-  if (!realizedDetail) return;
-
+  if (realizedDetail.length == 0) {
+    return (
+      <div className="w-full h-[179px] flex justify-center items-center ">
+        <Typography.SubTitle1 className="text-otl-gray">
+          현재 실현수익 정보가 없습니다
+        </Typography.SubTitle1>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col gap-[30px]">
       {realizedDetail.map((data, idx) => (

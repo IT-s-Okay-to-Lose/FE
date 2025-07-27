@@ -10,8 +10,8 @@ export async function getRealizedSummary(
 ): Promise<RealizedSummary> {
   const { url, method } = API_END_POINT.user.getRealizedSummary(year, month);
   const result = await fetch(url, { method: method, credentials: "include" });
-
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }
 
 export async function getRealizedDetail(
@@ -21,5 +21,6 @@ export async function getRealizedDetail(
   const { url, method } = API_END_POINT.user.getRealizedDetail(year, month);
   const result = await fetch(url, { method: method, credentials: "include" });
 
-  return await result.json();
+  const res = await result.json();
+  return res.data;
 }

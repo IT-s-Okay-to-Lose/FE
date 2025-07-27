@@ -1,7 +1,7 @@
+import type { RealizedSummary } from "@/entities/user/user.entity";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatNumber } from "@/shared/utils/format";
-import { useState, useEffect } from "react";
-import type { RealizedSummary } from "@/entities/user/user.entity";
+import { useEffect, useState } from "react";
 import { getRealizedSummary } from "../services/RealizedProfit.service";
 // import { mockRealizedSummary } from "@/entities/user/user.mock";
 
