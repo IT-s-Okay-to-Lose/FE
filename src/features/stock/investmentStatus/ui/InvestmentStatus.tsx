@@ -4,15 +4,15 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import type { StockPortfolio } from "@/entities/stock/stock.entity";
-import { mockPortfolioData } from "@/entities/stock/stock.mock";
 import Typography from "@/shared/components/atoms/Typography";
 import URL from "@/shared/constants/URL";
 import cn from "@/shared/utils/cn";
 import { formatNumber } from "@/shared/utils/format";
 import { useNavigate } from "react-router-dom";
+import { getStockPortfolio } from "../services/investmentStatus.service";
 
 function InvestmentStatus() {
   return (
@@ -26,6 +26,16 @@ function InvestmentStatus() {
 export default InvestmentStatus;
 
 function InvestmentStatusTable() {
+  const [portfolioData, setPortfolioData] = useState<StockPortfolio[]>([]);
+
+  async function getPortfolioDataFunction() {
+    const result = await getStockPortfolio();
+    setPortfolioData(result);
+  }
+
+  useEffect(() => {
+    getPortfolioDataFunction();
+  });
   const navigation = useNavigate();
 
   const columns = useMemo<ColumnDef<StockPortfolio>[]>(
@@ -87,10 +97,20 @@ function InvestmentStatusTable() {
   );
 
   const table = useReactTable({
-    data: mockPortfolioData,
+    data: portfolioData,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  if (portfolioData.length === 0) {
+    return (
+      <div className="w-full flex justify-center">
+        <Typography.SubTitle1 className="text-otl-gray">
+          내 모의투자 현황이 존재하지 않습니다
+        </Typography.SubTitle1>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full overflow-auto rounded">

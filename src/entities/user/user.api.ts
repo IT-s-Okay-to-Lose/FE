@@ -37,4 +37,8 @@ export const user = {
     url: `${import.meta.env.VITE_APP_API_URL}/api/accounts/deposit`,
     method: Method.POST,
   }),
+  getStockPortfolio: () => ({
+    url: `${import.meta.env.VITE_APP_API_URL}/api/holdings/summary`,
+    method: Method.GET,
+  }),
 };
