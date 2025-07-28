@@ -16,8 +16,8 @@ import { getStockMeta } from "@/features/stock/stockDetail/services/stockDetail.
 import StockDetail from "@/features/stock/stockDetail/ui/StockDetail";
 import BuyStock from "@/features/stock/stockOrder/ui/BuyStock";
 import SellStock from "@/features/stock/stockOrder/ui/SellStock";
-import MyOrder from "@/features/user/myOrder/ui/MyOrder";
 import OrderHistory from "@/features/user/orderHistory/ui/OrderHistory";
+import StockHoldings from "@/features/user/stockHolding/ui/StockHolding";
 import Footer from "@/shared/components/molecules/Footer";
 import Header from "@/shared/components/molecules/Header";
 import ScreenTooSmall from "@/shared/components/organisms/ScreenTooSmall";
@@ -108,7 +108,7 @@ function StockDetailPage() {
           />
           <div className="flex flex-col gap-2">
             <OrderHistory />
-            <MyOrder />
+            <StockHoldings />
           </div>
         </div>
       </div>
